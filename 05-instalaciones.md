@@ -101,7 +101,7 @@ print(f"Un magnetotermico de 16 A curva C dispara en: {0.1} s (magnetico)")
 
 ### Esquema IT
 
-En el esquema IT, el neutro está aislado de tierra o conectado mediante una impedancia elevada. El primer defecto no produce corriente peligrosa y la instalación puede seguir operando (continuidad de servicio), pero se requiere un vigilador de aislamiento y la búsqueda del defecto. Es el esquema de hospitales, salas de operaciones y procesos continuos.
+En el esquema IT, el neutro está aislado de tierra o conectado mediante una impedancia elevada. El primer defecto no produce corriente peligrosa y la instalación puede seguir operando (continuidad de servicio), pero se requiere un vigilante de aislamiento y la búsqueda del defecto. Es el esquema de hospitales, salas de operaciones y procesos continuos.
 
 > **Nota:** La elección del esquema depende de criterios de continuidad de servicio, seguridad y coste. El TT es habitual en instalaciones domésticas y de pequeña potencia; el TN en industria; el IT donde la continuidad es crítica [@iec60364, sec. 312].
 
@@ -409,7 +409,7 @@ En piscinas se aplican reglas similares con volúmenes ampliados; todos los circ
 
 ### Locales Médicos
 
-En locales de uso médico se exige continuidad de servicio (esquema IT típicamente), vigilador de aislamiento, transformadores de separación para zonas de pacientes (grupo 2) y diferenciales de 30 mA en circuitos de seguridad.
+En locales de uso médico se exige continuidad de servicio (esquema IT típicamente), vigilante de aislamiento, transformadores de separación para zonas de pacientes (grupo 2) y diferenciales de 30 mA en circuitos de seguridad.
 
 ### Zonas Peligrosas (ATEX)
 
