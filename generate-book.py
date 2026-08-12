@@ -8,6 +8,10 @@ FILES = ['00-fundamentos.md','01-corriente-directa.md','02-corriente-alterna.md'
          '03-ejercicios-resueltos.md','04-formulas-tablas.md','05-referencias.md']
 
 def clean(text):
+    # Fix | X | = ... patterns (math expressions that look like tables)
+    # Convert to: **|X| = ...** (bold, no pipe at start)
+    text = re.sub(r'^(\s*)\|\s*([A-Za-z_]\w*)\s*\|(.+)$', r'\1**|\2|**\3', text, flags=re.MULTILINE)
+    
     # Greek → ascii
     for g,l in {'α':'alpha','β':'beta','γ':'gamma','δ':'delta','ε':'epsilon','ζ':'zeta',
                 'η':'eta','θ':'theta','ι':'iota','κ':'kappa','λ':'lambda','μ':'mu',
@@ -15,9 +19,13 @@ def clean(text):
                 'χ':'chi','ψ':'psi','ω':'omega','Ω':'Omega','Σ':'Sigma','Δ':'Delta'}.items():
         text = text.replace(g,l)
     # Symbols → ascii
-    for s,l in {'×':'x','÷':'/','±':'+/-','√':'sqrt','∞':'inf','≈':'~','≠':'!=',
-                '≤':'<=','≥':'>=','→':'->','←':'<-','↑':'^','↓':'v'}.items():
+    for s,l in {'×':'x','÷':'/','±':'+/-','∞':'inf','≈':'~','≠':'!=',
+                '≤':'<=','≥':'>=','→':'->','←':'<-','↑':'^','↓':'v',
+                '∥':'||','∠':'angle','°':' deg'}.items():
         text = text.replace(s,l)
+    # √ → sqrt
+    text = re.sub(r'√\(([^)]+)\)', r'sqrt(\1)', text)
+    text = re.sub(r'√(\d+)', r'sqrt(\1)', text)
     # Unicode superscripts/subscripts
     sup = dict(zip('⁰¹²³⁴⁵⁶⁷⁸⁹⁻','0123456789-'))
     text = re.sub(r'([⁰¹²³⁴⁵⁶⁷⁸⁹⁻]+)', lambda m:'^{'+''.join(sup.get(c,c) for c in m.group(1))+'}', text)
@@ -58,7 +66,15 @@ r = subprocess.run([
 os.unlink(tmp.name)
 
 if r.returncode != 0:
-    print("ERROR:", r.stderr[:2000]); exit(1)
+    # Show last errors
+    err = r.stderr
+    lines = err.split('\n')
+    print("ERROR Ultimas 15 lineas:")
+    for ln in lines[-15:]:
+        print(ln)
+    exit(1)
 
+# Count warnings
+warn = r.stderr.count('Missing character')
 sz = os.path.getsize(out)
-print(f"PDF: {out} ({sz//1024} KB)")
+print(f"PDF: {out} ({sz//1024} KB) | warnings: {warn}")
