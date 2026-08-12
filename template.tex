@@ -1,0 +1,84 @@
+% template.tex — LaTeX book class template for electrotecnia
+\documentclass[11pt,a4paper,twoside,openright]{book}
+
+% Fonts (XeLaTeX)
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\setmainfont{DejaVu Sans}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\setmathfont{TeX Gyre DejaVu Math}
+
+% Geometry: symmetric margins for book binding
+\usepackage[inner=2.5cm,outer=2.5cm,top=2.5cm,bottom=2.5cm,includeheadfoot]{geometry}
+
+% Headers/footers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LO]{\leftmark}
+\fancyhead[RE]{\rightmark}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Bibliography
+\usepackage[backend=biber,style=ieee,sorting=nty]{biblatex}
+\addbibresource{referencias.bib}
+
+% Cross-references
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=NavyBlue,
+    citecolor=NavyBlue,
+    urlcolor=NavyBlue
+}
+
+% Include skill's production preamble (booktabs, tocloft, fancyvrb, raggedright)
+\input{table-spacing-template.tex}
+
+% Custom commands for electrotecnia
+\newcommand{\ohm}{\,\Omega}
+\newcommand{\uV}{\,\mu V}
+\newcommand{\uA}{\,\mu A}
+\newcommand{\mA}{\,mA}
+\newcommand{\kV}{\,kV}
+\newcommand{\kA}{\,kA}
+
+\begin{document}
+
+% Title page
+\frontmatter
+\thispagestyle{empty}
+\begin{center}
+\vspace*{3cm}
+{\Huge \bfseries Electrotecnia Industrial}\\[1cm]
+{\Large Desde fundamentos hasta máquinas e instalaciones}\\[2cm]
+{\large KyonX1}\\[0.5cm]
+{\large 2026}
+\vfill
+{\small CC BY-SA 4.0}
+\end{center}
+\clearpage
+
+% Table of contents
+\tableofcontents
+\clearpage
+
+% List of figures/tables
+\listoffigures
+\listoftables
+\clearpage
+
+% Main matter
+\mainmatter
+
+% Chapters included via pandoc --include-in-header or markdown \input
+% Pandoc will insert chapter content here
+
+% Bibliography
+\backmatter
+\printbibliography[heading=bibintoc]
+
+\end{document}
