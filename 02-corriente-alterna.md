@@ -62,14 +62,13 @@ La corriente alterna (CA) es aquella cuya **magnitud y dirección cambian perió
 
 ### Diferencia con CD
 
-| Característica | CD | CA |
+| **Característica** | **CD** | **CA** |
 |----------------|----|----|
 | Dirección | Constante | Cambia periódicamente |
 | Magnitud | Puede ser constante | Varía con el tiempo |
 | Transformación | No se transforma directamente | Se transforma con transformadores |
 | Distribución | Ineficiente a larga distancia | Muy eficiente |
 | Motores | Escobillas (DC) | Inducción, sin escobillas |
-
 ---
 
 ## 2. Forma de onda sinusoidal
@@ -93,14 +92,14 @@ v(t) = V_max × sin(ωt + φ)
 ```
       V_max
        ↑
-       |    ╭──╮
-       |   ╱    ╲
+| ╭──╮ 
+| ╱    ╲ 
   ─────┼──╱──────╲────────→ t
-       | ╱        ╲    ╱
-       |╱          ╲  ╱
+| ╱        ╲    ╱ 
+| ╱          ╲  ╱ 
        ↓            ╲╱
                     -V_max
-  |←── Un ciclo ──→|
+| ←── Un ciclo ──→ |
 ```
 
 - **Cresta**: punto máximo = +V_max
@@ -149,13 +148,12 @@ En cables eléctricos, v ≈ 2 × 10⁸ m/s (2/3 de la velocidad de la luz).
 
 ### Frecuencias estándar
 
-| País/Región | Frecuencia | Uso |
+| **País/Región** | **Frecuencia** | **Uso** |
 |-------------|------------|-----|
 | América | 60 Hz | Iluminación, motores |
 | Europa, África | 50 Hz | Iluminación, motores |
 | Aviación | 400 Hz | Sistemas aeronáuticos |
 | Audio | 20-20,000 Hz | Sonido |
-
 ### Ejemplo
 
 *Red eléctrica a 60 Hz:*
@@ -200,13 +198,12 @@ V_pp = 2 × V_max
 
 ### Tabla resumen
 
-| Valor | Fórmula | Factor con V_max |
+| **Valor** | **Fórmula** | **Factor con V_max** |
 |-------|---------|-------------------|
 | V_max (pico) | V_max | ×1 |
 | V_rms (efectivo) | V_max/√2 | ×0.707 |
 | V_medio | 2V_max/π | ×0.637 |
 | V_pp (pico a pico) | 2×V_max | ×2 |
-
 ### Ejemplo
 
 *Toma doméstica 120V RMS a 60 Hz:*
@@ -243,7 +240,7 @@ Polar → Rectangular:
   b = |V| × sin(φ)
 
 Rectangular → Polar:
-  |V| = √(a² + b²)
+| V | = √(a² + b²) 
   φ = arctan(b/a)
 ```
 
@@ -287,12 +284,11 @@ La **oposición** que un inductor presenta al paso de CA. No disipa energía (la
 X_L = ω × L = 2π × f × L    [Ω]
 ```
 
-| Frecuencia | X_L | Efecto |
+| **Frecuencia** | **X_L** | **Efecto** |
 |------------|-----|--------|
 | f = 0 (CD) | 0 | Cortocircuito |
 | f baja | Pequeña | Poca oposición |
 | f alta | Grande | Mucha oposición |
-
 > Un inductor **pasa CD** y **bloquea CA de alta frecuencia**.
 
 ### Ejemplo
@@ -313,12 +309,11 @@ La **oposición** que un capacitor presenta al paso de CA.
 X_C = 1 / (ω × C) = 1 / (2π × f × C)    [Ω]
 ```
 
-| Frecuencia | X_C | Efecto |
+| **Frecuencia** | **X_C** | **Efecto** |
 |------------|-----|--------|
 | f = 0 (CD) | ∞ | Circuito abierto |
 | f baja | Grande | Mucha oposición |
 | f alta | Pequeña | Poca oposición |
-
 > Un capacitor **bloquea CD** y **pasa CA de alta frecuencia**.
 
 ### Ejemplo
@@ -338,7 +333,7 @@ La **oposición total** al paso de CA. Generalización de la resistencia para CA
 ```
 Z = R + jX    donde X = X_L - X_C
 
-|Z| = √(R² + X²)    (magnitud)
+| Z | = √(R² + X²)    (magnitud) 
 φ = arctan(X/R)       (ángulo)
 ```
 
@@ -346,7 +341,7 @@ Z = R + jX    donde X = X_L - X_C
 
 ```
 V̂ = Î × Z
-|V| = |I| × |Z|
+| V | = | I | × | Z |
 ```
 
 ### Ejemplo
@@ -369,7 +364,7 @@ La corriente **retrasa** 45° respecto al voltaje (circuito inductivo).
 
 ```
 Z = R + jX_L
-|Z| = √(R² + X_L²)
+| Z | = √(R² + X_L²) 
 φ = arctan(X_L / R)
 
 V_total = √(V_R² + V_L²)  ← NUNCA es la suma aritmética
@@ -381,7 +376,7 @@ V_total = √(V_R² + V_L²)  ← NUNCA es la suma aritmética
 
 ```
 X_L = 2π × 60 × 0.2 = 75.4Ω
-|Z| = √(100² + 75.4²) = 125.2Ω
+| Z | = √(100² + 75.4²) = 125.2Ω 
 I = 120/125.2 = 0.958A
 
 V_R = 0.958 × 100 = 95.8V
@@ -395,7 +390,7 @@ Verificación: √(95.8² + 72.3²) = √(9178+5227) = 120V ✓
 
 ## 10. Circuito serie R-C
 
-```
+```python
 Z = R - jX_C
 φ = -arctan(X_C / R)  (negativo: corriente adelanta)
 ```
@@ -406,7 +401,7 @@ Z = R - jX_C
 
 ```
 X_C = 265.3Ω
-|Z| = √(200² + 265.3²) = 332.2Ω
+| Z | = √(200² + 265.3²) = 332.2Ω 
 I = 100/332.2 = 0.301A
 φ = -53.1° (I adelanta a V)
 ```
@@ -417,20 +412,19 @@ I = 100/332.2 = 0.301A
 
 ```
 Z = R + j(X_L - X_C)
-|Z| = √(R² + (X_L - X_C)²)
+| Z | = √(R² + (X_L - X_C)²) 
 ```
 
 ### Tres casos
 
-| Condición | φ | Comportamiento |
+| **Condición** | **φ** | **Comportamiento** |
 |-----------|---|----------------|
 | X_L > X_C | φ > 0 | Inductivo (V adelanta a I) |
 | X_L < X_C | φ < 0 | Capacitivo (I adelanta a V) |
 | X_L = X_C | φ = 0 | **Resonancia** (solo R) |
-
 ### En resonancia (X_L = X_C)
 
-```
+```python
 Z = R (mínima)
 I_max = V/R (máxima)
 V_L = V_C >> V (pueden ser MUCHO mayores que la fuente)
@@ -445,7 +439,7 @@ X_L = 2π × 60 × 0.1 = 37.7Ω
 X_C = 1/(2π × 60 × 100×10⁻⁶) = 26.5Ω
 X = 37.7 - 26.5 = 11.2Ω (inductivo)
 
-|Z| = √(50² + 11.2²) = 51.2Ω
+| Z | = √(50² + 11.2²) = 51.2Ω 
 I = 120/51.2 = 2.344A
 V_R = 117.2V, V_L = 88.4V, V_C = 62.1V
 ```
@@ -497,7 +491,7 @@ El ángulo φ representa cuánto **retrasa la corriente total** respecto al volt
 ### Verificación
 
 ```
-|Z|_equivalente = V / I_total = 120 / 5 = 24 Ω
+| Z | _equivalente = V / I_total = 120 / 5 = 24 Ω 
 ```
 
 Verificación por impedancia equivalente en paralelo:
@@ -551,7 +545,7 @@ La corriente total **adelanta** 36.87° al voltaje (circuito capacitivo).
 ### Verificación
 
 ```
-|Z| = V / I_total = 120 / 1.0 = 120 Ω
+| Z | = V / I_total = 120 / 1.0 = 120 Ω 
 ```
 
 Por impedancia equivalente:
@@ -623,7 +617,7 @@ Negativo significa que el circuito es **inductivo** (la corriente total retrasa 
 ### Verificación
 
 ```
-|Z| = V / I_total = 200 / 2.50 = 80 Ω
+| Z | = V / I_total = 200 / 2.50 = 80 Ω 
 
 Componentes de Z:
 Z_R = 100Ω, Z_L = j50Ω, Z_C = -j80Ω
@@ -634,8 +628,8 @@ Y_L = 1/(j50) = -j0.02 S
 Y_C = 1/(-j80) = j0.0125 S
 
 Y_total = 0.01 + j(0.0125 - 0.02) = 0.01 - j0.0075 S
-|Y| = √(0.01² + 0.0075²) = √(0.0001 + 0.00005625) = 0.0125 S
-|Z| = 1/|Y| = 80 Ω  ✓
+| Y | = √(0.01² + 0.0075²) = √(0.0001 + 0.00005625) = 0.0125 S 
+| Z | = 1/ | Y | = 80 Ω  ✓ 
 ```
 
 ---
@@ -685,7 +679,7 @@ Z_total = Z₁ + (Z₂ ∥ Z₃)
         = (3 + j4) + (3.333 + j6.667)
         = 6.333 + j10.667 Ω
 
-|Z_total| = √(6.333² + 10.667²) = √(40.11 + 113.78) = √153.89 = 12.40 Ω
+| Z_total | = √(6.333² + 10.667²) = √(40.11 + 113.78) = √153.89 = 12.40 Ω 
 φ = arctan(10.667/6.333) = 59.21°
 ```
 
@@ -801,7 +795,7 @@ FP = cos(φ) = P / S
 
 ### Interpretación
 
-```
+```python
 FP = 1.0  →  óptimo: toda la energía se usa productivamente
 FP = 0.8  →  bueno: 80% se usa, 20% se pierde en oscilación
 FP = 0.5  →  muy malo: solo 50% se usa
@@ -809,7 +803,7 @@ FP = 0.5  →  muy malo: solo 50% se usa
 
 ### Tabla de referencia
 
-| FP | Calificación | Acción requerida |
+| **FP** | **Calificación** | **Acción requerida** |
 |----|-------------|-----------------|
 | > 0.95 | Excelente | Ninguna |
 | 0.90 – 0.95 | Bueno | Monitorear |
@@ -817,7 +811,6 @@ FP = 0.5  →  muy malo: solo 50% se usa
 | 0.70 – 0.80 | Regular | Corrección recomendada |
 | 0.60 – 0.70 | Malo | Corrección urgente |
 | < 0.60 | Crítico | Corrección inmediata |
-
 ### Causas de FP bajo
 
 - **Motores de inducción** (el mayor causante): consumen mucha Q reactiva
@@ -834,7 +827,7 @@ FP = 0.5  →  muy malo: solo 50% se usa
 
 ### Ejemplo de impacto
 
-```
+```python
 Dos motores consumen P = 10 kW cada uno:
 
 Motor A: FP = 0.95
@@ -1011,7 +1004,7 @@ X_C = 1/(2π × 5033 × 0.1×10⁻⁶) = 316.2 Ω  ✓
 
 **Paso 2:** Corrientes
 
-```
+```python
 I_R = V / R = 10 / 1000 = 0.01 A = 10 mA
 I_L = V / X_L = 10 / 316.2 = 0.0316 A = 31.6 mA
 I_C = V / X_C = 10 / 316.2 = 0.0316 A = 31.6 mA
@@ -1026,7 +1019,7 @@ I_total = I_R = 10 mA  (las reactivas se cancelan)
 **Paso 4:** Impedancia equivalente
 
 ```
-|Z| = V / I_total = 10 / 0.01 = 1000 Ω = R
+| Z | = V / I_total = 10 / 0.01 = 1000 Ω = R 
 ```
 
 ### Verificación
@@ -1050,7 +1043,7 @@ El factor de calidad Q mide la **selectividad** de un circuito resonante. Indica
 
 ### Definición
 
-```
+```python
 Q = X_L / R = (2πf₀L) / R     (en serie)
 Q = R / X_L = R / (2πf₀L)     (en paralelo)
 ```
@@ -1072,13 +1065,12 @@ BW = f₂ - f₁  (frecuencias a -3dB)
 
 ### Interpretación de Q
 
-| Q | Tipo de circuito | Aplicación |
+| **Q** | **Tipo de circuito** | **Aplicación** |
 |---|-----------------|-----------|
 | Q > 10 | Muy selectivo | Filtros de radio, osciladores |
 | Q = 5 – 10 | Selectivo | Filtros de audio, sintonía |
 | Q = 1 – 5 | Moderado | Circuitos de carga general |
 | Q < 1 | Amplio | Amortiguación, supresión |
-
 ### Ejemplo
 
 **Datos:** f₀ = 1000 Hz, Q = 20
@@ -1091,7 +1083,7 @@ BW = f₀ / Q = 1000 / 20 = 50 Hz
 
 **Paso 2:** Frecuencias de corte
 
-```
+```python
 f₁ = f₀ - BW/2 = 1000 - 25 = 975 Hz
 f₂ = f₀ + BW/2 = 1000 + 25 = 1025 Hz
 ```
@@ -1191,7 +1183,7 @@ El análisis de nodos usa **admitancias** (Y = 1/Z) y es dual al análisis de ma
 
 **Admitancias:**
 
-```
+```python
 Y₁ = 1/(2 + j1) = (2 - j1)/5 = 0.4 - j0.2 S
 Y₂ = 1/(3 - j2) = (3 + j2)/13 = 0.2308 + j0.1538 S
 Y₃ = 1/(1 + j3) = (1 - j3)/10 = 0.1 - j0.3 S
@@ -1279,7 +1271,7 @@ V_Th = 100 × 4.123/6.708 ∠(75.96° - 26.57°)
 
 **Paso 2:** Impedancia de Thevenin (apagar fuente → cortocircuitar V)
 
-```
+```python
 Z_Th = (Z₁ + Z₂) ∥ Z₃
      = ((2+j1) + (3-j2)) ∥ (1+j4)
      = (5 - j1) ∥ (1 + j4)
@@ -1376,7 +1368,7 @@ Suma: V(1 - 0.5 - 0.5) + jV(0 - 0.866 + 0.866) = 0  ✓
 **Paso 1:** Corriente por fase
 
 ```
-|Z| = √(30² + 40²) = 50 Ω
+| Z | = √(30² + 40²) = 50 Ω 
 I_a = V_a / Z = 220∠0° / 50∠53.13° = 4.4 ∠ -53.13° A
 I_b = V_b / Z = 220∠-120° / 50∠53.13° = 4.4 ∠ -173.13° A
 I_c = V_c / Z = 220∠+120° / 50∠53.13° = 4.4 ∠ 66.87° A
@@ -1477,7 +1469,7 @@ Verificación: 17.32 / 10 = 1.732 ≈ √3 ✓
 
 ## 28. Tabla Comparativa Y vs Δ
 
-| Parámetro | Estrella (Y) | Triángulo (Δ) |
+| **Parámetro** | **Estrella (Y)** | **Triángulo (Δ)** |
 |-----------|--------------|----------------|
 | **Voltaje línea-fase** | V_L = √3 × V_F | V_L = V_F |
 | **Corriente línea-fase** | I_L = I_F | I_L = √3 × I_F |
@@ -1487,7 +1479,6 @@ Verificación: 17.32 / 10 = 1.732 ≈ √3 ✓
 | **Potencia** | P = √3 × V_L × I_L × cosφ | P = √3 × V_L × I_L × cosφ |
 | **Arranque de motor** | Menor voltaje en devanados | Mayor torque de arranque |
 | **Aplicación típica** | Arranque Y-Δ, alta tensión | Cargas equilibradas, motores |
-
 ### Cuándo usar cada una
 
 ```
@@ -1654,12 +1645,11 @@ Donde: a = 1∠120° = -0.5 + j0.866
 
 ### Significado físico
 
-| Componente | Descripción | Efecto |
+| **Componente** | **Descripción** | **Efecto** |
 |-----------|-------------|--------|
 | **Positiva** | Sistema equilibrado con secuencia ABC | Funcionamiento normal |
 | **Negativa** | Sistema equilibrado con secuencia ACB | Calentamiento en motores, fallas |
 | **Cero** | Tres fasores iguales en fase | Corriente por neutro |
-
 ### Aplicación: análisis de fallas
 
 ```
@@ -1706,7 +1696,7 @@ El signo negativo indica que la fem inducida se opone al cambio (ley de Lenz).
 
 ### Relación de transformación
 
-```
+```python
 a = N₁/N₂ = V₁/V₂ = I₂/I₁
 
   a = relación de transformación
@@ -1770,7 +1760,7 @@ P₂ = 44 × 10 = 440W ✓
 
 El transformador ideal tiene las siguientes características simplificadas:
 
-```
+```python
 1. Sin pérdidas en el cobre (R = 0 en ambos devanados)
 2. Sin pérdidas en el núcleo (permeabilidad μ = ∞)
 3. Acoplamiento magnético perfecto (k = 1, fuga = 0)
@@ -1825,7 +1815,7 @@ X_Lm: Reactancia magnetizante (ramal de magnetización)
 
 ### Ejemplo
 
-```
+```python
 Transformador 10kVA, 2200/220V:
 
 Pérdidas en núcleo (medidas en ensayo abierto): P₀ = 80W
@@ -1892,11 +1882,10 @@ X_eq = √(Z_eq² - R_eq²)   (reactancia equivalente)
 
 ### Resumen de ensayos
 
-| Ensayo | Conexión | Mide | Parámetros |
+| **Ensayo** | **Conexión** | **Mide** | **Parámetros** |
 |--------|----------|------|------------|
 | **Abierto** | V₁ nominal, sec. abierto | I₀, P₀ | R_c, X_Lm (núcleo) |
 | **Cortocircuito** | I₂ nominal, sec. corto | V_cc, P_cc | R_eq, X_eq (cobre) |
-
 ---
 
 ## 35. Eficiencia y Regulación
@@ -2123,7 +2112,7 @@ Nunca usar cuando:
 
 ### Ejemplo
 
-```
+```python
 Autotransformador reductor: 220V → 110V
 
 a = 220/110 = 2
@@ -2197,14 +2186,13 @@ Frecuencias armónicas:
 Límite de THD en voltaje: < 5% (en punto de común acoplamiento)
 Límite de THD en corriente: varía según relación I_SC/I_L
 
-| I_SC/I_L | Límite THD corriente |
+| **I_SC/I_L** | **Límite THD corriente** |
 |----------|----------------------|
-| < 20     | 5.0%                 |
-| 20-50    | 3.0%                 |
-| 50-100   | 1.5%                 |
-| 100-1000 | 0.7%                 |
-| > 1000   | 0.35%                |
-```
+| < 20 | 5.0% |
+| 20-50 | 3.0% |
+| 50-100 | 1.5% |
+| 100-1000 | 0.7% |
+| > 1000 | 0.35% | ``` 
 
 ### Ejemplo de cálculo
 
@@ -2315,45 +2303,51 @@ A 420Hz: X_C = 3.78 kΩ → alta atenuación
 
 > Tabla comprehensive de todas las fórmulas y conceptos clave, agrupados por tema.
 
+---
+
 ## Onda Sinusoidal
 
-| Concepto | Fórmula | Unidades |
+| **Concepto** | **Fórmula** | **Unidades** |
 |----------|---------|----------|
 | Voltaje instantáneo | v(t) = V_max × sin(ωt + φ) | V |
 | Frecuencia angular | ω = 2π × f | rad/s |
 | Periodo | T = 1/f | s |
 | Relación ω-f | ω = 2π/T | rad/s |
+---
 
 ## Valores de Voltaje/Corriente
 
-| Valor | Fórmula | Factor |
+| **Valor** | **Fórmula** | **Factor** |
 |-------|---------|--------|
 | V_max (pico) | V_max | ×1 |
 | V_rms (efectivo) | V_max / √2 | ×0.707 |
 | V_medio | 2 × V_max / π | ×0.637 |
 | V_pp (pico a pico) | 2 × V_max | ×2 |
+---
 
 ## Componentes Pasivos
 
-| Componente | Reactancia | Frecuencia | Comportamiento |
+| **Componente** | **Reactancia** | **Frecuencia** | **Comportamiento** |
 |-----------|-----------|-----------|----------------|
 | Resistencia (R) | R (constante) | Cualquiera | Disipa energía |
 | Inductor (L) | X_L = 2πfL | f ↑ → X_L ↑ | Pasa DC, bloquea HF |
 | Capacitor (C) | X_C = 1/(2πfC) | f ↑ → X_C ↓ | Bloquea DC, pasa HF |
+---
 
 ## Impedancia y Potencia
 
-| Concepto | Fórmula | Unidades |
+| **Concepto** | **Fórmula** | **Unidades** |
 |----------|---------|----------|
 | Impedancia | Z = R + jX = √(R² + X²) ∠ arctan(X/R) | Ω |
 | Potencia activa | P = V × I × cosφ | W |
 | Potencia reactiva | Q = V × I × sinφ | VAR |
 | Potencia aparente | S = V × I | VA |
 | Factor de potencia | FP = cosφ = P/S | Adimensional |
+---
 
 ## Circuitos Serie
 
-| Circuito | Impedancia | Ángulo |
+| **Circuito** | **Impedancia** | **Ángulo** |
 |----------|-----------|--------|
 | R | Z = R | 0° |
 | L | Z = jX_L | +90° |
@@ -2361,64 +2355,70 @@ A 420Hz: X_C = 3.78 kΩ → alta atenuación
 | R-L | Z = R + jX_L | arctan(X_L/R) |
 | R-C | Z = R - jX_C | -arctan(X_C/R) |
 | R-L-C | Z = R + j(X_L - X_C) | arctan((X_L - X_C)/R) |
+---
 
 ## Resonancia
 
-| Tipo | Condición | Impedancia | Frecuencia |
+| **Tipo** | **Condición** | **Impedancia** | **Frecuencia** |
 |------|-----------|-----------|-----------|
 | Serie | X_L = X_C | Z = R (mínima) | f₀ = 1/(2π√LC) |
 | Paralelo | X_L = X_C | Z → ∞ (máxima) | f₀ = 1/(2π√LC) |
 | Factor de calidad | Q = X_L/R = X_C/R | — | BW = f₀/Q |
+---
 
 ## Sistemas Trifásicos
 
-| Conexión | Voltaje línea-fase | Corriente línea-fase | Neutro |
+| **Conexión** | **Voltaje línea-fase** | **Corriente línea-fase** | **Neutro** |
 |----------|-------------------|---------------------|--------|
 | Estrella (Y) | V_L = √3 × V_F | I_L = I_F | Sí |
 | Triángulo (Δ) | V_L = V_F | I_L = √3 × I_F | No |
+---
 
 ## Potencia Trifásica
 
-| Tipo | Fórmula | Unidades |
+| **Tipo** | **Fórmula** | **Unidades** |
 |------|---------|----------|
 | Activa | P = √3 × V_L × I_L × cosφ | W |
 | Reactiva | Q = √3 × V_L × I_L × sinφ | VAR |
 | Aparente | S = √3 × V_L × I_L | VA |
+---
 
 ## Transformadores
 
-| Concepto | Fórmula | Notas |
+| **Concepto** | **Fórmula** | **Notas** |
 |----------|---------|-------|
 | Relación de transformación | a = N₁/N₂ = V₁/V₂ = I₂/I₁ | Ideal |
 | Fem inducida | e = -N × dΦ/dt | Ley de Faraday |
 | Eficiencia | η = P_out/(P_out + P_núcleo + P_cobre) | ×100% |
 | Eficiencia máx | P_cobre = P_núcleo | Punto óptimo |
 | Regulación | Reg = (V_vacío - V_carga)/V_carga × 100% | — |
+---
 
 ## Ensayos de Transformador
 
-| Ensayo | Conexión | Mide | Resultado |
+| **Ensayo** | **Conexión** | **Mide** | **Resultado** |
 |--------|----------|------|-----------|
 | Circuito abierto | V₁ nominal, sec. abierto | I₀, P₀ | Pérdidas núcleo |
 | Cortocircuito | I₂ nominal, sec. corto | V_cc, P_cc | Pérdidas cobre |
+---
 
 ## Armónicos y Filtros
 
-| Concepto | Fórmula | Límite |
+| **Concepto** | **Fórmula** | **Límite** |
 |----------|---------|--------|
 | THD | THD = √(ΣI_n²)/I₁ × 100% | < 5% (IEEE 519) |
 | Frecuencia corte RC | f_c = 1/(2πRC) | Hz |
 | Frecuencia resonancia LC | f₀ = 1/(2π√LC) | Hz |
 | Ancho de banda | BW = R/(2πL) | Hz |
+---
 
 ## Autotransformadores
 
-| Propiedad | Fórmula | Comparación con convencional |
+| **Propiedad** | **Fórmula** | **Comparación con convencional** |
 |-----------|---------|------------------------------|
 | Relación | a = N₁/N₂ = V₁/V₂ | Igual |
 | Corriente devanado | I₂ - I₁ | Menor (más eficiente) |
 | Aislamiento | No galvánico | ⚠️ Peligro |
-
 ---
 
 *Fin del documento — Corriente Alterna completa*

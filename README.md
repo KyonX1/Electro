@@ -26,17 +26,16 @@ Cada sección incluye:
 
 ### Parte 1 — Fundamentos (la base de todo)
 
-| # | Tema | Archivo |
+| **#** | **Tema** | **Archivo** |
 |---|------|---------|
 | 1 | La carga eléctrica y sus propiedades | `00-fundamentos.md` |
 | 2 | Corriente eléctrica | `00-fundamentos.md` |
 | 3 | Voltaje (diferencia de potencial) | `00-fundamentos.md` |
 | 4 | Energía y potencia eléctrica | `00-fundamentos.md` |
 | 5 | Resistencia y conductividad | `00-fundamentos.md` |
-
 ### Parte 2 — Corriente Directa (CD)
 
-| # | Tema | Archivo |
+| **#** | **Tema** | **Archivo** |
 |---|------|---------|
 | 6 | Ley de Ohm | `01-corriente-directa.md` |
 | 7 | Circuitos serie | `01-corriente-directa.md` |
@@ -58,10 +57,9 @@ Cada sección incluye:
 | 23 | Circuitos RC en CD (transitorio) | `01-corriente-directa.md` |
 | 24 | Circuitos RL en CD (transitorio) | `01-corriente-directa.md` |
 | 25 | Constante de tiempo (τ) | `01-corriente-directa.md` |
-
 ### Parte 3 — Corriente Alterna (CA)
 
-| # | Tema | Archivo |
+| **#** | **Tema** | **Archivo** |
 |---|------|---------|
 | 26 | ¿Qué es la corriente alterna? | `02-corriente-alterna.md` |
 | 27 | Forma de onda sinusoidal | `02-corriente-alterna.md` |
@@ -102,15 +100,13 @@ Cada sección incluye:
 | 62 | Autotransformadores | `02-corriente-alterna.md` |
 | 63 | Armónicos y distorsión | `02-corriente-alterna.md` |
 | 64 | Filtros paso-bajo, paso-alto, paso-banda | `02-corriente-alterna.md` |
-
 ### Material de apoyo
 
-| Archivo | Contenido |
+| **Archivo** | **Contenido** |
 |---------|-----------|
 | `03-ejercicios-resueltos.md` | 50+ ejercicios resueltos paso a paso |
 | `04-formulas-tablas.md` | Tabla maestra de fórmulas y constantes |
 | `05-referencias.md` | Libros, normativas, cursos, herramientas |
-
 ---
 
 ## Estructura del repositorio

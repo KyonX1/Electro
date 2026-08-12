@@ -107,12 +107,11 @@ Un circuito serie es aquel donde todos los componentes están conectados uno tra
 
 ### Propiedades fundamentales
 
-| Propiedad | Fórmula | Explicación |
+| **Propiedad** | **Fórmula** | **Explicación** |
 |-----------|---------|-------------|
 | Corriente | I_total = I₁ = I₂ = I₃ | La misma corriente en todos |
 | Voltaje | V_total = V₁ + V₂ + V₃ | Se reparte entre los componentes |
 | Resistencia | R_total = R₁ + R₂ + R₃ | Se suman directamente |
-
 ### ¿Por qué se suman las resistencias?
 
 Cada resistencia "obstruye" el flujo. Si pones tres embudos en fila, la obstrucción total es la suma de las tres. Cada electrón tiene que pasar por todas las resistencias.
@@ -163,12 +162,11 @@ Un circuito paralelo es aquel donde todos los componentes comparten los **mismos
 
 ### Propiedades fundamentales
 
-| Propiedad | Fórmula | Explicación |
+| **Propiedad** | **Fórmula** | **Explicación** |
 |-----------|---------|-------------|
 | Voltaje | V_total = V₁ = V₂ = V₃ | El mismo voltaje en todos |
 | Corriente | I_total = I₁ + I₂ + I₃ | Se reparte entre las ramas |
 | Resistencia | 1/R_total = 1/R₁ + 1/R₂ + 1/R₃ | Se combinan inversamente |
-
 ### Resistencia equivalente (abreviación)
 
 **Para dos resistencias** (la fórmula más usada):
@@ -203,7 +201,7 @@ I_total = V / R_total = 24 / 57.14 = 0.42 A = 420 mA
 ```
 
 **Paso 3**: Corriente en cada rama
-```
+```python
 I₁ = V / R₁ = 24 / 100 = 0.24 A = 240 mA
 I₂ = V / R₂ = 24 / 200 = 0.12 A = 120 mA
 I₃ = V / R₃ = 24 / 400 = 0.06 A = 60 mA
@@ -263,7 +261,7 @@ V₂₃ = I_total × R₂₃ = 0.13636 × 120 = 16.364 V
 **Verificación**: V₁ + V₂₃ = 13.636 + 16.364 = 30.000 V ✓
 
 **Paso 5**: Corriente en cada resistencia del paralelo
-```
+```python
 I₂ = V₂₃ / R₂ = 16.364 / 200 = 0.08182 A = 81.82 mA
 I₃ = V₂₃ / R₃ = 16.364 / 300 = 0.05455 A = 54.55 mA
 ```
@@ -303,7 +301,7 @@ Porque la carga se conserva. Los electrones no aparecen ni desaparecen en un nod
 
 *En un nodo entran 5A por la rama A y 3A por la rama B. ¿Cuánta corriente sale por la rama C?*
 
-```
+```python
 I_A + I_B = I_C
 5 + 3 = I_C
 I_C = 8 A
@@ -313,7 +311,7 @@ I_C = 8 A
 
 *Un nodo tiene 4 ramas: I₁ = 10A (entra), I₂ = 4A (sale), I₃ = ? (entra), I₄ = 8A (sale)*
 
-```
+```python
 I_entrada = I_salida
 I₁ + I₃ = I₂ + I₄
 10 + I₃ = 4 + 8
@@ -343,13 +341,12 @@ O equivalentemente:
 
 ### Convención de signos
 
-| Situación | Signo | Ejemplo |
+| **Situación** | **Signo** | **Ejemplo** |
 |-----------|-------|---------|
 | De − a + (subida) | Positivo | Cruzar una fuente de − a + |
 | De + a − (caída) | Negativo | Cruzar una resistencia en dirección de corriente |
 | Con la corriente | Negativo (caída) | I × R positivo, pero se resta |
 | Contra la corriente | Positivo (subida) | I × R se suma |
-
 ### Analogía
 
 Si caminas en círculo por una montaña, la altura total que subes es igual a la altura total que bajas. Vuelves al mismo nivel.
@@ -718,7 +715,7 @@ Las fuentes suman si entran con la corriente de malla, restan si van en contra.
 
 *Dos mallas: R₁ = 10Ω (malla 1), R₂ = 20Ω (malla 2), R₃ = 30Ω (compartida). V₁ = 12V (malla 1), V₂ = 6V (malla 2).*
 
-```
+```python
 Malla 1: (R₁ + R₃)I₁ - R₃·I₂ = V₁
          40·I₁ - 30·I₂ = 12    ... (ecuación 1)
 
@@ -768,13 +765,12 @@ V₁ = 5 × 20/3 = 33.33V
 
 ### Cuándo usar mallas vs nodos
 
-| Situación | Mejor método |
+| **Situación** | **Mejor método** |
 |-----------|-------------|
 | Pocas mallas, muchas ramas | Mallas |
 | Pocos nodos, muchas ramas | Nodos |
 | Fuentes de voltaje dominantes | Mallas |
 | Fuentes de corriente dominantes | Nodos |
-
 ---
 
 ## 16. Ley de Joule y efecto térmico
@@ -818,13 +814,12 @@ P = I² × R = 225 × 2.5 = 562.5 W
 
 ### Aplicaciones
 
-| Aplicación | Principio |
+| **Aplicación** | **Principio** |
 |------------|-----------|
 | Calentadores eléctricos | I²R en resistencias de alta R |
 | Fusibles | Se funden cuando I²R alcanza cierta temperatura |
 | Soldadura por arco | I²R genera calor extremo en el arco |
 | Cables (pérdidas) | I²R es una pérdida indeseada |
-
 ### Regla del cuadrado
 
 Observa que la corriente influye al **cuadrado**. Si duplicas la corriente, las pérdidas por calor se **cuadruplican**. Por eso los cables de alta corriente son gruesos: para reducir R y minimizar I²R.
@@ -894,11 +889,10 @@ Se suman directamente (al revés que las resistencias).
 
 ### Comportamiento en CD (regímenes)
 
-| Momento | Capacitor | Corriente |
+| **Momento** | **Capacitor** | **Corriente** |
 |---------|-----------|-----------|
 | Al conectar (t = 0) | Descargado, actúa como cortocircuito | Máxima: I = V/R |
 | Estado estacionario (t → ∞) | Cargado, actúa como circuito abierto | Cero: I = 0 |
-
 ### Ejemplo resuelto
 
 *Un capacitor de 100μF se carga a 50V. ¿Cuánta energía almacena?*
@@ -944,11 +938,10 @@ Donde:
 
 ### Comportamiento en CD
 
-| Momento | Inductor | Voltaje |
+| **Momento** | **Inductor** | **Voltaje** |
 |---------|----------|---------|
 | Al conectar (t = 0) | Se opone al cambio, actúa como circuito abierto | Máximo: V = L×(di/dt) |
 | Estado estacionario (t → ∞) | Actúa como cortocircuito (solo su resistencia interna) | Casi cero |
-
 ### Inductores en serie
 
 ```
@@ -1009,7 +1002,7 @@ Corriente en el circuito:
 
 ### Tabla de valores (cargando)
 
-| Tiempo (τ) | v_C (% de V final) | i (% de I inicial) |
+| **Tiempo (τ)** | **v_C (% de V final)** | **i (% de I inicial)** |
 |------------|--------------------|--------------------|
 | 0 | 0% | 100% |
 | 1τ | 63.2% | 36.8% |
@@ -1017,7 +1010,6 @@ Corriente en el circuito:
 | 3τ | 95.0% | 5.0% |
 | 4τ | 98.2% | 1.8% |
 | 5τ | 99.3% | 0.7% |
-
 > **Regla práctica**: Después de 5τ, se considera que el capacitor está cargado (99.3%).
 
 ### Ejemplo resuelto
@@ -1062,7 +1054,7 @@ Voltaje en la resistencia:
 
 ### Tabla de valores (energizando)
 
-| Tiempo (τ) | i_L (% de I final) | v_L (% de V inicial) |
+| **Tiempo (τ)** | **i_L (% de I final)** | **v_L (% de V inicial)** |
 |------------|--------------------|--------------------|
 | 0 | 0% | 100% |
 | 1τ | 63.2% | 36.8% |
@@ -1070,7 +1062,6 @@ Voltaje en la resistencia:
 | 3τ | 95.0% | 5.0% |
 | 4τ | 98.2% | 1.8% |
 | 5τ | 99.3% | 0.7% |
-
 Observa: ¡Las tablas son idénticas a las del RC! La forma matemática es la misma, solo cambia la constante de tiempo.
 
 ---
@@ -1113,14 +1104,13 @@ Tiempo de estabilización = 5τ = 5 × 0.47 = 2.35 segundos
 
 ### Aplicaciones
 
-| Circuito | Uso de τ |
+| **Circuito** | **Uso de τ** |
 |----------|---------|
 | Filtro RC pasabajo | τ determina la frecuencia de corte |
 | Retardos temporales | τ controla el tiempo de espera |
 | Integradores | τ >> período de la señal |
 | Diferenciadores | τ << período de la señal |
 | Arranque de motores | τ del circuito de excitación |
-
 ---
 
 ## Resumen de Corriente Directa
