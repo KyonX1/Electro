@@ -34,6 +34,7 @@ $$\phi = \frac{\mathcal{F}}{\mathcal{R}} \qquad \mathcal{R} = \frac{l}{\mu A}$$
 | :----------: | :---------: | :--------: | :--------------------: |
 
 ```python
+import math
 # Circuito magnetico simple: nucleo de hierro con entrehierro
 mu0 = 4 * math.pi * 1e-7        # H/m
 mu_r = 1000.0                   # hierro
@@ -127,6 +128,7 @@ $$Z_1' = a^2 Z_2$$
 Esta propiedad permite el ajuste de impedancias (máxima transferencia de potencia, sección 4 del Capítulo 2).
 
 ```python
+import math
 # Reflexion de impedancia
 Z2 = 8.0        # ohm (altavoz)
 a_opt = math.sqrt(4800.0 / Z2)    # para fuente de 4.8 kohm
@@ -148,6 +150,7 @@ El transformador real presenta pérdidas en el cobre (devanados) y en el hierro 
 El circuito equivalente incluye resistencias y reactancias de dispersión en ambos devanados, más la rama de magnetización ($R_c$ y $X_m$) en paralelo. Los ensayos de vacío y de cortocircuito permiten determinar estos parámetros [@chapman2012, cap. 2].
 
 ```python
+import math
 # Ensayo de cortocircuito: parametros referidos al primario
 V_cc, I_cc = 20.0, 12.0      # V e I de ensayo
 P_cc = 120.0                 # W
@@ -222,8 +225,9 @@ $$E = K \phi \omega$$
 donde $K$ es una constante de construcción, $\phi$ el flujo por polo y $\omega$ la velocidad angular.
 
 ```python
-K = 1.2          # constante constructiva
-phi = 0.02       # Wb por polo
+import math
+K = 73.2         # constante constructiva
+phi = 0.02       # Wb por polo (K*phi = 1.464 V*s/rad)
 n = 1500.0       # rpm
 omega = 2 * math.pi * n / 60
 E = K * phi * omega
@@ -242,7 +246,8 @@ La velocidad del motor se regula variando el voltaje de armadura o el flujo de c
 $$\omega = \frac{V - I_a R_a}{K \phi}$$
 
 ```python
-K = 1.2
+import math
+K = 73.2
 phi = 0.02
 Ia = 25.0
 T = K * phi * Ia
@@ -272,8 +277,9 @@ print(f"E = {E:.1f} V, omega = {omega:.1f} rad/s, n = {n:.0f} rpm")
 La corriente del inducido crea un flujo que distorsiona el campo principal: la reacción de inducido desplaza el plano neutro, reduce el flujo efectivo y puede causar chisporroteo en el conmutador. Se compensa con devanados de conmutación y polos auxiliares [@chapman2012, cap. 7].
 
 ```python
+import math
 # Efecto de la reaccion de inducido sobre la velocidad
-K, phi_nominal = 1.2, 0.02
+K, phi_nominal = 73.2, 0.02
 desmagnetizacion = 0.1          # 10% de reduccion de flujo
 phi_efectivo = phi_nominal * (1 - desmagnetizacion)
 V, Ra, Ia = 230.0, 0.5, 25.0
@@ -321,14 +327,18 @@ El alternador produce la práctica totalidad de la energía eléctrica mundial. 
 $$\vec{V}_\phi = \vec{E}_a - j X_s \vec{I}_a$$
 
 ```python
+import math
 E_a = 240.0      # V por fase
 I_a = 100.0      # A
-X_s = 0.6        # ohm (reactancia síncrona)
+X_s = 0.6        # ohm (reactancia sincrona)
 V_phi = math.sqrt(E_a**2 - (I_a * X_s)**2)   # caso FP unitario
 print(f"V_phi = {V_phi:.1f} V (FP = 1)")
-# En retraso: mayor caida
-V_phi_rez = math.sqrt(E_a**2 - 2*E_a*I_a*X_s*0.8 - (I_a*X_s*0.6)**2)
-print(f"V_phi (FP 0.8 ind) aprox = {abs(V_phi_rez):.1f} V")
+# En retraso: mayor caida. Formula exacta con sin(phi)
+phi = math.acos(0.8)
+V_phi_rez = math.sqrt(E_a**2 - 2*E_a*I_a*X_s*math.sin(phi) + (I_a*X_s)**2)
+print(f"V_phi = {V_phi_rez:.1f} V (FP = 0.8 en retraso)")
+V_phi_aprox = E_a - I_a*X_s*math.sin(phi)
+print(f"Aproximacion lineal: {V_phi_aprox:.1f} V")
 ```
 
 ### Motor Síncrono y Curva V
@@ -347,6 +357,7 @@ La curva V muestra la corriente de armadura mínima a FP unitario; a ambos lados
 | :------------: | :--------------------: | :-------------------------: |
 
 ```python
+import math
 # Potencia de un compensador sincrono
 V = 230.0        # V fase
 I = 50.0         # A
@@ -395,10 +406,12 @@ Las corrientes del rotor tienen frecuencia proporcional al deslizamiento: $f_r =
 $$T = \frac{3 V_1^2 R_2/s}{\omega_s\left[(R_1 + R_2/s)^2 + (X_1 + X_2)^2\right]}$$
 
 ```python
+import math
 V1, R1 = 230.0, 0.4
 R2, X1, X2 = 0.3, 1.0, 1.0
+f, p = 50.0, 4
+n_s = 120 * f / p
 omega_s = 2 * math.pi * n_s / 60
-T_max, s_max = 0.0, 0.0
 for s_i in [0.02, 0.05, 0.1, 0.25, 0.5, 1.0]:
     T = 3 * V1**2 * R2/s_i / (omega_s * ((R1 + R2/s_i)**2 + (X1 + X2)**2))
     print(f"s = {s_i:4.0%}: T = {T:.1f} N*m")
