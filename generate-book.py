@@ -134,9 +134,12 @@ def generate_pdf():
     print("1. Combinando archivos markdown...")
     combined = combine_markdown()
     
-    combined_path = os.path.join(BASE_DIR, 'pdfs', 'combined.md')
-    with open(combined_path, 'w', encoding='utf-8') as f:
-        f.write(combined)
+    # Write to temp file, clean up after
+    import tempfile
+    tmp = tempfile.NamedTemporaryFile(mode='w', suffix='.md', delete=False, dir='/tmp')
+    tmp.write(combined)
+    tmp.close()
+    combined_path = tmp.name
     print(f"   {len(combined)} chars combinados")
     
     print("2. Generando PDF con preamble profesional...")
@@ -163,6 +166,12 @@ def generate_pdf():
     ]
     
     result = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
+    
+    # Clean up temp file
+    try:
+        os.unlink(combined_path)
+    except OSError:
+        pass
     
     if result.returncode != 0:
         print("   ERROR:")
