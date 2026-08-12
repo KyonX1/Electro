@@ -4,7 +4,7 @@
 
 ---
 
-## 📚 Libros de Texto
+##  Libros de Texto
 
 ### Fundamentos y Corriente Directa
 
@@ -38,7 +38,7 @@
 | 18 | *NCh Elec. 4/2003* | Instituto Nacional de Normalización (Chile) | Instalaciones eléctricas |
 ---
 
-## 🎓 Cursos en Línea (Gratuitos)
+##  Cursos en Línea (Gratuitos)
 
 ### MIT OpenCourseWare
 
@@ -67,7 +67,7 @@
 | *Rafa García* | Español | Circuitos eléctricos | Enfoque universitario |
 ---
 
-## 🛠️ Herramientas de Simulación
+##  Herramientas de Simulación
 
 ### Software de Simulación de Circuitos
 
@@ -91,7 +91,7 @@
 | **Excel/Google Sheets** | Cálculos repetitivos, tablas |
 ---
 
-## 🏭 Fabricantes y Manuales Técnicos
+##  Fabricantes y Manuales Técnicos
 
 ### Transformadores
 
@@ -111,7 +111,7 @@
 | **TE Connectivity** | Conectores, relés | [te.com](https://www.te.com/) |
 ---
 
-## 📖 Normativas Clave (Resumen)
+##  Normativas Clave (Resumen)
 
 ### IEC (International Electrotechnical Commission)
 
@@ -152,7 +152,7 @@
 | 7 | Puesta a tierra |
 ---
 
-## 🎯 Certificaciones Profesionales
+##  Certificaciones Profesionales
 
 | **Certificación** | **País/Org** | **Enfoque** |
 |---------------|----------|---------|
@@ -162,7 +162,7 @@
 | Título de Ingeniero Eléctrico | Universidades LATAM | Formación académica |
 ---
 
-## 📱 Aplicaciones Móviles Útiles
+##  Aplicaciones Móviles Útiles
 
 | **App** | **Plataforma** | **Uso** |
 |-----|-----------|-----|
@@ -172,7 +172,7 @@
 | **CircuitJS** | Web | Misma que Falstad |
 ---
 
-## 🔗 Enlaces Útiles
+##  Enlaces Útiles
 
 | **Recurso** | **URL** |
 |---------|-----|

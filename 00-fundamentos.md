@@ -1,4 +1,4 @@
-# ⚡ 00 — Fundamentos de Electrotecnia
+#  00 — Fundamentos de Electrotecnia
 
 > La base sobre la que se construye todo lo demás. Si entiendes esto, el resto fluye.
 
@@ -15,7 +15,7 @@ La carga eléctrica es una propiedad fundamental de la materia. Existen dos tipo
 | Positiva | + | Protones (núcleo atómico) | Convencional |
 | Negativa | − | Electrones (órbita exterior) | Real |
 
-### 🔗 Analogía
+###  Analogía
 
 Piensa en la carga como el **"peso eléctrico"**. Un objeto con carga "negativa" tiene exceso de electrones. Un objeto con carga "positiva" tiene déficit de electrones.
 
@@ -35,7 +35,7 @@ Piensa en la carga como el **"peso eléctrico"**. Un objeto con carga "negativa"
 
 ---
 
-### 📐 Ley de Coulomb
+###  Ley de Coulomb
 
 $$F = k \times \frac{|q_1| \times |q_2|}{r^2}$$
 
@@ -48,7 +48,7 @@ $$F = k \times \frac{|q_1| \times |q_2|}{r^2}$$
 
 ---
 
-### 🧮 Ejemplo Resuelto
+###  Ejemplo Resuelto
 
 **Pregunta:** ¿Cuál es la fuerza entre dos cargas de $+3\,\mu C$ y $-5\,\mu C$ separadas $0.2$ m?
 
@@ -57,20 +57,20 @@ $$F = k \times \frac{|q_1| \times |q_2|}{r^2}$$
 q1 = 3e-6    # C (microcoulombs a coulombs)
 q2 = 5e-6    # C
 r  = 0.2     # m
-k  = 8.99e9  # N·m²/C²
+k  = 8.99e9  # N.m2/C2
 
-# Cálculo
+# Calculo
 F = k * abs(q1) * abs(q2) / r**2
 F = 0.1349 / 0.04
 F = 3.37  # N
 
 # Resultado
-print(f"F = {F} N → Las cargas se atraen (signos opuestos)")
+print(f"F = {F} N -> Las cargas se atraen (signos opuestos)")
 ```
 
-> **✅ Verificación:** Si duplicas la carga, la fuerza se duplica. Si duplicas la distancia, la fuerza se reduce a $1/4$ (ley del cuadrado inverso).
+> ** Verificación:** Si duplicas la carga, la fuerza se duplica. Si duplicas la distancia, la fuerza se reduce a $1/4$ (ley del cuadrado inverso).
 
-> **⚠️ Error común:** Usar $\mu C$ directamente sin convertir. Recuerda: $1\,\mu C = 10^{-6}$ C. Siempre convierte antes de sustituir.
+> ** Error común:** Usar $\mu C$ directamente sin convertir. Recuerda: $1\,\mu C = 10^{-6}$ C. Siempre convierte antes de sustituir.
 
 ---
 
@@ -80,7 +80,7 @@ print(f"F = {F} N → Las cargas se atraen (signos opuestos)")
 
 La corriente eléctrica es el **flujo de carga** a través de un material conductor. Es el movimiento ordenado de electrones bajo la influencia de un campo eléctrico.
 
-### 🔗 Analogía
+###  Analogía
 
 Imagina un tubo de agua. La corriente es como el **caudal**: cuántos litros por segundo pasan por una sección del tubo.
 
@@ -91,11 +91,11 @@ Imagina un tubo de agua. La corriente es como el **caudal**: cuántos litros por
 | **Convencional** (la que usamos) | Del polo + al polo − | Carga positiva imaginaria |
 | **Real** (electrónica) | Del polo − al polo + | Electrones reales |
 
-> **💡 Nota:** Usamos la convención convencional (de + a −) en todos los cálculos. Los resultados son correctos porque es una convención consistente.
+> ** Nota:** Usamos la convención convencional (de + a −) en todos los cálculos. Los resultados son correctos porque es una convención consistente.
 
 ---
 
-### 📐 Fórmula Fundamental
+###  Fórmula Fundamental
 
 $$I = \frac{Q}{t}$$
 
@@ -113,7 +113,7 @@ $$I = \frac{Q}{t}$$
 
 ---
 
-### 📐 Corriente en un Conductor
+###  Corriente en un Conductor
 
 $$I = n \cdot A \cdot v_d \cdot q$$
 
@@ -124,7 +124,7 @@ $$I = n \cdot A \cdot v_d \cdot q$$
 | $v_d$ | Velocidad de deriva | m/s |
 | $q$ | Carga del electrón | $1.602 \times 10^{-19}$ C |
 
-> **💡 Dato curioso:** La velocidad de deriva de los electrones es sorprendentemente lenta ($\approx 0.1$ mm/s en un cable doméstico). La corriente se propaga casi a la velocidad de la luz porque el campo eléctrico se transmite rápidamente, no porque los electrones se muevan rápido.
+> ** Dato curioso:** La velocidad de deriva de los electrones es sorprendentemente lenta ($\approx 0.1$ mm/s en un cable doméstico). La corriente se propaga casi a la velocidad de la luz porque el campo eléctrico se transmite rápidamente, no porque los electrones se muevan rápido.
 
 ---
 
@@ -139,7 +139,7 @@ $$I = n \cdot A \cdot v_d \cdot q$$
 
 ---
 
-### 🧮 Ejemplo Resuelto
+###  Ejemplo Resuelto
 
 **Pregunta:** Si $2.5 \times 10^{18}$ electrones cruzan una sección en $0.5$ segundos, ¿cuál es la corriente?
 
@@ -157,9 +157,9 @@ print(f"Q = {Q:.4f} C")
 print(f"I = {I:.3f} A = {I*1000:.1f} mA")
 ```
 
-> **✅ Verificación:** Un cable doméstico típico soporta 10-20 A. $0.8$ A es una corriente pequeña, consistente con unos pocos mil millones de electrones.
+> ** Verificación:** Un cable doméstico típico soporta 10-20 A. $0.8$ A es una corriente pequeña, consistente con unos pocos mil millones de electrones.
 
-> **⚠️ Error común:** Confundir corriente con voltaje. La corriente es **flujo** (cuánto pasa), el voltaje es **empuje** (cuánto presiona).
+> ** Error común:** Confundir corriente con voltaje. La corriente es **flujo** (cuánto pasa), el voltaje es **empuje** (cuánto presiona).
 
 ---
 
@@ -169,13 +169,13 @@ print(f"I = {I:.3f} A = {I*1000:.1f} mA")
 
 El voltaje es la **diferencia de potencial eléctrico** entre dos puntos. Es la "presión" que empuja a los electrones a moverse.
 
-### 🔗 Analogía
+###  Analogía
 
 Un tanque de agua elevado: el voltaje es la **altura del tanque**. Cuanto más alto, más presión tiene el agua en la tubería.
 
 ---
 
-### 📐 Fórmula Fundamental
+###  Fórmula Fundamental
 
 $$V = \frac{W}{q}$$
 
@@ -203,7 +203,7 @@ $$V = \frac{W}{q}$$
 | USB | Cargador de celular | 5V |
 | Fuente de laboratorio | Fuente regulada | 0–30V variable |
 
-### ⚠️ Conveniencia de tierra
+###  Conveniencia de tierra
 
 - En circuitos, se toma un punto como referencia (**tierra**, 0V)
 - Todos los voltajes se miden respecto a ese punto
@@ -211,7 +211,7 @@ $$V = \frac{W}{q}$$
 
 ---
 
-### 🧮 Ejemplo Resuelto
+###  Ejemplo Resuelto
 
 **Pregunta:** Una batería realiza 50 J de trabajo para mover 20 C. ¿Cuál es su voltaje?
 
@@ -224,7 +224,7 @@ print(f"V = {V} V")
 
 ---
 
-### 📐 Voltaje en Campo Eléctrico Uniforme
+###  Voltaje en Campo Eléctrico Uniforme
 
 $$V = E \cdot d$$
 
@@ -233,7 +233,7 @@ $$V = E \cdot d$$
 | $E$ | Intensidad del campo eléctrico | V/m |
 | $d$ | Distancia entre los puntos | m |
 
-> **⚠️ Error común:** Decir "hay 220V en el cable". El voltaje siempre es **entre dos puntos**. Lo correcto: "hay 220V entre la fase y el neutro".
+> ** Error común:** Decir "hay 220V en el cable". El voltaje siempre es **entre dos puntos**. Lo correcto: "hay 220V entre la fase y el neutro".
 
 ---
 
@@ -242,14 +242,14 @@ $$V = E \cdot d$$
 Los tres conceptos están profundamente relacionados:
 
 ```
-Carga (Q)  ←── I = Q/t ──→  Corriente (I)
-    ↕                              ↕
-V = W/q                    Ohm: V = I·R
-    ↕                              ↕
-Energía (W) ←── P = W/t ──→  Potencia (P)
+Carga (Q)  <-- I = Q/t -->  Corriente (I)
+    |                              |
+V = W/q                    Ohm: V = I.R
+    |                              |
+Energia (W) <-- P = W/t -->  Potencia (P)
 ```
 
-> **📐 Fórmula central:** $V = I \times R$
+> ** Fórmula central:** $V = I \times R$
 
 Cinco conceptos, una sola ecuación. Si recuerdas esto, entiendes el 50% de la electrotecnia.
 
@@ -261,13 +261,13 @@ Cinco conceptos, una sola ecuación. Si recuerdas esto, entiendes el 50% de la e
 
 La resistencia es la **oposición** que presenta un material al paso de corriente eléctrica. Es la "fricción" que encuentran los electrones.
 
-### 🔗 Analogía
+###  Analogía
 
 En el tubo de agua: la resistencia es el **diámetro del tubo**. Un tubo fino deja pasar poca agua para la misma presión.
 
 ---
 
-### 📐 Fórmula Fundamental
+###  Fórmula Fundamental
 
 $$R = \rho \times \frac{L}{A}$$
 
@@ -295,7 +295,7 @@ $$R = \rho \times \frac{L}{A}$$
 
 ---
 
-### 📐 Conductancia
+###  Conductancia
 
 La inversa de la resistencia:
 
@@ -316,7 +316,7 @@ Los electrones chocan con los átomos de la red cristalina. Cada colisión trans
 
 ---
 
-### 📐 Coeficiente de Temperatura
+###  Coeficiente de Temperatura
 
 $$R = R_0 \cdot [1 + \alpha \cdot (T - T_0)]$$
 
@@ -336,22 +336,22 @@ $$R = R_0 \cdot [1 + \alpha \cdot (T - T_0)]$$
 
 ---
 
-### 🧮 Ejemplo Resuelto
+###  Ejemplo Resuelto
 
 **Pregunta:** Un cable de cobre de 100 m y 2.5 mm² de sección. ¿Cuál es su resistencia?
 
 ```python
-rho = 1.68e-8  # Ω·m (cobre)
+rho = 1.68e-8  # Ω.m (cobre)
 L = 100         # m
-A = 2.5e-6      # m² (2.5 mm²)
+A = 2.5e-6      # m^2 (2.5 mm^2)
 
 R = rho * L / A
 print(f"R = {R:.4f} Ω")
 ```
 
-> **✅ Verificación:** Un cable de 100m de sección pequeña tiene fracciones de ohmio. Los cables se fabrican para tener la menor resistencia posible.
+> ** Verificación:** Un cable de 100m de sección pequeña tiene fracciones de ohmio. Los cables se fabrican para tener la menor resistencia posible.
 
-> **⚠️ Error común:** Confundir resistencia con resistividad. La resistencia depende de la geometría (largo y grosor). La resistividad es una propiedad del material.
+> ** Error común:** Confundir resistencia con resistividad. La resistencia depende de la geometría (largo y grosor). La resistividad es una propiedad del material.
 
 ---
 
@@ -361,13 +361,13 @@ print(f"R = {R:.4f} Ω")
 
 La potencia es la **tasa** a la que se consume o suministra energía eléctrica. Es la rapidez con que se realiza trabajo eléctrico.
 
-### 🔗 Analogía
+###  Analogía
 
 Si la energía es la cantidad total de agua que consume una casa, la potencia es el **caudal** (litros por minuto) que sale del grifo.
 
 ---
 
-### 📐 Fórmulas Fundamentales
+###  Fórmulas Fundamentales
 
 $$P = V \cdot I \qquad P = I^2 \cdot R \qquad P = \frac{V^2}{R}$$
 
@@ -392,7 +392,7 @@ $$P = V \cdot I \qquad P = I^2 \cdot R \qquad P = \frac{V^2}{R}$$
 
 ---
 
-### 🧮 Ejemplo Resuelto
+###  Ejemplo Resuelto
 
 **Pregunta:** Un calentador de 40 Ω conectado a 220V. ¿Cuánta potencia consume?
 
@@ -404,9 +404,9 @@ P = V**2 / R
 print(f"P = {P} W = {P/1000:.2f} kW")
 ```
 
-> **✅ Verificación:** También: $I = V/R = 220/40 = 5.5$ A. Luego $P = V \cdot I = 220 \times 5.5 = 1210$ W ✓
+> ** Verificación:** También: $I = V/R = 220/40 = 5.5$ A. Luego $P = V \cdot I = 220 \times 5.5 = 1210$ W 
 
-> **⚠️ Error común:** Las fórmulas $P = I^2R$ y $P = V^2/R$ solo son válidas para resistencias puras. Para cargas reactivas necesitas el factor de potencia (en CA).
+> ** Error común:** Las fórmulas $P = I^2R$ y $P = V^2/R$ solo son válidas para resistencias puras. Para cargas reactivas necesitas el factor de potencia (en CA).
 
 ---
 
@@ -418,7 +418,7 @@ La energía eléctrica es el **trabajo total** realizado por la corriente. Mient
 
 ---
 
-### 📐 Fórmula Fundamental
+###  Fórmula Fundamental
 
 $$E = P \cdot t$$
 
@@ -439,7 +439,7 @@ $$E = P \cdot t$$
 
 ---
 
-### 🧮 Ejemplo Resuelto
+###  Ejemplo Resuelto
 
 **Pregunta:** Un aire acondicionado de 1.5 kW funciona 8 horas/día. ¿Energía al mes (30 días)? Costo a $0.12/kWh?
 
@@ -457,7 +457,7 @@ print(f"Costo = ${costo:.2f} al mes")
 
 ---
 
-### 📐 Relación Potencia-Energía-Tiempo
+###  Relación Potencia-Energía-Tiempo
 
 $$P = \frac{E}{t} \qquad E = P \cdot t \qquad t = \frac{E}{P}$$
 
@@ -468,25 +468,25 @@ Es como la relación distancia-velocidad-tiempo: si conoces dos, calculas el ter
 ## 8. Resumen: Las 5 Variables Fundamentales
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                                                         │
-│   CARGA (Q)  ←── I = Q/t ──→  CORRIENTE (I)            │
-│       ↕                                  ↕              │
-│   V = W/q                        Ohm: V = I·R           │
-│       ↕                                  ↕              │
-│   ENERGÍA (W) ←── P = W/t ──→  POTENCIA (P)            │
-│                                                         │
-│   + RESISTENCIA (R) = oposición al flujo                 │
-│                                                         │
-└─────────────────────────────────────────────────────────┘
++---------------------------------------------------------+
+|                                                         |
+|   CARGA (Q)  <-- I = Q/t -->  CORRIENTE (I)            |
+|       |                                  |              |
+|   V = W/q                        Ohm: V = I.R           |
+|       |                                  |              |
+|   ENERGIA (W) <-- P = W/t -->  POTENCIA (P)             |
+|                                                         |
+|   + RESISTENCIA (R) = oposicion al flujo                |
+|                                                         |
++---------------------------------------------------------+
 ```
 
-> **📐 Fórmula central:** $V = I \times R$
+> ** Fórmula central:** $V = I \times R$
 
 Cinco conceptos, una sola ecuación. Si recuerdas esto, entiendes el 50% de la electrotecnia.
 
 ---
 
-## Siguiente →
+## Siguiente
 
 Ahora que tienes la base, pasamos a [Corriente Directa](01-corriente-directa.md) donde veremos cómo aplicar estos conceptos en circuitos reales.

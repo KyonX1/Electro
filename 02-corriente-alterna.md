@@ -92,14 +92,14 @@ v(t) = V_max × sin(ωt + φ)
 ```
       V_max
        ↑
-| ╭──╮ 
-| ╱    ╲ 
-  ─────┼──╱──────╲────────→ t
-| ╱        ╲    ╱ 
-| ╱          ╲  ╱ 
-       ↓            ╲╱
+| ~--~ 
+| /    \ 
+  -----+--/------\--------→ t
+| /        \    / 
+| /          \  / 
+       ↓            \/
                     -V_max
-| ←── Un ciclo ──→ |
+| ←-- Un ciclo --→ |
 ```
 
 - **Cresta**: punto máximo = +V_max
@@ -214,7 +214,7 @@ V_medio = 0.637 × 169.7 = 108.1 V
 V_pp = 2 × 169.7 = 339.4 V
 ```
 
-### ⚠️ Error común
+###  Error común
 
 Confundir RMS con pico. Un multímetro muestra RMS. Si ves "310V" en un multímetro, el pico es 310 × √2 ≈ 438V.
 
@@ -227,9 +227,9 @@ Confundir RMS con pico. Un multímetro muestra RMS. Si ves "310V" en un multíme
 Representación vectorial de una magnitud sinusoidal. Convierte ecuaciones diferenciales en **álgebra con números complejos**.
 
 ```
-Forma rectangular:  V̂ = a + jb
-Forma polar:        V̂ = |V| ∠ φ
-Forma exponencial:  V̂ = |V| × e^(jφ)
+Forma rectangular:  V = a + jb
+Forma polar:        V = |V| ∠ φ
+Forma exponencial:  V = |V| × e^(jφ)
 ```
 
 ### Conversión
@@ -240,7 +240,7 @@ Polar → Rectangular:
   b = |V| × sin(φ)
 
 Rectangular → Polar:
-| V | = √(a² + b²) 
+| V | = √(a^2 + b^2) 
   φ = arctan(b/a)
 ```
 
@@ -268,7 +268,7 @@ V₂ = 80(cos(-20°) + j sin(-20°)) = 75.18 - j27.36
 V₁ + V₂ = (86.6 + 75.18) + j(50 - 27.36)
          = 161.78 + j22.64
 
-En polar: |V| = √(161.78² + 22.64²) = 163.36 V
+En polar: |V| = √(161.78^2 + 22.64^2) = 163.36 V
           φ = arctan(22.64/161.78) = 7.95°
 
 Resultado: V₁ + V₂ = 163.36 ∠ 7.95° V
@@ -333,15 +333,15 @@ La **oposición total** al paso de CA. Generalización de la resistencia para CA
 ```
 Z = R + jX    donde X = X_L - X_C
 
-| Z | = √(R² + X²)    (magnitud) 
+| Z | = √(R^2 + X^2)    (magnitud) 
 φ = arctan(X/R)       (ángulo)
 ```
 
 ### La Ohm Generalizada
 
 ```
-V̂ = Î × Z
-| V | = | I | × | Z |
+V = I x Z
+| V | = | I | x | Z |
 ```
 
 ### Ejemplo
@@ -364,10 +364,10 @@ La corriente **retrasa** 45° respecto al voltaje (circuito inductivo).
 
 ```
 Z = R + jX_L
-| Z | = √(R² + X_L²) 
+| Z | = √(R^2 + X_L^2) 
 φ = arctan(X_L / R)
 
-V_total = √(V_R² + V_L²)  ← NUNCA es la suma aritmética
+V_total = √(V_R^2 + V_L^2)  ← NUNCA es la suma aritmética
 ```
 
 ### Ejemplo
@@ -376,13 +376,13 @@ V_total = √(V_R² + V_L²)  ← NUNCA es la suma aritmética
 
 ```
 X_L = 2π × 60 × 0.2 = 75.4Ω
-| Z | = √(100² + 75.4²) = 125.2Ω 
+| Z | = √(100^2 + 75.4^2) = 125.2Ω 
 I = 120/125.2 = 0.958A
 
 V_R = 0.958 × 100 = 95.8V
 V_L = 0.958 × 75.4 = 72.3V
 
-Verificación: √(95.8² + 72.3²) = √(9178+5227) = 120V ✓
+Verificación: √(95.8^2 + 72.3^2) = √(9178+5227) = 120V 
 φ = arctan(75.4/100) = 37° (V adelanta a I)
 ```
 
@@ -401,7 +401,7 @@ Z = R - jX_C
 
 ```
 X_C = 265.3Ω
-| Z | = √(200² + 265.3²) = 332.2Ω 
+| Z | = √(200^2 + 265.3^2) = 332.2Ω 
 I = 100/332.2 = 0.301A
 φ = -53.1° (I adelanta a V)
 ```
@@ -412,7 +412,7 @@ I = 100/332.2 = 0.301A
 
 ```
 Z = R + j(X_L - X_C)
-| Z | = √(R² + (X_L - X_C)²) 
+| Z | = √(R^2 + (X_L - X_C)^2) 
 ```
 
 ### Tres casos
@@ -439,7 +439,7 @@ X_L = 2π × 60 × 0.1 = 37.7Ω
 X_C = 1/(2π × 60 × 100×10⁻⁶) = 26.5Ω
 X = 37.7 - 26.5 = 11.2Ω (inductivo)
 
-| Z | = √(50² + 11.2²) = 51.2Ω 
+| Z | = √(50^2 + 11.2^2) = 51.2Ω 
 I = 120/51.2 = 2.344A
 V_R = 117.2V, V_L = 88.4V, V_C = 62.1V
 ```
@@ -456,7 +456,7 @@ En un circuito paralelo R-L, la resistencia y el inductor están conectados en *
 I_R = V / R           (corriente por la resistencia, en fase con V)
 I_L = V / X_L         (corriente por el inductor, retrasa 90° respecto a V)
 
-I_total = √(I_R² + I_L²)    (suma fasorial, no aritmética)
+I_total = √(I_R^2 + I_L^2)    (suma fasorial, no aritmética)
 
 φ = arctan(I_R / I_L)        (ángulo del circuito total)
 ```
@@ -477,7 +477,7 @@ I_L = V / X_L = 120 / 40 = 3.00 A  (retrasa 90° respecto a V)
 **Paso 2:** Corriente total
 
 ```
-I_total = √(I_R² + I_L²) = √(4² + 3²) = √(16 + 9) = √25 = 5.00 A
+I_total = √(I_R^2 + I_L^2) = √(4^2 + 3^2) = √(16 + 9) = √25 = 5.00 A
 ```
 
 **Paso 3:** Ángulo de fase
@@ -496,8 +496,8 @@ El ángulo φ representa cuánto **retrasa la corriente total** respecto al volt
 
 Verificación por impedancia equivalente en paralelo:
 ```
-1/|Z| = √(1/R² + 1/X_L²) = √(1/900 + 1/1600) = √(0.001111 + 0.000625)
-       = √(0.001736) = 0.04167 S  →  |Z| = 1/0.04167 = 24 Ω  ✓
+1/|Z| = √(1/R^2 + 1/X_L^2) = √(1/900 + 1/1600) = √(0.001111 + 0.000625)
+       = √(0.001736) = 0.04167 S  →  |Z| = 1/0.04167 = 24 Ω  
 ```
 
 ---
@@ -512,7 +512,7 @@ En un circuito paralelo R-C, la resistencia y el capacitor están en paralelo. L
 I_R = V / R           (en fase con V)
 I_C = V / X_C         (adelanta 90° respecto a V)
 
-I_total = √(I_R² + I_C²)
+I_total = √(I_R^2 + I_C^2)
 
 φ = arctan(I_C / I_R)   (adelantado: I total adelanta a V)
 ```
@@ -531,7 +531,7 @@ I_C = 120 / 200 = 0.600 A  (adelanta 90°)
 **Paso 2:** Corriente total
 
 ```
-I_total = √(I_R² + I_C²) = √(0.8² + 0.6²) = √(0.64 + 0.36) = √1.0 = 1.00 A
+I_total = √(I_R^2 + I_C^2) = √(0.8^2 + 0.6^2) = √(0.64 + 0.36) = √1.0 = 1.00 A
 ```
 
 **Paso 3:** Ángulo de fase
@@ -545,13 +545,13 @@ La corriente total **adelanta** 36.87° al voltaje (circuito capacitivo).
 ### Verificación
 
 ```
-| Z | = V / I_total = 120 / 1.0 = 120 Ω 
+**|Z|** = V / I_total = 120 / 1.0 = 120 Ω 
 ```
 
 Por impedancia equivalente:
 ```
-1/|Z| = √(1/R² + 1/X_C²) = √(1/22500 + 1/40000) = √(0.00004444 + 0.000025)
-       = √(0.00006944) = 0.008333 S  →  |Z| = 120 Ω  ✓
+1/|Z| = √(1/R^2 + 1/X_C^2) = √(1/22500 + 1/40000) = √(0.00004444 + 0.000025)
+       = √(0.00006944) = 0.008333 S  →  |Z| = 120 Ω  
 ```
 
 ---
@@ -567,7 +567,7 @@ I_R = V / R
 I_L = V / X_L
 I_C = V / X_C
 
-I_total = √(I_R² + (I_C - I_L)²)
+I_total = √(I_R^2 + (I_C - I_L)^2)
 ```
 
 ### Resonancia en paralelo
@@ -603,7 +603,7 @@ El signo negativo indica que el efecto inductivo domina (I_L > I_C).
 **Paso 3:** Corriente total
 
 ```
-I_total = √(I_R² + (I_C - I_L)²) = √(2² + (-1.5)²) = √(4 + 2.25) = √6.25 = 2.50 A
+I_total = √(I_R^2 + (I_C - I_L)^2) = √(2^2 + (-1.5)^2) = √(4 + 2.25) = √6.25 = 2.50 A
 ```
 
 **Paso 4:** Ángulo de fase
@@ -628,8 +628,9 @@ Y_L = 1/(j50) = -j0.02 S
 Y_C = 1/(-j80) = j0.0125 S
 
 Y_total = 0.01 + j(0.0125 - 0.02) = 0.01 - j0.0075 S
-| Y | = √(0.01² + 0.0075²) = √(0.0001 + 0.00005625) = 0.0125 S 
-| Z | = 1/ | Y | = 80 Ω  ✓ 
+| Y | = √(0.01^2 + 0.0075^2) = √(0.0001 + 0.00005625) = 0.0125 S 
+| --- |
+| Z | = 1/ | Y | = 80 Ω   
 ```
 
 ---
@@ -656,7 +657,7 @@ La configuración es: Z₁ en serie con (Z₂ ∥ Z₃)
 ```
 Z₂ ∥ Z₃ = (Z₂ × Z₃) / (Z₂ + Z₃)
 
-Z₂ × Z₃ = (6 - j8)(j5) = j30 - j²40 = 40 + j30
+Z₂ × Z₃ = (6 - j8)(j5) = j30 - j^240 = 40 + j30
 
 Z₂ + Z₃ = (6 - j8) + (j5) = 6 - j3
 
@@ -666,7 +667,7 @@ Z₂ ∥ Z₃ = (40 + j30) / (6 - j3)
 Multiplicar por conjugado:
 ```
 = (40 + j30)(6 + j3) / ((6 - j3)(6 + j3))
-= (240 + j120 + j180 + j²90) / (36 + 9)
+= (240 + j120 + j180 + j^290) / (36 + 9)
 = (240 - 90 + j300) / 45
 = (150 + j300) / 45
 = 3.333 + j6.667 Ω
@@ -679,7 +680,7 @@ Z_total = Z₁ + (Z₂ ∥ Z₃)
         = (3 + j4) + (3.333 + j6.667)
         = 6.333 + j10.667 Ω
 
-| Z_total | = √(6.333² + 10.667²) = √(40.11 + 113.78) = √153.89 = 12.40 Ω 
+| Z_total | = √(6.333^2 + 10.667^2) = √(40.11 + 113.78) = √153.89 = 12.40 Ω 
 φ = arctan(10.667/6.333) = 59.21°
 ```
 
@@ -695,7 +696,7 @@ I_total = V / Z_total = 100∠0° / 12.40∠59.21° = 8.065 ∠ -59.21° A
 V_Z₁ = I × Z₁ = 8.065∠-59.21° × 5∠53.13° = 40.33 ∠ -6.08° V
 V_paralelo = I × Z_paralelo = 8.065∠-59.21° × 7.454∠63.43° = 60.12 ∠ 4.22° V
 
-V_total = V_Z₁ + V_paralelo ≈ 100∠0° V  ✓
+V_total = V_Z₁ + V_paralelo ≈ 100∠0° V  
 ```
 
 ---
@@ -746,7 +747,7 @@ S = V × I    [VA]
   /_____|
      P (horizontal)
 
-S² = P² + Q²
+S^2 = P^2 + Q^2
 FP = cos(φ) = P / S
 ```
 
@@ -778,7 +779,7 @@ Q = S × sin(φ) = 600 × 0.6 = 360 VAR (inductivo)
 **Paso 4:** Verificación
 
 ```
-S = √(P² + Q²) = √(480² + 360²) = √(230400 + 129600) = √360000 = 600 VA  ✓
+S = √(P^2 + Q^2) = √(480^2 + 360^2) = √(230400 + 129600) = √360000 = 600 VA  
 ```
 
 ---
@@ -848,7 +849,7 @@ La corrección más común es instalar un **banco de capacitores en paralelo** c
 ### Fórmula
 
 ```
-C = P × (tan(φ₁) - tan(φ₂)) / (ω × V²)
+C = P × (tan(φ₁) - tan(φ₂)) / (ω × V^2)
 
 donde:
   φ₁ = ángulo original (FP₁ = cos(φ₁))
@@ -878,7 +879,7 @@ donde:
 **Paso 3:** Capacitancia necesaria
 
 ```
-C = 10,000 × (1.0202 - 0.3287) / (377 × 230²)
+C = 10,000 × (1.0202 - 0.3287) / (377 × 230^2)
   = 10,000 × 0.6915 / (377 × 52,900)
   = 6915 / 19,943,300
   = 0.0003467 F
@@ -894,7 +895,7 @@ Q_C = Q_antes - Q_después = 10,202 - 3,287 = 6,915 VAR
 
 I_C = Q_C / V = 6,915 / 230 = 30.07 A (corriente del banco)
 X_C = V / I_C = 230 / 30.07 = 7.65 Ω
-C = 1/(ω × X_C) = 1/(377 × 7.65) = 346.7 μF  ✓
+C = 1/(ω × X_C) = 1/(377 × 7.65) = 346.7 μF  
 ```
 
 ---
@@ -944,7 +945,7 @@ f₀ = 1 / (2π√(0.1 × 10×10⁻⁶))
 
 ```
 X_L = 2π × 159.15 × 0.1 = 100 Ω
-X_C = 1/(2π × 159.15 × 10×10⁻⁶) = 100 Ω  ✓ (iguales)
+X_C = 1/(2π × 159.15 × 10×10⁻⁶) = 100 Ω   (iguales)
 ```
 
 **Paso 3:** Corriente y voltajes
@@ -962,9 +963,9 @@ V_C = I × X_C = 1.0 × 100 = 100 V (¡10 veces V!)
 
 ```
 V_L y V_C están desfasados 180°, por lo tanto:
-V_L + V_C (fasorial) = 100∠90° + 100∠-90° = j100 - j100 = 0  ✓
+V_L + V_C (fasorial) = 100∠90° + 100∠-90° = j100 - j100 = 0  
 
-Voltaje total: V_R + V_L + V_C = 10∠0° + 0 = 10∠0° V = V_fuente  ✓
+Voltaje total: V_R + V_L + V_C = 10∠0° + 0 = 10∠0° V = V_fuente  
 ```
 
 > **Advertencia:** En resonancia serie, los voltajes en L y C pueden ser **muy superiores** al voltaje de la fuente. Esto puede dañar componentes si no se diseña adecuadamente.
@@ -999,7 +1000,7 @@ Z_total = R × Q (máxima)
 
 ```
 X_L = 2π × 5033 × 0.01 = 316.2 Ω
-X_C = 1/(2π × 5033 × 0.1×10⁻⁶) = 316.2 Ω  ✓
+X_C = 1/(2π × 5033 × 0.1×10⁻⁶) = 316.2 Ω  
 ```
 
 **Paso 2:** Corrientes
@@ -1019,16 +1020,16 @@ I_total = I_R = 10 mA  (las reactivas se cancelan)
 **Paso 4:** Impedancia equivalente
 
 ```
-| Z | = V / I_total = 10 / 0.01 = 1000 Ω = R 
+**|Z|** = V / I_total = 10 / 0.01 = 1000 Ω = R 
 ```
 
 ### Verificación
 
 ```
 I_L y I_C están desfasadas 180°:
-I_L + I_C (fasorial) = 31.6∠-90° + 31.6∠90° = -j31.6 + j31.6 = 0  ✓
+I_L + I_C (fasorial) = 31.6∠-90° + 31.6∠90° = -j31.6 + j31.6 = 0  
 
-I_total = I_R + I_L + I_C = 10 mA + 0 = 10 mA  ✓
+I_total = I_R + I_L + I_C = 10 mA + 0 = 10 mA  
 ```
 
 ### Aplicación
@@ -1094,7 +1095,7 @@ f₂ = f₀ + BW/2 = 1000 + 25 = 1025 Hz
 Si L = 10 mH, R = 3.14 Ω:
 
 X_L = 2π × 1000 × 0.01 = 62.83 Ω
-Q = X_L / R = 62.83 / 3.14 = 20.0  ✓
+Q = X_L / R = 62.83 / 3.14 = 20.0  
 ```
 
 ---
@@ -1132,7 +1133,7 @@ Malla 2: -Z_c × I₁ + (Z₂ + Z_c) × I₂ = 0
 ```
 I₁ = (5 - j1)/(2 - j2) × I₂
    = (5 - j1)(2 + j2) / ((2 - j2)(2 + j2)) × I₂
-   = (10 + j10 - j2 - j²2) / (4 + 4) × I₂
+   = (10 + j10 - j2 - j^22) / (4 + 4) × I₂
    = (12 + j8) / 8 × I₂
    = (1.5 + j1) × I₂
 ```
@@ -1141,7 +1142,7 @@ I₁ = (5 - j1)/(2 - j2) × I₂
 
 ```
 (6 + j1)(1.5 + j1) × I₂ - (2 - j2) × I₂ = 100
-(9 + j6 + j1.5 + j²) × I₂ - (2 - j2) × I₂ = 100
+(9 + j6 + j1.5 + j^2) × I₂ - (2 - j2) × I₂ = 100
 (8 + j7.5) × I₂ - (2 - j2) × I₂ = 100
 (6 + j9.5) × I₂ = 100
 
@@ -1156,7 +1157,7 @@ I₂ = 100 / (6 + j9.5)
 
 ```
 I₁ = (1.5 + j1) × I₂ = (1.5 + j1)(4.752 - j7.525)
-   = (7.128 - j11.288 + j4.752 - j²7.525)
+   = (7.128 - j11.288 + j4.752 - j^27.525)
    = 14.653 - j6.536
    = 16.04 ∠ -24.0° A
 ```
@@ -1224,7 +1225,7 @@ I₁ = Y₁(V₁ - V_s) = (0.4472∠-26.57°)(27.64∠28.88° - 50∠30°)
 I₂ = Y₂ × V₁ = (0.2774∠33.69°)(27.64∠28.88°)
 I₃ = Y₃ × V₁ = (0.3162∠-71.57°)(27.64∠28.88°)
 
-I₁ + I₂ + I₃ ≈ 0  ✓ (KCL satisfecha)
+I₁ + I₂ + I₃ ≈ 0   (KCL satisfecha)
 ```
 
 ---
@@ -1279,14 +1280,14 @@ Z_Th = (Z₁ + Z₂) ∥ Z₃
 
 ```
 Z_Th = (5-j1)(1+j4) / ((5-j1) + (1+j4))
-     = (5 + j20 - j1 - j²4) / (6 + j3)
+     = (5 + j20 - j1 - j^24) / (6 + j3)
      = (9 + j19) / (6 + j3)
 ```
 
 Multiplicando por conjugado:
 ```
 = (9 + j19)(6 - j3) / (36 + 9)
-= (54 - j27 + j114 - j²57) / 45
+= (54 - j27 + j114 - j^257) / 45
 = (111 + j87) / 45
 = 2.467 + j1.933 Ω
 = 3.135∠38.05° Ω
@@ -1317,7 +1318,7 @@ I_L = V_L / Z_L = 39.83 / 5 = 7.966 A
 Verificación por Norton:
 ```
 I_L = I_N × Z_N / (Z_N + Z_L) = 19.61∠11.34° × 3.135∠38.05° / 7.717∠14.55°
-    = 7.966 ∠ 34.84° A  ✓
+    = 7.966 ∠ 34.84° A  
 ```
 
 ---
@@ -1350,7 +1351,7 @@ V_a = V∠0° = V + j0
 V_b = V∠-120° = V(cos(-120°) + j sin(-120°)) = V(-0.5 - j0.866)
 V_c = V∠+120° = V(cos(120°) + j sin(120°)) = V(-0.5 + j0.866)
 
-Suma: V(1 - 0.5 - 0.5) + jV(0 - 0.866 + 0.866) = 0  ✓
+Suma: V(1 - 0.5 - 0.5) + jV(0 - 0.866 + 0.866) = 0  
 ```
 
 ### Ventajas del sistema trifásico
@@ -1368,7 +1369,7 @@ Suma: V(1 - 0.5 - 0.5) + jV(0 - 0.866 + 0.866) = 0  ✓
 **Paso 1:** Corriente por fase
 
 ```
-| Z | = √(30² + 40²) = 50 Ω 
+| Z | = √(30^2 + 40^2) = 50 Ω 
 I_a = V_a / Z = 220∠0° / 50∠53.13° = 4.4 ∠ -53.13° A
 I_b = V_b / Z = 220∠-120° / 50∠53.13° = 4.4 ∠ -173.13° A
 I_c = V_c / Z = 220∠+120° / 50∠53.13° = 4.4 ∠ 66.87° A
@@ -1380,7 +1381,7 @@ I_c = V_c / Z = 220∠+120° / 50∠53.13° = 4.4 ∠ 66.87° A
 I_a + I_b + I_c = 4.4(∠-53.13° + ∠-173.13° + ∠66.87°)
 = 4.4[(0.6 - j0.8) + (-0.993 - j0.122) + (0.393 + j0.920)]
 = 4.4[(0.6 - 0.993 + 0.393) + j(-0.8 - 0.122 + 0.920)]
-= 4.4[0.0 + j0.0] = 0  ✓
+= 4.4[0.0 + j0.0] = 0  
 ```
 
 **Paso 3:** Potencia por fase
@@ -1428,7 +1429,7 @@ Dado: V_F = 220V (voltaje fase-neutro)
 
 V_L = √3 × 220 = 1.732 × 220 = 381 V
 
-Verificación: 381 / 220 = 1.732 ≈ √3 ✓
+Verificación: 381 / 220 = 1.732 ≈ √3 
 ```
 
 > En America Latina, la toma doméstica es V_F = 120V → V_L = 208V. En Europa, V_F = 230V → V_L = 400V.
@@ -1462,7 +1463,7 @@ Dado: I_F = 10A (corriente por cada impedancia)
 
 I_L = √3 × 10 = 1.732 × 10 = 17.32 A
 
-Verificación: 17.32 / 10 = 1.732 ≈ √3 ✓
+Verificación: 17.32 / 10 = 1.732 ≈ √3 
 ```
 
 ---
@@ -1536,7 +1537,7 @@ Es la combinación vectorial de P y Q.
 ### Relación entre potencias
 
 ```
-S² = P² + Q²
+S^2 = P^2 + Q^2
 cosφ = P / S    (factor de potencia)
 sinφ = Q / S
 tanφ = Q / P
@@ -1560,9 +1561,9 @@ sin(31.79°) = 0.527
 Q = 1.732 × 400 × 20 × 0.527 = 7,318 VAR = 7.32 kVAR
 
 Verificación:
-S² = P² + Q²
-13.86² = 11.78² + 7.32²
-192.1 = 138.8 + 53.6 = 192.4 ✓ (diferencia por redondeo)
+S^2 = P^2 + Q^2
+13.86^2 = 11.78^2 + 7.32^2
+192.1 = 138.8 + 53.6 = 192.4  (diferencia por redondeo)
 ```
 
 ---
@@ -1636,11 +1637,11 @@ Cualquier sistema desequilibrado se descompone en **tres sistemas equilibrados**
 
 ```
 V₀ = (V_a + V_b + V_c) / 3          → Componente CERO
-V₁ = (V_a + a×V_b + a²×V_c) / 3     → Componente POSITIVA
-V₂ = (V_a + a²×V_b + a×V_c) / 3     → Componente NEGATIVA
+V₁ = (V_a + a×V_b + a^2×V_c) / 3     → Componente POSITIVA
+V₂ = (V_a + a^2×V_b + a×V_c) / 3     → Componente NEGATIVA
 
 Donde: a = 1∠120° = -0.5 + j0.866
-       a² = 1∠240° = -0.5 - j0.866
+       a^2 = 1∠240° = -0.5 - j0.866
 ```
 
 ### Significado físico
@@ -1716,8 +1717,8 @@ a = N₁/N₂ = V₁/V₂ = I₂/I₁
    → P₁ = P₂ → V₁×I₁ = V₂×I₂
 
 3. Transforma impedancia
-   → Z₁/Z₂ = a²
-   → Z_ref primario = a² × Z_secundario
+   → Z₁/Z₂ = a^2
+   → Z_ref primario = a^2 × Z_secundario
 ```
 
 ### Polaridad de bornes (puntos)
@@ -1725,14 +1726,14 @@ a = N₁/N₂ = V₁/V₂ = I₂/I₁
 Los **puntos de polaridad** indican la relación de fase entre primario y secundario:
 
 ```
-  ·₁ ───┐           ┌─── ·₂
-        │  Núcleo   │
-  ──────┘           └──────
+  .₁ ---+           +--- .₂
+        |  Núcleo   |
+  ------+           +------
   
-Si ·₁ y ·₂ están en el mismo lado:
+Si .₁ y .₂ están en el mismo lado:
   V₁ y V₂ están en fase (polaridad aditiva)
 
-Si ·₁ y ·₂ están en lados opuestos:
+Si .₁ y .₂ están en lados opuestos:
   V₁ y V₂ están desfasados 180° (polaridad sustractiva)
 ```
 
@@ -1749,7 +1750,7 @@ I₂ = a × I₁ = 5 × 2 = 10A
 
 Verificación de potencia:
 P₁ = 220 × 2 = 440W
-P₂ = 44 × 10 = 440W ✓
+P₂ = 44 × 10 = 440W 
 ```
 
 ---
@@ -1789,7 +1790,7 @@ P_corrientes_parásitas: Corrientes de Foucault en el núcleo
 #### Pérdidas en el cobre (devanados)
 
 ```
-P_cobre = I₁² × R₁ + I₂² × R₂
+P_cobre = I₁^2 × R₁ + I₂^2 × R₂
 
   R₁ = resistencia del devanado primario
   R₂ = resistencia del devanado secundario
@@ -1800,12 +1801,12 @@ P_cobre = I₁² × R₁ + I₂² × R₂
 
 ```
         R₁      jX₁         R₂'     jX₂'
-  ─────┤├───┤├─────┤───────┤├───┤├─────
+  -----┤├---┤├-----┤-------┤├---┤├-----
   V₁       X_Lm    R_c            V₂'
-           │   │
-          ─┴─ ─┴─   (rama magnetizante)
-           │   │
-  ─────────┴───┴────────────────────────
+           |   |
+          -┴- -┴-   (rama magnetizante)
+           |   |
+  ---------┴---┴------------------------
 
 R₁, X₁: Resistencia y reactancia del primario
 R₂', X₂': Resistencia y reactancia del secundario (referidos al primario)
@@ -1850,10 +1851,10 @@ Resultado:
 #### Cálculo de parámetros
 
 ```
-R_c = V₁² / P₀           (resistencia del núcleo)
+R_c = V₁^2 / P₀           (resistencia del núcleo)
 Y₀ = I₀ / V₁             (admitancia de vacío)
-G_c = P₀ / V₁²           (conductancia del núcleo)
-B_m = √(Y₀² - G_c²)      (susceptancia magnetizante)
+G_c = P₀ / V₁^2           (conductancia del núcleo)
+B_m = √(Y₀^2 - G_c^2)      (susceptancia magnetizante)
 X_Lm = 1/B_m              (reactancia magnetizante)
 ```
 
@@ -1876,8 +1877,8 @@ Resultado:
 
 ```
 Z_eq = V_cc / I₁          (impedancia equivalente)
-R_eq = P_cc / I₁²         (resistencia equivalente)
-X_eq = √(Z_eq² - R_eq²)   (reactancia equivalente)
+R_eq = P_cc / I₁^2         (resistencia equivalente)
+X_eq = √(Z_eq^2 - R_eq^2)   (reactancia equivalente)
 ```
 
 ### Resumen de ensayos
@@ -1910,7 +1911,7 @@ La eficiencia es máxima cuando las **pérdidas variables = pérdidas constantes
 
 ```
 P_cubre = P_núcleo
-I² × R_eq = P₀
+I^2 × R_eq = P₀
 I_máx_eficiencia = √(P₀ / R_eq)
 ```
 
@@ -1918,14 +1919,14 @@ I_máx_eficiencia = √(P₀ / R_eq)
 
 ```
 η (%)
-  │        ╭──────────────╮
-  │       ╱                ╲
-  │      ╱                  ╲
-  │     ╱                    ╲
-  │    ╱                      ╲
-  │   ╱                        ╲
-  │──╱──────────────────────────╲──
-  └──────────────────────────────→ Carga
+  |        ~--------------~
+  |       /                \
+  |      /                  \
+  |     /                    \
+  |    /                      \
+  |   /                        \
+  |--/--------------------------\--
+  +------------------------------→ Carga
   0%    25%   50%  75%  100%  125%
          ↑
     Máx. eficiencia
@@ -2050,11 +2051,11 @@ Un autotransformador utiliza **un solo devanado** con una toma intermedia, en lu
 ### Principio de funcionamiento
 
 ```
-        ┌─── Toma intermedia (secundario)
-        │
-  N₁ ───┤
-        │
-  ──────┴──────
+        +--- Toma intermedia (secundario)
+        |
+  N₁ ---┤
+        |
+  ------┴------
 
   V₁ se aplica en todo el devanado
   V₂ se toma desde la toma intermedia
@@ -2081,7 +2082,7 @@ El devanado compartido N₂ - N₁ porta la diferencia de potencia
 ### Desventaja crítica
 
 ```
-⚠️  PELIGRO: No hay aislamiento galvánico entre primario y secundario
+  PELIGRO: No hay aislamiento galvánico entre primario y secundario
 
 Si el primario está conectado a la red de alta tensión,
 el secundario queda potencialmente a alta tensión respecto a tierra.
@@ -2135,7 +2136,7 @@ Los armónicos son componentes de frecuencia **múltiplo entero** de la fundamen
 ### Definición de THD (Distorsión Armónica Total)
 
 ```
-THD = √(I₂² + I₃² + I₄² + ... + Iₙ²) / I₁ × 100%
+THD = √(I₂^2 + I₃^2 + I₄^2 + ... + Iₙ^2) / I₁ × 100%
 
   I₁ = corriente fundamental (50/60 Hz)
   I₂, I₃... = corrientes armónicas (100/120 Hz, 150/180 Hz...)
@@ -2200,12 +2201,12 @@ Límite de THD en corriente: varía según relación I_SC/I_L
 Corriente fundamental I₁ = 100A
 I₃ = 30A, I₅ = 20A, I₇ = 10A
 
-THD = √(30² + 20² + 10²) / 100 × 100%
+THD = √(30^2 + 20^2 + 10^2) / 100 × 100%
 THD = √(900 + 400 + 100) / 100 × 100%
 THD = √1400 / 100 × 100%
 THD = 37.42 / 100 × 100% = 37.42%
 
-⚠️ Este THD es muy alto, excede el límite IEEE 519
+ Este THD es muy alto, excede el límite IEEE 519
 Se requieren filtros armónicos
 ```
 
@@ -2222,7 +2223,7 @@ Permite: frecuencias bajas (hasta f_c)
 Bloquea: frecuencias altas
 
 Circuito RC:
-  ──┤├────┤├──
+  --┤├----┤├--
      R     C (a tierra)
 
 f_c = 1 / (2π × R × C)    [Hz]
@@ -2238,7 +2239,7 @@ Permite: frecuencias altas (desde f_c)
 Bloquea: frecuencias bajas
 
 Circuito RC:
-  ──┤├────┤├──
+  --┤├----┤├--
      C     R (a tierra)
 
 f_c = 1 / (2π × R × C)    [Hz]
@@ -2251,7 +2252,7 @@ Permite: solo frecuencias entre f₁ y f₂
 Bloquea: todo lo demás
 
 Circuito RLC serie:
-  ──┤R├──┤L├──┤C├──
+  --┤R├--┤L├--┤C├--
 
 f₀ = 1 / (2π × √(L × C))    [Hz] (frecuencia central)
 
@@ -2269,9 +2270,9 @@ Permite: todo lo demás
 Útil para eliminar una frecuencia específica (ej: 60Hz)
 
 Circuito RLC paralelo en serie con la línea:
-  ──┤R├──┤L├──┤C├── (en paralelo)
-         │
-        ─┴─  (a tierra)
+  --┤R├--┤L├--┤C├-- (en paralelo)
+         |
+        -┴-  (a tierra)
 ```
 
 ### Ejemplo: filtro paso-bajo
@@ -2290,7 +2291,7 @@ R = 1 / (9.42 × 10⁻⁵)
 R = 10,610 Ω ≈ 10.6 kΩ
 
 Verificación:
-f_c = 1 / (2π × 10,610 × 0.1×10⁻⁶) = 150 Hz ✓
+f_c = 1 / (2π × 10,610 × 0.1×10⁻⁶) = 150 Hz 
 
 A 60Hz:  X_C = 26.5 kΩ → paso casi libre
 A 300Hz: X_C = 5.3 kΩ  → atenuación significativa
@@ -2299,7 +2300,7 @@ A 420Hz: X_C = 3.78 kΩ → alta atenuación
 
 ---
 
-# 📊 Resumen de Corriente Alterna
+#  Resumen de Corriente Alterna
 
 > Tabla comprehensive de todas las fórmulas y conceptos clave, agrupados por tema.
 
@@ -2418,7 +2419,7 @@ A 420Hz: X_C = 3.78 kΩ → alta atenuación
 |-----------|---------|------------------------------|
 | Relación | a = N₁/N₂ = V₁/V₂ | Igual |
 | Corriente devanado | I₂ - I₁ | Menor (más eficiente) |
-| Aislamiento | No galvánico | ⚠️ Peligro |
+| Aislamiento | No galvánico |  Peligro |
 ---
 
 *Fin del documento — Corriente Alterna completa*

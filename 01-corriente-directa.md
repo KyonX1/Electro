@@ -73,7 +73,7 @@ En la ley de Ohm siempre conoces **dos** variables y calculas la tercera. Es com
 I = V / R = 12 / 470 = 0.02553 A = 25.53 mA
 ```
 
-**Verificación**: V = I × R = 0.02553 × 470 = 12.00 V ✓
+**Verificación**: V = I × R = 0.02553 × 470 = 12.00 V 
 
 ### Ejemplo resuelto 2
 
@@ -83,7 +83,7 @@ I = V / R = 12 / 470 = 0.02553 A = 25.53 mA
 R = V / I = 24 / 3.5 = 6.857 Ω
 ```
 
-**Verificación**: I = V/R = 24/6.857 = 3.5 A ✓
+**Verificación**: I = V/R = 24/6.857 = 3.5 A 
 
 ### Ejemplo resuelto 3
 
@@ -93,7 +93,7 @@ R = V / I = 24 / 3.5 = 6.857 Ω
 R = V / I = 5 / 0.020 = 250 Ω
 ```
 
-### ⚠️ Error común
+###  Error común
 
 La ley de Ohm se aplica **punto por punto**. En un circuito con múltiples componentes, V en la fórmula es el voltaje **específico** sobre **esa** resistencia, no necessarily el voltaje de la fuente.
 
@@ -137,13 +137,13 @@ V₂ = I × R₂ = 0.01846 × 220 = 4.061 V
 V₃ = I × R₃ = 0.01846 × 330 = 6.092 V
 ```
 
-**Verificación**: V_total = 1.846 + 4.061 + 6.092 = 11.999 V ≈ 12 V ✓
+**Verificación**: V_total = 1.846 + 4.061 + 6.092 = 11.999 V ≈ 12 V 
 
 ### Potencia en serie
 
 ```
 P_total = P₁ + P₂ + P₃
-P₁ = I² × R₁ = V₁² / R₁ = V₁ × I
+P₁ = I^2 × R₁ = V₁^2 / R₁ = V₁ × I
 ```
 
 ### Aplicaciones reales
@@ -207,7 +207,7 @@ I₂ = V / R₂ = 24 / 200 = 0.12 A = 120 mA
 I₃ = V / R₃ = 24 / 400 = 0.06 A = 60 mA
 ```
 
-**Verificación**: I_total = 240 + 120 + 60 = 420 mA ✓
+**Verificación**: I_total = 240 + 120 + 60 = 420 mA 
 
 ### Aplicaciones reales
 
@@ -258,7 +258,7 @@ V₁ = I_total × R₁ = 0.13636 × 100 = 13.636 V
 V₂₃ = I_total × R₂₃ = 0.13636 × 120 = 16.364 V
 ```
 
-**Verificación**: V₁ + V₂₃ = 13.636 + 16.364 = 30.000 V ✓
+**Verificación**: V₁ + V₂₃ = 13.636 + 16.364 = 30.000 V 
 
 **Paso 5**: Corriente en cada resistencia del paralelo
 ```python
@@ -266,9 +266,9 @@ I₂ = V₂₃ / R₂ = 16.364 / 200 = 0.08182 A = 81.82 mA
 I₃ = V₂₃ / R₃ = 16.364 / 300 = 0.05455 A = 54.55 mA
 ```
 
-**Verificación corriente**: I₂ + I₃ = 81.82 + 54.55 = 136.37 mA ≈ I_total ✓
+**Verificación corriente**: I₂ + I₃ = 81.82 + 54.55 = 136.37 mA ≈ I_total 
 
-### 💡 Tip
+###  Tip
 
 Cuando no estés seguro, dibuja el circuito con los colores de los cables. Colorea de rojo el nodo de mayor voltaje y de azul el de menor. Los componentes que conectan los mismos colores están en paralelo.
 
@@ -364,7 +364,7 @@ Primero calculamos I:
 I = 12 / (300+100) = 0.03 A
 
 Verificación LKV:
-+12 - (0.03×300) - (0.03×100) = 12 - 9 - 3 = 0 ✓
++12 - (0.03×300) - (0.03×100) = 12 - 9 - 3 = 0 
 ```
 
 ### Regla práctica
@@ -412,7 +412,7 @@ V₂ = 9 × 0.6667
 V₂ = 6V
 ```
 
-**Verificación**: V₁ = 9 × 1000/3000 = 3V. V₁ + V₂ = 3 + 6 = 9V ✓
+**Verificación**: V₁ = 9 × 1000/3000 = 3V. V₁ + V₂ = 3 + 6 = 9V 
 
 ### Aplicaciones reales
 
@@ -420,7 +420,7 @@ V₂ = 6V
 - Sensores de temperatura (termistores en divisor de voltaje)
 - Referencias de voltaje en circuitos electrónicos
 
-### ⚠️ Error común
+###  Error común
 
 El divisor de voltaje asume **carga infinita** (que nada conecta a la salida). Si conectas una carga en paralelo con R₂, la resistencia equivalente cambia y el voltaje también. En ese caso, primero calcula la Thevenin.
 
@@ -460,7 +460,7 @@ I₁ = 200 × 40 / (60 + 40) = 200 × 40/100 = 80 mA
 I₂ = 200 × 60 / (60 + 40) = 200 × 60/100 = 120 mA
 ```
 
-**Verificación**: 80 + 120 = 200 mA ✓
+**Verificación**: 80 + 120 = 200 mA 
 
 ### Nota importante
 
@@ -518,7 +518,7 @@ I = V_Th / (R_Th + R_carga) = 12 / (4 + 8) = 1A
 V_carga = I × R_carga = 1 × 8 = 8V
 ```
 
-### ⚠️ Error común
+###  Error común
 
 No apagar las fuentes al calcular R_Th. Si olvidas cortocircuitar la fuente de voltaje, obtendrás un valor incorrecto.
 
@@ -565,8 +565,8 @@ Norton equivalente: 3A en paralelo con 4Ω
 
 Si conectamos carga de 8Ω:
 ```
-I_carga = I_N × R_N / (R_N + R_carga) = 3 × 4 / (4+8) = 12/12 = 1A ✓
-V_carga = I_carga × R_carga = 1 × 8 = 8V ✓
+I_carga = I_N × R_N / (R_N + R_carga) = 3 × 4 / (4+8) = 12/12 = 1A 
+V_carga = I_carga × R_carga = 1 × 8 = 8V 
 ```
 
 Mismo resultado que Thevenin. Son equivalentes.
@@ -603,7 +603,7 @@ Equivalente: 4A en paralelo con 6Ω
 
 Cuando tienes un circuito con fuentes de voltaje y fuentes de corriente mezcladas. Transformando todo a un solo tipo, puedes resolver por reducción de serie/paralelo.
 
-### ⚠️ Regla
+###  Regla
 
 Solo puedes transformar fuentes **independientes**. Las fuentes dependientes (controladas por otra variable del circuito) no se transforman directamente.
 
@@ -654,7 +654,7 @@ I_R3₂ = V_medio₂ / R₃ = 1.936/5 = 0.387A (de der a izq)
 I_R3 = I_R3₁ - I_R3₂ = 0.968 - 0.387 = 0.581A (de izq a der)
 ```
 
-### ⚠️ Error común
+###  Error común
 
 Sumar sin respetar la dirección. Si una contribución es de izquierda a derecha y la otra de derecha a izquierda, se restan. Siempre define un sentido positivo y mantenlo.
 
@@ -670,7 +670,7 @@ La potencia máxima se transfiere a la carga cuando la resistencia de carga es *
 
 ```
 Condición:     R_carga = R_Th
-Potencia máx:  P_max = V_Th² / (4 × R_Th)
+Potencia máx:  P_max = V_Th^2 / (4 × R_Th)
 ```
 
 ### Ejemplo
@@ -680,7 +680,7 @@ Potencia máx:  P_max = V_Th² / (4 × R_Th)
 ```
 Para máxima potencia: R_carga = 100Ω
 
-P_max = 12² / (4 × 100) = 144 / 400 = 0.36 W = 360 mW
+P_max = 12^2 / (4 × 100) = 144 / 400 = 0.36 W = 360 mW
 ```
 
 ### ¿Cuándo se usa?
@@ -716,19 +716,19 @@ Las fuentes suman si entran con la corriente de malla, restan si van en contra.
 *Dos mallas: R₁ = 10Ω (malla 1), R₂ = 20Ω (malla 2), R₃ = 30Ω (compartida). V₁ = 12V (malla 1), V₂ = 6V (malla 2).*
 
 ```python
-Malla 1: (R₁ + R₃)I₁ - R₃·I₂ = V₁
-         40·I₁ - 30·I₂ = 12    ... (ecuación 1)
+Malla 1: (R₁ + R₃)I₁ - R₃.I₂ = V₁
+         40.I₁ - 30.I₂ = 12    ... (ecuación 1)
 
-Malla 2: -R₃·I₁ + (R₂ + R₃)I₂ = -V₂
-         -30·I₁ + 50·I₂ = -6   ... (ecuación 2)
+Malla 2: -R₃.I₁ + (R₂ + R₃)I₂ = -V₂
+         -30.I₁ + 50.I₂ = -6   ... (ecuación 2)
 ```
 
 Resolviendo (multiplicar ec.1 por 5/3):
 ```
-66.67·I₁ - 50·I₂ = 20
--30·I₁ + 50·I₂ = -6
-─────────────────────
-36.67·I₁ = 14
+66.67.I₁ - 50.I₂ = 20
+-30.I₁ + 50.I₂ = -6
+---------------------
+36.67.I₁ = 14
 I₁ = 0.382 A
 
 I₂ = (30×0.382 - 6)/50 = (11.46-6)/50 = 0.109 A
@@ -782,12 +782,12 @@ Cuando una corriente circula por un conductor con resistencia, se genera calor. 
 ### Fórmulas
 
 ```
-Q = I² × R × t       (Joules de calor generado)
+Q = I^2 × R × t       (Joules de calor generado)
 Q = V × I × t        (si conoces V)
-Q = V² × t / R       (si conoces V y R)
+Q = V^2 × t / R       (si conoces V y R)
 
 Potencia disipada como calor:
-P = I² × R           (Watts)
+P = I^2 × R           (Watts)
 ```
 
 Donde:
@@ -805,11 +805,11 @@ Es como la fricción cuando frotas tus manos: la resistencia al movimiento gener
 *Un cable de 2.5Ω lleva 15A durante 10 minutos. ¿Cuánto calor se genera?*
 
 ```
-Q = I² × R × t = 15² × 2.5 × (10×60)
+Q = I^2 × R × t = 15^2 × 2.5 × (10×60)
 Q = 225 × 2.5 × 600
 Q = 337,500 J = 337.5 kJ
 
-P = I² × R = 225 × 2.5 = 562.5 W
+P = I^2 × R = 225 × 2.5 = 562.5 W
 ```
 
 ### Aplicaciones
@@ -844,8 +844,8 @@ Un capacitor es como un **tanque de agua con émbolo**:
 ```
 C = Q / V           (definición de capacitancia)
 Q = C × V           (carga almacenada)
-E = ½ × C × V²      (energía almacenada)
-E = Q² / (2 × C)    (energía en función de carga)
+E = 1/2 × C × V^2      (energía almacenada)
+E = Q^2 / (2 × C)    (energía en función de carga)
 ```
 
 Donde:
@@ -862,12 +862,12 @@ Donde:
 ### Capacitancia de un capacitor de placas paralelas
 
 ```
-C = ε₀ × εᵣ × A / d
+C = ε₀ × εr × A / d
 
 Donde:
-  ε₀ = 8.854 × 10⁻¹² F/m (permitividad del vacío)
-  εᵣ = permitividad relativa del dieléctrico
-  A = área de las placas (m²)
+  ε₀ = 8.854 × 10⁻¹^2 F/m (permitividad del vacío)
+  εr = permitividad relativa del dieléctrico
+  A = área de las placas (m^2)
   d = distancia entre placas (m)
 ```
 
@@ -898,8 +898,8 @@ Se suman directamente (al revés que las resistencias).
 *Un capacitor de 100μF se carga a 50V. ¿Cuánta energía almacena?*
 
 ```
-E = ½ × C × V² = ½ × 100×10⁻⁶ × 50²
-E = ½ × 0.0001 × 2500
+E = 1/2 × C × V^2 = 1/2 × 100×10⁻⁶ × 50^2
+E = 1/2 × 0.0001 × 2500
 E = 0.125 J = 125 mJ
 ```
 
@@ -922,7 +922,7 @@ Un inductor es como una **turbina en una tubería de agua**:
 
 ```
 V = L × (di/dt)     (voltaje en función del cambio de corriente)
-E = ½ × L × I²      (energía almacenada)
+E = 1/2 × L × I^2      (energía almacenada)
 ```
 
 Donde:
@@ -963,8 +963,8 @@ Igual que los capacitores en serie.
 *Un inductor de 50mH lleva 4A. ¿Cuánta energía almacena?*
 
 ```
-E = ½ × L × I² = ½ × 0.050 × 4²
-E = ½ × 0.050 × 16
+E = 1/2 × L × I^2 = 1/2 × 0.050 × 4^2
+E = 1/2 × 0.050 × 16
 E = 0.4 J = 400 mJ
 ```
 
@@ -1022,7 +1022,7 @@ Corriente en el circuito:
 Para 95%: t = 3τ = 3 segundos
 ```
 
-**Verificación**: v_C(3) = 12 × (1 - e⁻³) = 12 × (1 - 0.0498) = 12 × 0.9502 = 11.40V ≈ 95% de 12V ✓
+**Verificación**: v_C(3) = 12 × (1 - e⁻³) = 12 × (1 - 0.0498) = 12 × 0.9502 = 11.40V ≈ 95% de 12V 
 
 ---
 
@@ -1116,33 +1116,33 @@ Tiempo de estabilización = 5τ = 5 × 0.47 = 2.35 segundos
 ## Resumen de Corriente Directa
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    CORRIENTE DIRECTA                         │
-│                                                             │
-│  Ley de Ohm:           V = I × R                            │
-│                                                             │
-│  Serie:                R_t = R₁+R₂+R₃    I = igual          │
-│  Paralelo:             1/R_t = 1/R₁+1/R₂  V = igual        │
-│                                                             │
-│  Kirchhoff:            ΣI_nodo = 0    ΣV_malla = 0          │
-│                                                             │
-│  Divisor voltaje:      V₂ = V × R₂/(R₁+R₂)                 │
-│  Divisor corriente:    I₁ = I × R₂/(R₁+R₂)                 │
-│                                                             │
-│  Thevenin:             V_Th + R_Th (serie)                   │
-│  Norton:               I_N + R_N (paralelo)                  │
-│                                                             │
-│  Superposición:        Suma de contribuciones individuales   │
-│                                                             │
-│  Joule:                P = I²R  (calor)                      │
-│                                                             │
-│  Capacitor:            C = Q/V, E = ½CV²                     │
-│  Inductor:             V = L(di/dt), E = ½LI²               │
-│                                                             │
-│  Transitorio:          τ = RC o τ = L/R                      │
-│                        Después de 5τ → estabilizado          │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
++-------------------------------------------------------------+
+|                    CORRIENTE DIRECTA                         |
+|                                                             |
+|  Ley de Ohm:           V = I x R                            |
+|                                                             |
+|  Serie:                R_t = R1+R2+R3    I = igual          |
+|  Paralelo:             1/R_t = 1/R1+1/R2  V = igual        |
+|                                                             |
+|  Kirchhoff:            SigmaI_nodo = 0  SigmaV_malla = 0    |
+|                                                             |
+|  Divisor voltaje:      V2 = V x R2/(R1+R2)                 |
+|  Divisor corriente:    I1 = I x R2/(R1+R2)                 |
+|                                                             |
+|  Thevenin:             V_Th + R_Th (serie)                   |
+|  Norton:               I_N + R_N (paralelo)                  |
+|                                                             |
+|  Superposicion:        Suma de contribuciones individuales   |
+|                                                             |
+|  Joule:                P = I^2R  (calor)                      |
+|                                                             |
+|  Capacitor:            C = Q/V, E = 1/2CV^2                     |
+|  Inductor:             V = L(di/dt), E = 1/2LI^2               |
+|                                                             |
+|  Transitorio:          tau = RC o tau = L/R                   |
+|                        Despues de 5tau -> estabilizado       |
+|                                                             |
++-------------------------------------------------------------+
 ```
 
 ---

@@ -27,7 +27,7 @@ $$I = 2.5 \text{ A}$$
 **La corriente que circula por el circuito es de 2.5 A.**
 
 ### Verificación
-Aplicando la fórmula inversa: V = I × R = 2.5 A × 48 Ω = 120 V ✓
+Aplicando la fórmula inversa: V = I × R = 2.5 A × 48 Ω = 120 V 
 
 ---
 
@@ -56,7 +56,7 @@ $$V = 100 \text{ V}$$
 **El voltaje a través del resistor es de 100 V.**
 
 ### Verificación
-Aplicando la fórmula inversa: I = V/R = 100 V / 20 Ω = 5 A ✓
+Aplicando la fórmula inversa: I = V/R = 100 V / 20 Ω = 5 A 
 
 ---
 
@@ -93,7 +93,7 @@ $$V_3 = I \times R_3 = 1 \text{ A} \times 30 \text{ Ω} = 30 \text{ V}$$
 
 ### Verificación
 La suma de voltajes parciales debe ser igual al voltaje total:
-V₁ + V₂ + V₃ = 10 + 20 + 30 = 60 V = V_total ✓
+V₁ + V₂ + V₃ = 10 + 20 + 30 = 60 V = V_total 
 
 ---
 
@@ -131,7 +131,7 @@ $$I_{total} = I_1 + I_2 + I_3 = 2 + 4 + 6 = 12 \text{ A}$$
 - **I_total = 12 A**
 
 ### Verificación
-Usando la resistencia equivalente: I_total = V / R_eq = 120 / 10 = 12 A ✓
+Usando la resistencia equivalente: I_total = V / R_eq = 120 / 10 = 12 A 
 
 ---
 
@@ -175,8 +175,8 @@ $$I_3 = \frac{V_{23}}{R_3} = \frac{60}{60} = 1 \text{ A}$$
 - **I₂ = 2 A, I₃ = 1 A**
 
 ### Verificación
-- Verificación de corrientes: I₂ + I₃ = 2 + 1 = 3 A = I_total ✓
-- Verificación de voltajes: V₁ + V₂₃ = 30 + 60 = 90 V = V_total ✓
+- Verificación de corrientes: I₂ + I₃ = 2 + 1 = 3 A = I_total 
+- Verificación de voltajes: V₁ + V₂₃ = 30 + 60 = 90 V = V_total 
 
 ---
 
@@ -207,7 +207,7 @@ $$V_1 = V_{total} \times \frac{R_1}{R_1 + R_2} = 50 \times \frac{10}{50} = 10 \t
 **El voltaje que cae sobre R₂ es de 40 V.**
 
 ### Verificación
-V₁ + V₂ = 10 + 40 = 50 V = V_total ✓
+V₁ + V₂ = 10 + 40 = 50 V = V_total 
 
 ---
 
@@ -239,8 +239,8 @@ $$I_2 = I_{total} \times \frac{R_1}{R_1 + R_2} = 10 \times \frac{30}{100} = 3 \t
 - **I₂ = 3 A**
 
 ### Verificación
-- I₁ + I₂ = 7 + 3 = 10 A = I_total ✓
-- V₁ = I₁ × R₁ = 7 × 30 = 210 V = V₂ = I₂ × R₂ = 3 × 70 = 210 V ✓
+- I₁ + I₂ = 7 + 3 = 10 A = I_total 
+- V₁ = I₁ × R₁ = 7 × 30 = 210 V = V₂ = I₂ × R₂ = 3 × 70 = 210 V 
 
 ---
 
@@ -311,7 +311,7 @@ $$I_N = \frac{V_{Th}}{R_{Th}} = \frac{30}{10} = 3 \text{ A}$$
 ### Verificación
 Si se aplica una carga R_L = 20 Ω:
 - Thévenin: I_L = V_Th / (R_Th + R_L) = 30 / (10 + 20) = 1 A
-- Norton: I_L = I_N × R_N / (R_N + R_L) = 3 × 10 / (10 + 20) = 30/30 = 1 A ✓
+- Norton: I_L = I_N × R_N / (R_N + R_L) = 3 × 10 / (10 + 20) = 30/30 = 1 A 
 
 Ambos circuitos equivalentes producen el mismo resultado.
 
@@ -401,7 +401,7 @@ $$\text{Costo} = E_{mensual} \times \text{Precio} = 39.6 \times 0.15 = \$5.94$$
 
 ### Verificación
 Costo diario = 1.32 kWh × $0.15 = $0.198
-Costo mensual = $0.198 × 30 = $5.94 ✓
+Costo mensual = $0.198 × 30 = $5.94 
 
 ---
 
@@ -435,7 +435,7 @@ $$Q = \frac{30{,}000}{1000} = 30 \text{ kJ}$$
 
 ### Verificación
 Potencia disipada: P = I² × R = 100 × 5 = 500 W
-Energía: P × t = 500 × 60 = 30,000 J ✓
+Energía: P × t = 500 × 60 = 30,000 J 
 
 ---
 
@@ -466,7 +466,7 @@ $$E = 0.125 \text{ J}$$
 - **Energía E = 0.125 J = 125 mJ**
 
 ### Verificación
-Usando la fórmula alternativa: E = Q²/(2C) = (5 × 10⁻³)² / (2 × 100 × 10⁻⁶) = 25 × 10⁻⁶ / 200 × 10⁻⁶ = 0.125 J ✓
+Usando la fórmula alternativa: E = Q²/(2C) = (5 × 10⁻³)² / (2 × 100 × 10⁻⁶) = 25 × 10⁻⁶ / 200 × 10⁻⁶ = 0.125 J 
 
 ---
 
@@ -495,7 +495,7 @@ $$E = \frac{1}{2} \times 0.5 \times 16 = 4 \text{ J}$$
 **La energía almacenada es de 4 J.**
 
 ### Verificación
-La potencia instantánea: P = L × I × (dI/dt). La energía es la integral de la potencia, lo que confirma que E = ½LI² para corriente constante. ✓
+La potencia instantánea: P = L × I × (dI/dt). La energía es la integral de la potencia, lo que confirma que E = ½LI² para corriente constante. 
 
 ---
 
@@ -532,7 +532,7 @@ $$t = 3 \times 1 = 3 \text{ s}$$
 - **(b) t (para 95%) ≈ 3 s (3τ)**
 
 ### Verificación
-V(3) = V_final × (1 - e⁻³) = V_final × (1 - 0.0498) = V_final × 0.9502 ≈ 95% ✓
+V(3) = V_final × (1 - e⁻³) = V_final × (1 - 0.0498) = V_final × 0.9502 ≈ 95% 
 
 *Nota: En la práctica, se considera que un capacitor está completamente cargado después de 5τ (99.3%).*
 
@@ -616,8 +616,8 @@ Una red de Thévenin tiene V_Th = 48 V y R_Th = 6 Ω. Si se conecta una carga va
 **Respuesta:** V_rms = 120.2 V, V_medio = 108.2 V
 
 **Verificación:**
-V_rms × √2 = 120.2 × 1.4142 = 170 V ✓ (coincide con V_max)
-V_medio / V_max = 108.2 / 170 = 0.6365 ≈ 2/π ✓
+V_rms × √2 = 120.2 × 1.4142 = 170 V  (coincide con V_max)
+V_medio / V_max = 108.2 / 170 = 0.6365 ≈ 2/π 
 
 ---
 
@@ -648,8 +648,8 @@ V_medio / V_max = 108.2 / 170 = 0.6365 ≈ 2/π ✓
 **Respuesta:** f = 50 Hz, ω = 314.16 rad/s
 
 **Verificación:**
-T = 1/f = 1/50 = 0.020 s = 20 ms ✓
-ω = 2πf = 2π(50) = 100π ≈ 314.16 rad/s ✓
+T = 1/f = 1/50 = 0.020 s = 20 ms 
+ω = 2πf = 2π(50) = 100π ≈ 314.16 rad/s 
 
 ---
 
@@ -676,8 +676,8 @@ T = 1/f = 1/50 = 0.020 s = 20 ms ✓
 **Respuesta:** X_L = 18.85 Ω
 
 **Verificación:**
-X_L / (2πf) = 18.85 / 376.99 = 0.050 H = 50 mH ✓
-Unidades: Ω = (rad/s) × H = (1/s) × (V·s/A) = V/A = Ω ✓
+X_L / (2πf) = 18.85 / 376.99 = 0.050 H = 50 mH 
+Unidades: Ω = (rad/s) × H = (1/s) × (V·s/A) = V/A = Ω 
 
 ---
 
@@ -704,8 +704,8 @@ Unidades: Ω = (rad/s) × H = (1/s) × (V·s/A) = V/A = Ω ✓
 **Respuesta:** X_C = 265.26 Ω
 
 **Verificación:**
-1 / (X_C × 2πf) = 1 / (265.26 × 376.99) = 1 / 100,000 = 10⁻⁵ = 10 μF ✓
-Unidades: Ω = 1 / ((rad/s) × F) = 1 / ((1/s) × (A·s/V)) = V/A = Ω ✓
+1 / (X_C × 2πf) = 1 / (265.26 × 376.99) = 1 / 100,000 = 10⁻⁵ = 10 μF 
+Unidades: Ω = 1 / ((rad/s) × F) = 1 / ((1/s) × (A·s/V)) = V/A = Ω 
 
 ---
 
@@ -726,6 +726,7 @@ Unidades: Ω = 1 / ((rad/s) × F) = 1 / ((1/s) × (A·s/V)) = V/A = Ω ✓
 
 2. **Módulo:**
 | Z | = √(R² + X_L²) 
+| --- |
 | Z | = √(30² + 40²) 
 | Z | = √(900 + 1600) 
 | Z | = √2500 
@@ -740,8 +741,8 @@ Unidades: Ω = 1 / ((rad/s) × F) = 1 / ((1/s) × (A·s/V)) = V/A = Ω ✓
 **Respuesta:** |Z| = 50 Ω, φ = 53.13°
 
 **Verificación:**
-R = |Z| × cos(φ) = 50 × cos(53.13°) = 50 × 0.6 = 30 Ω ✓
-X_L = |Z| × sin(φ) = 50 × sin(53.13°) = 50 × 0.8 = 40 Ω ✓
+R = |Z| × cos(φ) = 50 × cos(53.13°) = 50 × 0.6 = 30 Ω 
+X_L = |Z| × sin(φ) = 50 × sin(53.13°) = 50 × 0.8 = 40 Ω 
 
 ---
 
@@ -762,6 +763,7 @@ X_L = |Z| × sin(φ) = 50 × sin(53.13°) = 50 × 0.8 = 40 Ω ✓
 
 2. **Módulo:**
 | Z | = √(R² + X_C²) 
+| --- |
 | Z | = √(50² + 50²) 
 | Z | = √(2500 + 2500) 
 | Z | = √5000 
@@ -776,8 +778,8 @@ X_L = |Z| × sin(φ) = 50 × sin(53.13°) = 50 × 0.8 = 40 Ω ✓
 **Respuesta:** |Z| = 70.71 Ω, φ = -45°
 
 **Verificación:**
-R = |Z| × cos(φ) = 70.71 × cos(-45°) = 70.71 × 0.7071 = 50 Ω ✓
-X_C = |Z| × |sin(φ)| = 70.71 × |sin(-45°)| = 70.71 × 0.7071 = 50 Ω ✓
+R = |Z| × cos(φ) = 70.71 × cos(-45°) = 70.71 × 0.7071 = 50 Ω 
+X_C = |Z| × |sin(φ)| = 70.71 × |sin(-45°)| = 70.71 × 0.7071 = 50 Ω 
 
 ---
 
@@ -824,8 +826,8 @@ X_C = |Z| × |sin(φ)| = 70.71 × |sin(-45°)| = 70.71 × 0.7071 = 50 Ω ✓
 
 **Verificación:**
 V_R² + (V_L - V_C)² = 55.9² + (42.1 - 148.3)² = 3124.8 + (-106.2)² = 3124.8 + 11,278.4 = 14,403.2
-√14,403.2 = 120.0 V = V_fuente ✓
-X_L < X_C → circuito predominantemente capacitivo, φ negativo ✓
+√14,403.2 = 120.0 V = V_fuente 
+X_L < X_C → circuito predominantemente capacitivo, φ negativo 
 
 ---
 
@@ -861,9 +863,9 @@ X_L < X_C → circuito predominantemente capacitivo, φ negativo ✓
 **Respuesta:** I_R = 2.0 A, I_L = 1.5 A, I_total = 2.5 A
 
 **Verificación:**
-I_R = I_total × cos(φ) = 2.5 × cos(36.87°) = 2.5 × 0.8 = 2.0 A ✓
-I_L = I_total × sin(φ) = 2.5 × sin(36.87°) = 2.5 × 0.6 = 1.5 A ✓
-V × I_total × cos(φ) = 120 × 2.5 × 0.8 = 240 W (potencia disipada en R: V²/R = 14400/60 = 240 W) ✓
+I_R = I_total × cos(φ) = 2.5 × cos(36.87°) = 2.5 × 0.8 = 2.0 A 
+I_L = I_total × sin(φ) = 2.5 × sin(36.87°) = 2.5 × 0.6 = 1.5 A 
+V × I_total × cos(φ) = 120 × 2.5 × 0.8 = 240 W (potencia disipada en R: V²/R = 14400/60 = 240 W) 
 
 ---
 
@@ -895,13 +897,13 @@ V × I_total × cos(φ) = 120 × 2.5 × 0.8 = 240 W (potencia disipada en R: V²
    Q = 2,200 × 0.6
    **Q = 1,320 VAR = 1.32 kVAR** (inductiva)
 
-   También: Q = √(S² - P²) = √(2200² - 1760²) = √(4,840,000 - 3,097,600) = √1,742,400 = 1,320 VAR ✓
+   También: Q = √(S² - P²) = √(2200² - 1760²) = √(4,840,000 - 3,097,600) = √1,742,400 = 1,320 VAR 
 
 **Respuesta:** P = 1,760 W, Q = 1,320 VAR, S = 2,200 VA
 
 **Verificación:**
-S² = P² + Q² → 2200² = 1760² + 1320² → 4,840,000 = 3,097,600 + 1,742,400 = 4,840,000 ✓
-P/S = 1760/2200 = 0.8 = cos φ ✓
+S² = P² + Q² → 2200² = 1760² + 1320² → 4,840,000 = 3,097,600 + 1,742,400 = 4,840,000 
+P/S = 1760/2200 = 0.8 = cos φ 
 
 ---
 
@@ -941,8 +943,8 @@ P/S = 1760/2200 = 0.8 = cos φ ✓
 **Respuesta:** C = 691 μF (conector en paralelo)
 
 **Verificación:**
-Q_C = V² × ω × C = 48,400 × 376.99 × 691 × 10⁻⁶ = 12,607 VAR ✓
-FP_nuevo = cos(arctan((17,537 - 12,607)/15,000)) = cos(arctan(4,930/15,000)) = cos(18.19°) = 0.95 ✓
+Q_C = V² × ω × C = 48,400 × 376.99 × 691 × 10⁻⁶ = 12,607 VAR 
+FP_nuevo = cos(arctan((17,537 - 12,607)/15,000)) = cos(arctan(4,930/15,000)) = cos(18.19°) = 0.95 
 
 ---
 
@@ -969,7 +971,7 @@ FP_nuevo = cos(arctan((17,537 - 12,607)/15,000)) = cos(arctan(4,930/15,000)) = c
    **f₀ = 159.15 Hz**
 
    Verificación alternativa: ω₀ = 1/√(LC) = 1/√(10⁻⁶) = 1000 rad/s
-   f₀ = ω₀/(2π) = 1000/6.2832 = 159.15 Hz ✓
+   f₀ = ω₀/(2π) = 1000/6.2832 = 159.15 Hz 
 
 2. **Impedancia en resonancia:**
    En resonancia X_L = X_C, por lo que Z = R (solo resistiva)
@@ -986,10 +988,10 @@ FP_nuevo = cos(arctan((17,537 - 12,607)/15,000)) = cos(arctan(4,930/15,000)) = c
 **Respuesta:** f₀ = 159.15 Hz, Z₀ = 20 Ω, I_max = 2.5 A
 
 **Verificación:**
-X_L = X_C = 100 Ω en resonancia ✓
-Z = R = 20 Ω (mínima) ✓
+X_L = X_C = 100 Ω en resonancia 
+Z = R = 20 Ω (mínima) 
 Factor de calidad: Q = X_L/R = 100/20 = 5
-Voltaje en L o C: V_L = I × X_L = 2.5 × 100 = 250 V > V_fuente (efecto de resonancia) ✓
+Voltaje en L o C: V_L = I × X_L = 2.5 × 100 = 250 V > V_fuente (efecto de resonancia) 
 
 ---
 
@@ -1024,9 +1026,9 @@ Voltaje en L o C: V_L = I × X_L = 2.5 × 100 = 250 V > V_fuente (efecto de reso
 **Respuesta:** P₃φ = 9,145 W (9.15 kW)
 
 **Verificación:**
-P₃φ / S₃φ = 9,145 / 10,392 = 0.88 = FP ✓
+P₃φ / S₃φ = 9,145 / 10,392 = 0.88 = FP 
 S₃φ² = P₃φ² + Q₃φ² → 10,392² = 9,145² + 4,931²
-108,000,000 ≈ 83,631,025 + 24,314,761 = 107,945,786 ≈ 108 × 10⁶ ✓ (redondeo)
+108,000,000 ≈ 83,631,025 + 24,314,761 = 107,945,786 ≈ 108 × 10⁶  (redondeo)
 
 ---
 
@@ -1066,9 +1068,9 @@ S₃φ² = P₃φ² + Q₃φ² → 10,392² = 9,145² + 4,931²
 **Verificación:**
 Potencia primario: P₁ = V₁ × I₁ = 480 × 10 = 4,800 W
 Potencia secundario: P₂ = V₂ × I₂ = 120 × 40 = 4,800 W
-P₁ = P₂ ✓ (transformador ideal, sin pérdidas)
-V₁/V₂ = 480/120 = 4 = a ✓
-I₂/I₁ = 40/10 = 4 = a ✓
+P₁ = P₂  (transformador ideal, sin pérdidas)
+V₁/V₂ = 480/120 = 4 = a 
+I₂/I₁ = 40/10 = 4 = a 
 
 ---
 
@@ -1105,9 +1107,9 @@ I₂/I₁ = 40/10 = 4 = a ✓
 **Respuesta:** I₁ = 120.3 A, I₂ = 277.6 A
 
 **Verificación:**
-I₂/I₁ = 277.6/120.3 = 2.308 = a = V₁_L/V₂_L ✓
-S₁ = √3 × 480 × 120.3 = 100,000 VA = 100 kVA ✓
-S₂ = √3 × 208 × 277.6 = 100,000 VA = 100 kVA ✓
+I₂/I₁ = 277.6/120.3 = 2.308 = a = V₁_L/V₂_L 
+S₁ = √3 × 480 × 120.3 = 100,000 VA = 100 kVA 
+S₂ = √3 × 208 × 277.6 = 100,000 VA = 100 kVA 
 
 ---
 
@@ -1157,9 +1159,9 @@ S₂ = √3 × 208 × 277.6 = 100,000 VA = 100 kVA ✓
 **Respuesta:** Z_T = 68.4 + j11.2 Ω (|Z_T| = 69.31 Ω, φ = 9.30°), I_T = 1.731 A
 
 **Verificación:**
-V = I_T × |Z_T| = 1.731 × 69.31 = 119.98 ≈ 120 V ✓
-φ positivo → circuito ligeramente inductivo (X_L > X_C efectivo) ✓
-Z₁ = 30+j40, Z₂ = 38.4-j28.8 → parte imaginaria neta = +j11.2 → inductivo ✓
+V = I_T × |Z_T| = 1.731 × 69.31 = 119.98 ≈ 120 V 
+φ positivo → circuito ligeramente inductivo (X_L > X_C efectivo) 
+Z₁ = 30+j40, Z₂ = 38.4-j28.8 → parte imaginaria neta = +j11.2 → inductivo 
 
 ---
 
