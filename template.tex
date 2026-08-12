@@ -1,0 +1,137 @@
+\documentclass[11pt,a4paper]{article}
+
+% ══════════════════════════════════════════════════════════════
+% ENCODING & FONTS
+% ══════════════════════════════════════════════════════════════
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\setmathfont{TeX Gyre DejaVu Math}
+
+% ══════════════════════════════════════════════════════════════
+% PAGE LAYOUT
+% ══════════════════════════════════════════════════════════════
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.8cm,right=2.8cm,headheight=14pt]{geometry}
+
+% ══════════════════════════════════════════════════════════════
+% TYPOGRAPHY
+% ══════════════════════════════════════════════════════════════
+\usepackage{microtype}
+\usepackage{parskip}
+\setlength{\parskip}{0.6em}
+\setlength{\parindent}{0pt}
+
+% ══════════════════════════════════════════════════════════════
+% COLORS
+% ══════════════════════════════════════════════════════════════
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primary}{HTML}{1B4F72}
+\definecolor{secondary}{HTML}{2E86C1}
+\definecolor{accent}{HTML}{E74C3C}
+\definecolor{success}{HTML}{27AE60}
+\definecolor{warning}{HTML}{F39C12}
+\definecolor{info}{HTML}{2980B9}
+\definecolor{lightgray}{HTML}{F8F9FA}
+\definecolor{codebg}{HTML}{F4F4F4}
+\definecolor{linkcolor}{HTML}{2471A3}
+\definecolor{tableheader}{HTML}{1B4F72}
+
+% ══════════════════════════════════════════════════════════════
+% HEADERS & FOOTERS
+% ══════════════════════════════════════════════════════════════
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\sffamily\color{primary}\leftmark}
+\fancyfoot[C]{\small\sffamily\color{primary}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{primary}\leaders\hrule height \headrulewidth\hfill}}
+
+% ══════════════════════════════════════════════════════════════
+% SECTION STYLING
+% ══════════════════════════════════════════════════════════════
+\usepackage{titlesec}
+\titleformat{\section}{\Large\bfseries\sffamily\color{primary}}{\thesection}{0.8em}{}[\vspace{-0.5em}{\color{primary}\rule{\textwidth}{0.8pt}}]
+\titleformat{\subsection}{\large\bfseries\sffamily\color{secondary}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\sffamily\color{secondary!80!black}}{\thesubsubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.5em}{0.8em}
+\titlespacing*{\subsection}{0pt}{1.2em}{0.6em}
+\titlespacing*{\subsubsection}{0pt}{1em}{0.4em}
+
+% ══════════════════════════════════════════════════════════════
+% LINKS
+% ══════════════════════════════════════════════════════════════
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=linkcolor,urlcolor=linkcolor,citecolor=linkcolor}
+
+% ══════════════════════════════════════════════════════════════
+% TABLE OF CONTENTS
+% ══════════════════════════════════════════════════════════════
+\usepackage{titletoc}
+\titlecontents{section}[0pt]{\addvspace{0.5em}\bfseries\sffamily\color{primary}}{\contentslabel{1.5em}}{}{\titlerule*[0.5em]{\color{primary!30}.}\contentspage}
+\titlecontents{subsection}[1.5em]{\addvspace{0.2em}\sffamily}{\contentslabel{2em}}{}{\titlerule*[0.5em]{\color{primary!20}.}\contentspage}
+
+% ══════════════════════════════════════════════════════════════
+% CODE BLOCKS
+% ══════════════════════════════════════════════════════════════
+\usepackage{fancyvrb}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},fontsize=\small,frame=leftline,framesep=5pt,framerule=2pt,rulecolor=\color{secondary},bgcolor=\color{lightgray}}
+
+% ══════════════════════════════════════════════════════════════
+% BLOCKQUOTES (Callout boxes)
+% ══════════════════════════════════════════════════════════════
+\usepackage{mdframed}
+\mdfdefinestyle{blockquote}{linecolor=secondary,backgroundcolor=lightgray,linewidth=2pt,roundcorner=5pt,innertopmargin=10pt,innerbottommargin=10pt,innerleftmargin=12pt,innerrightmargin=12pt,skipabove=12pt,skipbelow=12pt}
+\renewenvironment{quote}{\mdframed[style=blockquote]}{\endmdframed}
+
+% ══════════════════════════════════════════════════════════════
+% TABLES
+% ══════════════════════════════════════════════════════════════
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{colortbl}
+\renewcommand{\arraystretch}{1.3}
+
+% ══════════════════════════════════════════════════════════════
+% HIGHLIGHTING MACROS
+% ══════════════════════════════════════════════════════════════
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+% Tight lists
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% ══════════════════════════════════════════════════════════════
+% DOCUMENT
+% ══════════════════════════════════════════════════════════════
+\begin{document}
+
+% Title
+\begin{center}
+\vspace*{1cm}
+{\color{primary}\rule{\textwidth}{2pt}}
+\vspace{1cm}
+
+{\Huge\bfseries\sffamily\color{primary}$title$\par}
+\vspace{0.5cm}
+{\Large\sffamily\color{secondary}Corriente Directa y Alterna\par}
+\vspace{1cm}
+{\color{primary}\rule{\textwidth}{2pt}}
+\vspace{0.5cm}
+{\large\sffamily\color{secondary!60!black}\today\par}
+\vspace{2cm}
+\end{center}
+
+% Table of contents
+\tableofcontents
+\newpage
+
+% Content
+$body$
+
+\end{document}
