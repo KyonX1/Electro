@@ -1,0 +1,400 @@
+% ╔══════════════════════════════════════════════════════════════════════╗
+% ║  TEMPLATE PROFESIONAL - ELECTROTECNIA INDUSTRIAL                    ║
+% ║  Estilo: Libro de texto (Boylestad / Alexander-Sadiku)             ║
+% ╚══════════════════════════════════════════════════════════════════════╝
+\documentclass[11pt,a4paper,openright,twoside]{book}
+
+% ─── CODIFICACIÓN Y FUENTES ───────────────────────────────────────────
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\setmainfont{TeX Gyre Termes}          % Serif elegante (tipo Times)
+\setsansfont{DejaVu Sans}              % Sans para headers
+\setmonofont{DejaVu Sans Mono}         % Monospace para código
+\setmathfont{TeX Gyre Termes Math}     % Matemáticas consistentes
+
+% ─── PAQUETES BASE ────────────────────────────────────────────────────
+\usepackage[
+  top=2.8cm,
+  bottom=2.8cm,
+  left=3cm,
+  right=2.5cm,
+  headheight=15pt,
+  marginparwidth=2cm,
+  marginparsep=0.5cm
+]{geometry}
+
+\usepackage{microtype}                  % Mejor tipografía
+\usepackage{parskip}                    % Espacio entre párrafos
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0pt}
+
+% ─── COLORES ELEGANTES ────────────────────────────────────────────────
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+
+% Paleta profesional (libro de texto)
+\definecolor{chapterblue}{HTML}{1B3A5C}    % Azul oscuro para capítulos
+\definecolor{sectionblue}{HTML}{2471A3}    % Azul medio para secciones
+\definecolor{accentblue}{HTML}{2980B9}     % Azul acento
+\definecolor{lightblue}{HTML}{EBF5FB}      % Fondo azul claro
+\definecolor{examplegreen}{HTML}{E8F8F5}   % Fondo verde para ejemplos
+\definecolor{warnbg}{HTML}{FEF9E7}         % Fondo amarillo para advertencias
+\definecolor{tipbg}{HTML}{EBF5FB}          % Fondo azul para tips
+\definecolor{codebg}{HTML}{F7F9FA}         % Fondo para código
+\definecolor{codeframe}{HTML}{D5DBDB}      % Borde para código
+\definecolor{tableheader}{HTML}{1B3A5C}    % Header de tablas
+\definecolor{tablealt}{HTML}{F2F4F4}       % Fila alterna en tablas
+\definecolor{linkcolor}{HTML}{2471A3}      % Color de enlaces
+
+% ─── ENCABEZADOS Y PIE DE PÁGINA ─────────────────────────────────────
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Encabezado par (izquierda)
+\fancyhead[LE]{%
+  \small\sffamily\color{chapterblue}\leftmark%
+}
+% Encabezado impar (derecha)
+\fancyhead[RO]{%
+  \small\sffamily\color{chapterblue}\rightmark%
+}
+% Pie de página
+\fancyfoot[CE,CO]{%
+  \small\sffamily\color{chapterblue}\thepage%
+}
+\fancyfoot[LE]{%
+  \small\sffamily\color{chapterblue!60}\leftmark%
+}
+\fancyfoot[RO]{%
+  \small\sffamily\color{chapterblue!60}\rightmark%
+}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\headrule}{%
+  \hbox to\headwidth{%
+    \color{chapterblue}\leaders\hrule height \headrulewidth\hfill%
+  }%
+}
+
+% Estilo para páginas de capítulo
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[C]{\small\sffamily\color{chapterblue}\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+}
+
+% ─── CAPÍTULOS (Estilo Boylestad) ─────────────────────────────────────
+\usepackage{titlesec}
+
+% Capítulo: número grande + título
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\sffamily\color{chapterblue}}
+  {%
+    \vspace{-2cm}%
+    \makebox[0pt][l]{%
+      \color{chapterblue!15}\fontsize{120}{120}\selectfont\thechapter%
+    }%
+    \hspace{0.5em}%
+    \rule{\textwidth}{2pt}%
+  }
+  {0pt}
+  {%
+    \vspace{-0.5cm}%
+    \color{chapterblue}\rule{\textwidth}{0.5pt}%
+    \vspace{0.3cm}%
+  }
+
+\titlespacing*{\chapter}{0pt}{-2cm}{1.5cm}
+
+% Sección: número + título con línea
+\titleformat{\section}
+  {\Large\bfseries\sffamily\color{sectionblue}}
+  {\thesection}{0.8em}{}
+  [\vspace{-0.4em}{\color{sectionblue!40}\rule{\textwidth}{0.6pt}}]
+
+% Subsección
+\titleformat{\subsection}
+  {\large\bfseries\sffamily\color{sectionblue!80!black}}
+  {\thesubsubsection}{0.6em}{}
+
+\titlespacing*{\section}{0pt}{1.5em}{0.8em}
+\titlespacing*{\subsection}{0pt}{1.2em}{0.6em}
+
+% ─── SALTOS DE PÁGINA ────────────────────────────────────────────────
+% (using default \clearpage behavior)
+
+% ─── HIPERVINCULOS ────────────────────────────────────────────────────
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectionblue,
+  urlcolor=sectionblue,
+  citecolor=sectionblue,
+  bookmarksdepth=3,
+  pdfauthor={Electrotecnia Completa},
+  pdftitle={Electrotecnia Industrial: Corriente Directa y Alterna},
+  pdfsubject={Ingenieria Electrica},
+}
+
+% ─── TABLA DE CONTENIDOS ──────────────────────────────────────────────
+\usepackage{titletoc}
+
+\titlecontents{chapter}[0pt]
+  {\addvspace{1em}\bfseries\sffamily\color{chapterblue}}
+  {\contentslabel{1.5em}}
+  {}
+  {\titlerule*[0.5em]{\color{chapterblue!30}.}\contentspage}
+
+\titlecontents{section}[1.5em]
+  {\addvspace{0.3em}\sffamily}
+  {\contentslabel{2em}}
+  {}
+  {\titlerule*[0.5em]{\color{chapterblue!20}.}\contentspage}
+
+\titlecontents{subsection}[3.5em]
+  {\addvspace{0.1em}\sffamily\small}
+  {\contentslabel{2.5em}}
+  {}
+  {\titlerule*[0.5em]{\color{chapterblue!15}.}\contentspage}
+
+% ─── BLOQUES DE CÓDIGO ────────────────────────────────────────────────
+\usepackage{fancyvrb}
+\usepackage{listings}
+
+% Estilo de código fuente (igual que IDE moderno)
+\lstdefinestyle{code}{
+  basicstyle=\small\ttfamily,
+  backgroundcolor=\color{codebg},
+  frame=single,
+  rulecolor=\color{codeframe},
+  framerule=0.5pt,
+  breaklines=true,
+  breakatwhitespace=true,
+  columns=flexible,
+  keepspaces=true,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  xleftmargin=8pt,
+  xrightmargin=8pt,
+  aboveskip=10pt,
+  belowskip=10pt,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  numbersep=8pt,
+  captionpos=b,
+}
+
+\lstset{style=code}
+
+% Highlighting para pandoc
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+  commandchars=\\\{\},
+  fontsize=\small,
+  frame=leftline,
+  framesep=5pt,
+  framerule=2pt,
+  rulecolor=\color{accentblue},
+  bgcolor=\color{codebg}
+}
+
+% ─── CAJAS DE CONTENIDO (tcolorbox) ──────────────────────────────────
+\usepackage[most]{tcolorbox}
+
+% --- Definición ---
+\newtcolorbox{definitionbox}[1][]{
+  colback=lightblue,
+  colframe=accentblue,
+  coltitle=white,
+  fonttitle=\bfseries\sffamily,
+  title={Definición},
+  arc=3pt,
+  boxrule=0.8pt,
+  left=10pt,
+  right=10pt,
+  top=8pt,
+  bottom=8pt,
+  #1
+}
+
+% --- Ejemplo Resuelto ---
+\newtcolorbox{examplebox}[1][]{
+  colback=examplegreen,
+  colframe=RGB{39,174,96},
+  coltitle=white,
+  fonttitle=\bfseries\sffamily,
+  title={Ejemplo Resuelto},
+  arc=3pt,
+  boxrule=0.8pt,
+  left=10pt,
+  right=10pt,
+  top=8pt,
+  bottom=8pt,
+  #1
+}
+
+% --- Fórmula Clave ---
+\newtcolorbox{formulabox}[1][]{
+  colback=tipbg,
+  colframe=accentblue,
+  coltitle=white,
+  fonttitle=\bfseries\sffamily,
+  title={Fórmula Clave},
+  arc=3pt,
+  boxrule=0.8pt,
+  left=10pt,
+  right=10pt,
+  top=8pt,
+  bottom=8pt,
+  #1
+}
+
+% --- Advertencia ---
+\newtcolorbox{warningbox}[1][]{
+  colback=warnbg,
+  colframe=RGB{243,156,18},
+  coltitle=white,
+  fonttitle=\bfseries\sffamily,
+  title={Advertencia},
+  arc=3pt,
+  boxrule=0.8pt,
+  left=10pt,
+  right=10pt,
+  top=8pt,
+  bottom=8pt,
+  #1
+}
+
+% --- Verificación ---
+\newtcolorbox{checkmarkbox}[1][]{
+  colback=examplegreen,
+  colframe=RGB{39,174,96},
+  coltitle=white,
+  fonttitle=\bfseries\sffamily,
+  title={Verificación},
+  arc=3pt,
+  boxrule=0.8pt,
+  left=10pt,
+  right=10pt,
+  top=8pt,
+  bottom=8pt,
+  #1
+}
+
+% --- Nota / Tip ---
+\newtcolorbox{tipbox}[1][]{
+  colback=tipbg,
+  colframe=accentblue,
+  coltitle=white,
+  fonttitle=\bfseries\sffamily,
+  title={Nota},
+  arc=3pt,
+  boxrule=0.8pt,
+  left=10pt,
+  right=10pt,
+  top=8pt,
+  bottom=8pt,
+  #1
+}
+
+% ─── TABLAS PROFESIONALES ─────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{colortbl}
+
+\renewcommand{\arraystretch}{1.3}
+
+% ─── LISTAS ────────────────────────────────────────────────────────────
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=1.5em}
+
+% ─── TÍTULOS DE LISTA DE FIGURAS ──────────────────────────────────────
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% ─── HIGHLIGHTING DE PANDOC ──────────────────────────────────────────
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+% ─── DOCUMENTO ─────────────────────────────────────────────────────────
+\begin{document}
+
+% ╔════════════════════════════════════════════════════════════════════╗
+% ║  PORTADA PROFESIONAL                                              ║
+% ╚════════════════════════════════════════════════════════════════════╝
+\begin{titlepage}
+\centering
+\vspace*{1cm}
+
+% Línea decorativa superior
+{\color{chapterblue}\rule{\textwidth}{3pt}}
+
+\vspace{2cm}
+
+% Título principal
+{\fontsize{36}{42}\selectfont\bfseries\sffamily\color{chapterblue}%
+  Electrotecnia Industrial\\[0.3cm]%
+}
+
+% Subtítulo
+{\fontsize{18}{24}\selectfont\sffamily\color{sectionblue}%
+  Corriente Directa y Alterna\\[0.5cm]%
+}
+
+% Línea decorativa media
+{\color{chapterblue}\rule{0.6\textwidth}{1.5pt}}
+
+\vspace{1.5cm}
+
+% Descripción
+{\large\sffamily\color{sectionblue!80!black}%
+  Guía completa de fundamentos, teoría, fórmulas\\
+  y ejemplos resueltos para el estudio de\\
+  circuitos eléctricos de CD y CA%
+}
+
+\vspace{2cm}
+
+% Versión y fecha
+{\large\sffamily\color{sectionblue!60!black}%
+  Versión 1.0 --- 2026%
+}
+
+\vfill
+
+% Pie de portada
+{\color{chapterblue}\rule{\textwidth}{3pt}}\\[0.3cm]
+{\small\sffamily\color{chapterblue!60!black}%
+  Contenido: Fundamentos -- Corriente Directa -- Corriente Alterna\\
+  Ejercicios Resueltos -- Tablas de Formulas -- Referencias%
+}
+
+\end{titlepage}
+
+% ╔════════════════════════════════════════════════════════════════════╗
+% ║  DEDICATORIA                                                     ║
+% ╚════════════════════════════════════════════════════════════════════╝
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\textit{\Large\sffamily\color{chapterblue!70!black}%
+  ``La electricidad no perdona la ignorancia,\\
+  pero recompensa la curiosidad.''}
+\end{center}
+\vspace*{\fill}
+\newpage
+
+% ╔════════════════════════════════════════════════════════════════════╗
+% ║  TABLA DE CONTENIDOS                                             ║
+% ╚════════════════════════════════════════════════════════════════════╝
+\tableofcontents
+\newpage
+
+% ╔════════════════════════════════════════════════════════════════════╗
+% ║  CONTENIDO DEL LIBRO                                             ║
+% ╚════════════════════════════════════════════════════════════════════╝
+$body$
+
+\end{document}
