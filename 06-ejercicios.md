@@ -64,6 +64,44 @@ R60 = R20 * (1 + alpha * 40)
 print(f"R20 = {R20:.3f} ohm, R60 = {R60:.3f} ohm")
 ```
 
+### Ejercicio 1.4: Campo Eléctrico de una Carga
+
+**Enunciado:** Calcule el campo eléctrico a 2 m de una carga puntual de $5\ \mu\text{C}$ y el potencial en ese punto.
+
+**Solución (Capítulo 1):**
+
+$$E = k \frac{q}{r^2} = 8.99 \times 10^9 \cdot \frac{5 \times 10^{-6}}{2^2} = 11237.5\ \text{N/C}$$
+
+$$V = k \frac{q}{r} = 8.99 \times 10^9 \cdot \frac{5 \times 10^{-6}}{2} = 22475\ \text{V}$$
+
+**Resultado:** $E = 11.24$ kN/C, $V = 22.5$ kV.
+
+### Ejercicio 1.5: Potencia y Energía
+
+**Enunciado:** Un calentador de $2.2\ \text{k}\Omega$ se conecta a 230 V durante 3 horas. Calcule la corriente, la potencia y la energía en kWh.
+
+**Solución (Capítulo 1):**
+
+$$I = \frac{V}{R} = \frac{230}{2200} = 104.5\ \text{mA}$$
+
+$$P = \frac{V^2}{R} = \frac{230^2}{2200} = 24.05\ \text{W}$$
+
+$$W = P \cdot t = 24.05 \cdot 3 = 72.1\ \text{Wh} = 0.072\ \text{kWh}$$
+
+**Resultado:** $I = 104.5$ mA, $P = 24.05$ W, $W = 0.072$ kWh.
+
+### Ejercicio 1.6: Energía en un Campo Eléctrico
+
+**Enunciado:** Una esfera conductora de radio 5 cm se carga a 10 kV. Calcule la densidad de energía del campo en su superficie.
+
+**Solución (Capítulo 1):**
+
+El campo en la superficie es $E = V/R = 10000/0.05 = 2 \times 10^5$ V/m y la densidad de energía:
+
+$$u_E = \frac{1}{2}\varepsilon_0 E^2 = \frac{1}{2} \cdot 8.854 \times 10^{-12} \cdot (2 \times 10^5)^2 = 0.177\ \text{J/m}^3$$
+
+**Resultado:** $u_E = 0.177$ J/m³.
+
 ---
 
 ## Ejercicios de Corriente Directa (Capítulo 2)
@@ -173,6 +211,57 @@ $$I_{330} = I_T \frac{220}{220 + 330} = 0.1 \cdot \frac{220}{550} = 40\ \text{mA
 
 **Resultado:** $I_{220} = 60$ mA, $I_{330} = 40$ mA (verificación: $60 + 40 = 100$ mA, KCL).
 
+### Ejercicio 2.5: Método de Mallas
+
+**Enunciado:** Resuelva por mallas el circuito con $V_1 = 10$ V, $V_2 = 5$ V, $R_1 = 100\ \Omega$, $R_x = 200\ \Omega$ y $R_2 = 150\ \Omega$, donde $R_x$ es la resistencia común entre ambas mallas. Calcule la corriente que circula por $R_x$.
+
+**Solución (Capítulo 2):**
+
+Planteando KVL en cada malla:
+
+$$(R_1 + R_x) i_1 - R_x i_2 = V_1$$
+
+$$-R_x i_1 + (R_2 + R_x) i_2 = V_2$$
+
+Sustituyendo:
+
+$$300 i_1 - 200 i_2 = 10 \qquad -200 i_1 + 350 i_2 = 5$$
+
+Resolviendo el sistema (Cramer):
+
+$$i_1 = \frac{10 \cdot 350 - (-200) \cdot 5}{300 \cdot 350 - (-200)(-200)} = \frac{3500 + 1000}{105000 - 40000} = \frac{4500}{65000} = 69.2\ \text{mA}$$
+
+$$i_2 = \frac{300 \cdot 5 - (-200) \cdot 10}{65000} = \frac{1500 + 2000}{65000} = 53.8\ \text{mA}$$
+
+La corriente en $R_x$ es la diferencia: $I_{Rx} = i_1 - i_2 = 15.4$ mA.
+
+**Resultado:** $i_1 = 69.2$ mA, $i_2 = 53.8$ mA, $I_{Rx} = 15.4$ mA.
+
+```python
+# Sistema Cramer 2x2
+a1, b1, c1 = 300.0, -200.0, 10.0
+a2, b2, c2 = -200.0, 350.0, 5.0
+det = a1 * b2 - a2 * b1
+i1 = (c1 * b2 - c2 * b1) / det
+i2 = (a1 * c2 - a2 * c1) / det
+print(f"i1 = {i1*1000:.1f} mA, i2 = {i2*1000:.1f} mA")
+print(f"I_Rx = {(i1-i2)*1000:.1f} mA")
+```
+
+### Ejercicio 2.6: Transitorio RL
+
+**Enunciado:** Un circuito RL serie con $R = 10\ \Omega$ y $L = 50$ mH se conecta a 12 V. Calcule la constante de tiempo, la corriente final y la corriente a $t = 2\tau$.
+
+**Solución (Capítulo 2):**
+
+$$\tau = \frac{L}{R} = \frac{50 \times 10^{-3}}{10} = 5\ \text{ms}$$
+
+$$I_{final} = \frac{V}{R} = \frac{12}{10} = 1.2\ \text{A}$$
+
+$$I_L(2\tau) = I_{final}(1 - e^{-2}) = 1.2 \cdot 0.8647 = 1.038\ \text{A}$$
+
+**Resultado:** $\tau = 5$ ms, $I_{final} = 1.2$ A, $I_L(2\tau) = 1.04$ A (86.5% del valor final).
+
 ---
 
 ## Ejercicios de Corriente Alterna (Capítulo 3)
@@ -201,13 +290,13 @@ $$X_L = 2\pi f L = 2\pi \cdot 50 \cdot 0.1 = 31.4\ \Omega$$
 
 $$X_C = \frac{1}{2\pi f C} = \frac{1}{2\pi \cdot 50 \cdot 20 \times 10^{-6}} = 159.2\ \Omega$$
 
-$$Z = \sqrt{R^2 + (X_L - X_C)^2} = \sqrt{30^2 + (31.4 - 159.2)^2} = \sqrt{900 + 16333} = 131.3\ \Omega$$
+$$Z = \sqrt{R^2 + (X_L - X_C)^2} = \sqrt{30^2 + (31.4 - 159.2)^2} = \sqrt{900 + 16333} = 131.2\ \Omega$$
 
-$$I = \frac{V}{Z} = \frac{230}{131.3} = 1.75\ \text{A}$$
+$$I = \frac{V}{Z} = \frac{230}{131.2} = 1.75\ \text{A}$$
 
 $$\phi = \arctan\left(\frac{X_L - X_C}{R}\right) = \arctan\left(\frac{-127.8}{30}\right) = -76.8^\circ$$
 
-**Resultado:** $Z = 131.3\ \Omega$, $I = 1.75$ A, $\phi = -76.8^\circ$ (circuito capacitivo, corriente adelantada).
+**Resultado:** $Z = 131.2\ \Omega$, $I = 1.75$ A, $\phi = -76.8^\circ$ (circuito capacitivo, corriente adelantada).
 
 ```python
 import math
@@ -262,6 +351,36 @@ En resonancia $Z = R = 5\ \Omega$; $I = 10/5 = 2$ A.
 
 **Resultado:** $f_r = 1.59$ kHz, $Z = 5\ \Omega$, $I = 2$ A.
 
+### Ejercicio 3.5: Potencias en AC
+
+**Enunciado:** Una carga consume 8 A con FP = 0.85 en retraso a 230 V. Calcule las potencias activa, reactiva y aparente.
+
+**Solución (Capítulo 3):**
+
+$$S = V I = 230 \cdot 8 = 1840\ \text{VA}$$
+
+$$P = S \cos\phi = 1840 \cdot 0.85 = 1564\ \text{W}$$
+
+$$\phi = \arccos(0.85) = 31.79^\circ \qquad Q = S \sin\phi = 1840 \cdot 0.527 = 969\ \text{VAR}$$
+
+**Resultado:** $S = 1.84$ kVA, $P = 1.56$ kW, $Q = 0.97$ kVAR.
+
+### Ejercicio 3.6: Circuito RLC Paralelo
+
+**Enunciado:** En un circuito paralelo con $R = 100\ \Omega$, $X_L = 200\ \Omega$ y $X_C = 50\ \Omega$ alimentado a 230 V, calcule las corrientes de cada rama y la corriente total.
+
+**Solución (Capítulo 3):**
+
+$$I_R = \frac{V}{R} = \frac{230}{100} = 2.3\ \text{A} \qquad I_L = \frac{V}{X_L} = \frac{230}{200} = 1.15\ \text{A}$$
+
+$$I_C = \frac{V}{X_C} = \frac{230}{50} = 4.6\ \text{A}$$
+
+La corriente total es la suma fasorial (el condensador y la bobina se oponen):
+
+$$I_T = \sqrt{I_R^2 + (I_C - I_L)^2} = \sqrt{2.3^2 + 3.45^2} = \sqrt{5.29 + 11.90} = 4.15\ \text{A}$$
+
+**Resultado:** $I_R = 2.3$ A, $I_L = 1.15$ A, $I_C = 4.6$ A, $I_T = 4.15$ A (capacitiva, corriente adelantada).
+
 ---
 
 ## Ejercicios de Trifásica (Capítulo 3)
@@ -311,6 +430,54 @@ $$I_L = \sqrt{3}\, I_F = 34.6\ \text{A}$$
 
 **Resultado:** En delta la corriente de línea es $\sqrt{3}$ veces mayor: $I_L = 34.6$ A (tres veces la potencia que en estrella).
 
+### Ejercicio 4.3: Potencia Trifásica
+
+**Enunciado:** Calcule la potencia activa total de una carga trifásica balanceada de $15\ \angle 25^\circ\ \Omega$ por fase conectada en estrella a una red de 400 V.
+
+**Solución (Capítulo 3):**
+
+$$V_F = \frac{400}{\sqrt{3}} = 230.9\ \text{V} \qquad I_L = \frac{230.9}{15} = 15.4\ \text{A}$$
+
+$$P_{3\phi} = \sqrt{3}\, V_L I_L \cos\phi = 1.732 \cdot 400 \cdot 15.4 \cdot \cos 25^\circ = 9670\ \text{W}$$
+
+**Resultado:** $P_{3\phi} = 9.67$ kW.
+
+```python
+import math
+V_L, Z, ang = 400.0, 15.0, 25.0
+V_F = V_L / math.sqrt(3)
+I_L = V_F / Z
+P = math.sqrt(3) * V_L * I_L * math.cos(math.radians(ang))
+print(f"I_L = {I_L:.1f} A, P = {P/1000:.2f} kW")
+```
+
+### Ejercicio 4.4: Corriente de Neutro
+
+**Enunciado:** En una red de 400 V en estrella con neutro, tres cargas monofásicas desbalanceadas de 20 A, 10 A y 15 A (con FP unitario) se conectan entre cada fase y el neutro. Determinar la corriente de neutro aproximada (las corrientes están desfasadas 120°).
+
+**Solución (Capítulo 3):**
+
+$$\vec{I}_N = \vec{I}_a + \vec{I}_b + \vec{I}_c = 20\angle 0^\circ + 10\angle -120^\circ + 15\angle 120^\circ$$
+
+Descomponiendo en componentes:
+
+$$I_{Nx} = 20 \cdot 1 + 10 \cdot (-0.5) + 15 \cdot (-0.5) = 20 - 5 - 7.5 = 7.5\ \text{A}$$
+
+$$I_{Ny} = 20 \cdot 0 + 10 \cdot (-0.866) + 15 \cdot 0.866 = -8.66 + 12.99 = 4.33\ \text{A}$$
+
+$$I_N = \sqrt{7.5^2 + 4.33^2} = 8.66\ \text{A}$$
+
+**Resultado:** $I_N = 8.66$ A (el neutro conduce el desequilibrio; con cargas balanceadas sería cero).
+
+```python
+import math
+I_a, I_b, I_c = 20.0, 10.0, 15.0
+IN_x = I_a + I_b * math.cos(math.radians(-120)) + I_c * math.cos(math.radians(120))
+IN_y = I_b * math.sin(math.radians(-120)) + I_c * math.sin(math.radians(120))
+IN = math.hypot(IN_x, IN_y)
+print(f"I_N = {IN:.2f} A")
+```
+
 ---
 
 ## Ejercicios de Máquinas (Capítulo 4)
@@ -355,6 +522,30 @@ $$T = K\phi I_a = 1.464 \cdot 25 = 36.6\ \text{N·m}$$
 
 **Resultado:** $E = 217.5$ V, $n = 1419$ rpm, $T = 36.6$ N·m.
 
+### Ejercicio 5.4: Rendimiento de un Transformador
+
+**Enunciado:** Un transformador de 100 kVA, FP = 0.9, presenta pérdidas en el hierro de 500 W y en el cobre de 1200 W a plena carga. Calcule el rendimiento a plena carga.
+
+**Solución (Capítulo 4):**
+
+$$P_{util} = S \cdot FP = 100000 \cdot 0.9 = 90000\ \text{W}$$
+
+$$\eta = \frac{P_{util}}{P_{util} + P_{cu} + P_{fe}} = \frac{90000}{90000 + 1200 + 500} = \frac{90000}{91700} = 0.9815$$
+
+**Resultado:** $\eta = 98.15\%$.
+
+### Ejercicio 5.5: Velocidad Síncrona
+
+**Enunciado:** Un generador síncrono de 6 polos gira a 1000 rpm. Calcule la frecuencia generada y la velocidad para 60 Hz con el mismo número de polos.
+
+**Solución (Capítulo 4):**
+
+$$f = \frac{p \cdot n}{120} = \frac{6 \cdot 1000}{120} = 50\ \text{Hz}$$
+
+$$n_{60} = \frac{120 \cdot 60}{6} = 1200\ \text{rpm}$$
+
+**Resultado:** $f = 50$ Hz; a 60 Hz la velocidad es 1200 rpm.
+
 ---
 
 ## Ejercicios de Instalaciones (Capítulo 5)
@@ -391,6 +582,41 @@ $$I_{defecto} = \frac{V}{R_A + R_B} = \frac{230}{20 + 10} = 7.67\ \text{A}$$
 El diferencial de 30 mA detecta cualquier fuga superior a 0.03 A; la fuga real por la masa es miles de veces mayor y dispara de forma inmediata.
 
 **Resultado:** $I_{defecto} = 7.67$ A $\gg 30$ mA: el RCD dispara.
+
+### Ejercicio 6.3: Sección por Calentamiento
+
+**Enunciado:** Seleccione la sección mínima por calentamiento para un circuito trifásico que consume 94 A, instalado en bandeja al aire con conductores de cobre (tabla de intensidades admisibles del Capítulo 5).
+
+**Solución (Capítulo 5):**
+
+Buscando en la tabla de intensidades admisibles (bandeja al aire), la sección cuya intensidad admisible supere a la de servicio:
+
+| **Seccion (mm²)** | **Intensidad admisible (A)** | **Cumple 94 A?** |
+| :----------------: | :--------------------------: | :---------------: |
+| 16 | 76 | No |
+| :----------------: | :--------------------------: | :---------------: |
+| 25 | 96 | Si |
+| :----------------: | :--------------------------: | :---------------: |
+| 35 | 119 | Si (mayor margen) |
+| :----------------: | :--------------------------: | :---------------: |
+
+**Resultado:** Sección mínima por calentamiento: $S = 25\ \text{mm}^2$ (96 A $\geq$ 94 A).
+
+### Ejercicio 6.4: Verificación del Bucle de Defecto
+
+**Enunciado:** Un circuito de 16 A (curva C) protegido por magnetotérmico tiene una impedancia de bucle de 0.9 $\Omega$ en una red de 230 V. Verifique que la protección actúa en el tiempo exigido.
+
+**Solución (Capítulo 5):**
+
+$$I_{cc} = \frac{V}{Z_{bucle}} = \frac{230}{0.9} = 255.6\ \text{A}$$
+
+Para que el disparo magnético ocurra en 0.4 s, la corriente debe superar el umbral de la curva C:
+
+$$I_{cc} \geq 5 \cdot I_n = 5 \cdot 16 = 80\ \text{A}$$
+
+Como $255.6$ A $\geq$ 80 A, la protección actúa correctamente.
+
+**Resultado:** $I_{cc} = 255.6$ A $\geq$ 80 A: verificación OK.
 
 ---
 
