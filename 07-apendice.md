@@ -247,7 +247,7 @@ La relación $k = 1/(4\pi\varepsilon_0)$ y la velocidad de la luz $c = 1/\sqrt{\
 | :----------- | :---------- |
 | Resistencia vs. temperatura | $R_T = R_{20}[1 + \alpha(T - 20)]$ |
 | :----------- | :---------- |
-| Densidad de energía eléctrica | $u_E = \dfrac{1}{2}\varepsilon_0 E^2$ |
+| Densidad de energía eléctrica | $u_E = \dfrac{1}{2}\varepsilon_0 \varepsilon_r E^2$ |
 | :----------- | :---------- |
 
 ### A.7.2 Corriente Directa (Capítulo 2)
@@ -342,7 +342,7 @@ La relación $k = 1/(4\pi\varepsilon_0)$ y la velocidad de la luz $c = 1/\sqrt{\
 | :----------- | :---------- |
 | Par máquina DC | $T = K\phi I_a$ |
 | :----------- | :---------- |
-| Velocidad motor DC | $n = \dfrac{V - I_a R_a}{K\phi}$ |
+| Velocidad angular motor DC | $\omega = \dfrac{V - I_a R_a}{K\phi}$ |
 | :----------- | :---------- |
 | Frecuencia síncrona | $f = \dfrac{p \cdot n}{120}$ |
 | :----------- | :---------- |
@@ -354,14 +354,14 @@ La relación $k = 1/(4\pi\varepsilon_0)$ y la velocidad de la luz $c = 1/\sqrt{\
 | :----------- | :---------- |
 | Potencia mecánica | $P_m = T\omega = T \dfrac{2\pi n}{60}$ |
 | :----------- | :---------- |
-| FEM alternador síncrono | $E_a = \sqrt{E_a^2 - 2E_a I_a X_s \sin\phi + (I_a X_s)^2}$ |
+| Tensión de fase del alternador | $V_\phi = \sqrt{E_a^2 - 2E_a I_a X_s \sin\phi + (I_a X_s)^2}$ |
 | :----------- | :---------- |
 
 ### A.7.5 Instalaciones Eléctricas (Capítulo 5)
 
 | **Magnitud** | **Fórmula** |
 | :----------- | :---------- |
-| Resistencia de puesta a tierra | $R_T = \dfrac{\rho}{2\pi r}$ |
+| Resistencia de tierra | $R_T = \dfrac{V_{sonda}}{I_{inyectada}}$ |
 | :----------- | :---------- |
 | Corriente de defecto (TT) | $I_{defecto} = \dfrac{V}{R_A + R_B}$ |
 | :----------- | :---------- |
@@ -375,7 +375,7 @@ La relación $k = 1/(4\pi\varepsilon_0)$ y la velocidad de la luz $c = 1/\sqrt{\
 | :----------- | :---------- |
 | Sección por calentamiento | $I_{admisible} \geq I_{servicio}$ |
 | :----------- | :---------- |
-| Selectividad amperimétrica | $I_{agua\ arriba} \geq 1.6\,I_{agua\ abajo}$ |
+| Selectividad amperimétrica | $I_{aguas\ arriba} \geq I_{aguas\ abajo}$ (calibres y curvas escalonados) |
 | :----------- | :---------- |
 | Corriente de cortocircuito | $I_{cc} = \dfrac{V}{Z_{bucle}}$ |
 | :----------- | :---------- |
@@ -393,4 +393,10 @@ La relación $k = 1/(4\pi\varepsilon_0)$ y la velocidad de la luz $c = 1/\sqrt{\
 
 ---
 
-*Referencias: [@boylestad2023, caps. 2-3]; [@alexander2021, apéndice B]; [@iec60364, secs. 431, 523, 601]*
+## Referencias
+
+[@boylestad2023] Boylestad, R. L. *Introductory Circuit Analysis*. 14th ed. Pearson, 2023.
+
+[@alexander2021] Alexander, C. K. and Sadiku, M. N. O. *Fundamentals of Electric Circuits*. 7th ed. McGraw-Hill, 2021.
+
+[@iec60364] IEC 60364. *Low-voltage electrical installations*. International Electrotechnical Commission.
