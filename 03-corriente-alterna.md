@@ -1,4 +1,15 @@
+```{=latex}
+\clearpage
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+  \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{img/portadilla-03.png}};
+\end{tikzpicture}
+\clearpage
+```
+
 # Corriente Alterna
+
+
 
 La corriente alterna (AC) es el flujo de carga que invierte periódicamente su sentido. Su forma de onda más común es la sinusoidal, producida por generadores síncronos en centrales eléctricas. La AC presenta ventajas decisivas frente a la corriente directa: el voltaje puede elevarse y reducirse fácilmente mediante transformadores, lo que permite transmitir energía a grandes distancias con pérdidas reducidas. Por esta razón, prácticamente toda la generación, transmisión y distribución de energía eléctrica se realiza en corriente alterna [@boylestad2023, cap. 13].
 
@@ -239,20 +250,9 @@ $$\vec{V} = \vec{I}(R + jX_L - jX_C)$$
 
 Si $X_L > X_C$ el circuito es inductivo (la corriente se retrasa); si $X_C > X_L$ es capacitivo (la corriente se adelanta). Cuando $X_L = X_C$ ocurre la resonancia (sección posterior). El diagrama fasorial resume las relaciones de magnitud y fase:
 
-```text
-+--------------------+     +---------------------+     +----------------+
-| Z (hipotenusa)     | --> | R (cateto real)     | --> | Eje real      |
-+--------------------+     +---------------------+     +----------------+
-         |                       |                          ^
-         |                       v                          |
-         |                    +-----+                       |
-         +------------------> | phi | ----------------------+
-         |                    +-----+
-         v
-+---------------------+     +----------------+
-| XL - XC (cateto)    | --> | Eje imaginario |
-+---------------------+     +----------------+
-```
+![Triángulo de impedancias (Z, R y X)](img/diagrama-triangulo-impedancias.png){width=70%}
+
+*Triángulo de impedancias (Z, R y X)*
 
 El ángulo $\phi$ entre $R$ y $Z$ define el carácter del circuito: $\phi > 0$ inductivo, $\phi < 0$ capacitivo.
 
@@ -330,13 +330,9 @@ La relación entre ellas es el triángulo de potencias:
 
 $$S^2 = P^2 + Q^2$$
 
-```text
-+--------+     +-------+     +----------+     +-----+     +----------------+
-| S (VA) | --> | P (W) | --> | Eje real | --> | phi | --> | Q (VAR)       |
-+--------+     +-------+     +----------+     +-----+     +----------------+
-                 |                              ^
-                 +------------------------------+
-```
+![Conexión estrella (Y)](img/diagrama-conexion-estrella.png){width=70%}
+
+*Conexión estrella (Y)*
 
 El triángulo de potencias: $S$ es la hipotenusa, $P$ el cateto real y $Q$ el cateto imaginario; $\phi$ es el ángulo entre $S$ y $P$.
 
@@ -467,16 +463,9 @@ En estrella, los tres devanados comparten un punto común (neutro). Las tensione
 
 $$V_{linea} = \sqrt{3}\, V_{fase} \qquad I_{linea} = I_{fase}$$
 
-```text
-+--------------------+     +--------------------+     +---------------------+
-| Red 400 V          | --> | Estrella (Y)       | --> | V_F = V_L / sqrt(3) |
-+--------------------+     +--------------------+     +---------------------+
-         |                      |                          ^
-         |                      v                          |
-         |                   +-----+                      |
-         +------------------> | Y   | -> I_L = I_F -------+
-                              +-----+
-```
+![Triángulo de potencias (S, P y Q)](img/diagrama-triangulo-potencias.png){width=70%}
+
+*Triángulo de potencias (S, P y Q)*
 
 ### Conexión Delta (Δ)
 
@@ -484,16 +473,9 @@ En delta, los devanados se conectan en triángulo sin neutro. Las tensiones de l
 
 $$V_{linea} = V_{fase} \qquad I_{linea} = \sqrt{3}\, I_{fase}$$
 
-```text
-+--------------------+     +--------------------+     +---------------------+
-| Red 400 V          | --> | Delta (D)          | --> | V_F = V_L          |
-+--------------------+     +--------------------+     +---------------------+
-         |                      |                          ^
-         |                      v                          |
-         |                   +-----+                      |
-         +------------------> | D   | -> I_L = sqrt(3)*I_F-+
-                              +-----+
-```
+![Conexión delta (Δ)](img/diagrama-conexion-delta.png){width=70%}
+
+*Conexión delta (Δ)*
 
 | **Conexion** | **V_linea vs V_fase** | **I_linea vs I_fase** | **Neutro** |
 | :----------: | :-------------------: | :-------------------: | :--------: |
@@ -691,3 +673,6 @@ IEC 60364. *Low-voltage electrical installations*. International Electrotechnica
 
 RETIE. *Reglamento Técnico de Instalaciones Eléctricas*. Colombia.
 
+## Hoja de fórmulas
+
+![Hoja de fórmulas](img/hoja-f03.png){width=100%}

@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SKILL_DIR="$HOME/.agents/skills/pandoc-pdf-generation/assets"
-LATEX_PREAMBLE="$SKILL_DIR/table-spacing-template.tex"
+# Preambulo LaTeX profesional: fuentes serif, microtype, tablas elegantes,
+# codigo con quiebre de linea (fvextra), titulos con color, encabezados.
+LATEX_PREAMBLE="$(pwd)/preamble.tex"
 
 # Bibliography: symlinks created (references.bib -> referencias.bib,
 # chicago-note-bibliography.csl -> ieee.csl) so pandoc finds them here.

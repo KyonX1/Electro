@@ -1,4 +1,15 @@
+```{=latex}
+\clearpage
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+  \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{img/portadilla-05.png}};
+\end{tikzpicture}
+\clearpage
+```
+
 # Instalaciones Eléctricas
+
+
 
 La instalación eléctrica de baja tensión es el conjunto de circuitos, equipos y dispositivos que llevan la energía desde el punto de suministro hasta los receptores (alumbrado, fuerza, equipos especiales). Su diseño debe garantizar tres objetivos simultáneos: seguridad de las personas y los bienes, correcto funcionamiento de los receptores y eficiencia económica. Las instalaciones se rigen por normas técnicas de obligado cumplimiento, entre ellas la serie IEC 60364 (internacional), el RETIE en Colombia y, en otros países, el NEC de Estados Unidos o el Reglamento Electrotécnico de Baja Tensión (REBT) en España [@iec60364, sec. 1].
 
@@ -65,23 +76,11 @@ $$I_{defecto} = \frac{V}{R_A + R_B}$$
 
 donde $R_A$ es la resistencia de tierra de las masas y $R_B$ la del neutro.
 
-```text
-                                                   +-----------------+     +----------------------------+
-                                                   | Diferencial RCD | --> |          Dispara           |
-                                                   +-----------------+     +----------------------------+
-                                                     ^
-                                                     |
-                                                     |
-+---------------+     +------+     +---------+     +-----------------+     +----------------------------+     +--------------+     +--------------------+
-| Transformador | --> | Fase | --> | Defecto | --> |      Masa       | --> | RB (electrodo instalacion) | --> | Tierra comun | --> | RA (electrodo red) |
-+---------------+     +------+     +---------+     +-----------------+     +----------------------------+     +--------------+     +--------------------+
-  |                                                                                                                                  ^
-  |                                                                                                                                  |
-  v                                                                                                                                  |
-+---------------+                                                                                                                    |
-|    Neutro     | -------------------------------------------------------------------------------------------------------------------+
-+---------------+
-```
+![Esquema TT de puesta a tierra](img/diagrama-instalacion-tt.png){width=70%}
+
+*Esquema TT de puesta a tierra*
+
+> **Nota:** El circuito de defecto se cierra por tierra: fase → masa → $R_A$ → tierra → $R_B$ → neutro. El diferencial RCD instalado en la acometida detecta la corriente de fuga y dispara.
 
 El defecto fase-masa cierra el circuito por tierra a través de $R_B$ y $R_A$; el diferencial RCD detecta la corriente de fuga y desconecta la instalación.
 
@@ -94,7 +93,8 @@ print(f"I_defecto = {I_def:.1f} A")
 # Tension de contacto en las masas
 V_contacto = I_def * R_A
 print(f"V_contacto = {V_contacto:.0f} V")
-print(f"Limite seguro < 50 V (locales secos): {'OK' if V_contacto < 50 else 'REQUIERE DIFERENCIAL'}")
+print(f"Limite seguro < 50 V (locales secos): "
+      f"{'OK' if V_contacto < 50 else 'REQUIERE DIFERENCIAL'}")
 ```
 
 ### Esquema TN
@@ -319,7 +319,8 @@ for S in [35, 50, 70]:
         break
 # Criterio 3: coordinacion con la proteccion
 I_z = tabla_bandeja[S]   # admisible del conductor elegido
-print(f"Coordinacion: I_z = {I_z} A >= I_n = {I_dispositivo} A: {'OK' if I_z >= I_dispositivo else 'REVISAR'}")
+print(f"Coordinacion: I_z = {I_z} A >= I_n = {I_dispositivo} A: "
+      f"{'OK' if I_z >= I_dispositivo else 'REVISAR'}")
 ```
 
 > **Nota:** La sección final es la mayor de las tres obtenidas por los criterios de calentamiento, caída de tensión y coordinación con la protección. En circuitos largos, la caída de tensión suele ser el criterio dominante [@retie, art. 16].
@@ -495,7 +496,9 @@ I_cc_min = V / Z_bucle
 I_n = 16.0         # A
 factor_curva_C = 5.0
 print(f"I_cc minima = {I_cc_min:.0f} A (exige >= {I_n*factor_curva_C:.0f} A)")
-print(f"Verificacion: {'OK' if I_cc_min >= I_n*factor_curva_C else 'REVISAR SECCION'} (t: 0.4 s max)")
+print(f"Verificacion: "
+      f"{'OK' if I_cc_min >= I_n*factor_curva_C else 'REVISAR SECCION'} "
+      f"(t: 0.4 s max)")
 ```
 
 ### Medición de la Resistencia de Tierra
@@ -556,3 +559,6 @@ Alexander, C. K. and Sadiku, M. N. O. *Fundamentals of Electric Circuits*. 7th e
 
 Chapman, S. J. *Electric Machinery Fundamentals*. 5th ed. McGraw-Hill, 2012.
 
+## Hoja de fórmulas
+
+![Hoja de fórmulas](img/hoja-f05.png){width=100%}

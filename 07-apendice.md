@@ -1,4 +1,15 @@
+```{=latex}
+\clearpage
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+  \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{img/portadilla-07.png}};
+\end{tikzpicture}
+\clearpage
+```
+
 # Apéndice: Tablas, Constantes y Fórmulas
+
+
 
 Este apéndice reúne en forma de tablas maestras los datos y expresiones de consulta rápida utilizados a lo largo del texto: propiedades de los materiales, capacidades de corriente de los conductores, códigos de colores, símbolos normalizados, prefijos del Sistema Internacional, constantes físicas y un resumen de fórmulas por capítulo. Su contenido complementa los capítulos 1 a 5 y sirve de referencia durante la resolución de los ejercicios del capítulo 6 [@iec60364, sec. 431].
 

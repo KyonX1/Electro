@@ -1,4 +1,15 @@
+```{=latex}
+\clearpage
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+  \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{img/portadilla-02.png}};
+\end{tikzpicture}
+\clearpage
+```
+
 # Corriente Directa
+
+
 
 La corriente directa (DC) es el flujo de carga en una sola dirección a través de un circuito. A diferencia de la corriente alterna, la magnitud y el sentido de la corriente continua permanecen constantes en régimen permanente, lo que simplifica considerablemente el análisis de redes resistivas. Este capítulo desarrolla las herramientas fundamentales para el análisis de circuitos DC: asociaciones de resistencias, leyes de Kirchhoff, teoremas de equivalencia, métodos sistemáticos de resolución, comportamiento transitorio de condensadores e inductores, y la instrumentación empleada para su medición [@boylestad2023, cap. 5].
 
@@ -78,17 +89,9 @@ print(f"R1||R2 = {R2eq:.2f} ohm")
 
 La mayoría de los circuitos prácticos combinan asociaciones en serie y en paralelo. La estrategia de reducción consiste en identificar pares de resistencias claramente en serie o en paralelo, reemplazarlos por su equivalente y repetir el proceso hasta obtener una sola resistencia [@alexander2021, cap. 2].
 
-```text
-+---+     +----+     +--------+     +----+     +-----+
-| V | --> | R1 | --> | Nodo A | --> | R2 | --> | GND |
-+---+     +----+     +--------+     +----+     +-----+
-                       |                         ^
-                       |                         |
-                       v                         |
-                     +--------+                  |
-                     |   R3   | -----------------+
-                     +--------+
-```
+![Divisor de tensión con carga R3](img/diagrama-divisor-tension.png){width=70%}
+
+*Divisor de tensión con carga R3*
 
 La red del diagrama combina $R_1$ en serie con el paralelo de $R_2$ y $R_3$; su reducción paso a paso se muestra en el código siguiente.
 
@@ -193,7 +196,8 @@ R1, R2 = 100.0, 300.0
 I = V / (R1 + R2)
 print(f"I = {I*1000:.1f} mA")
 print(f"V_R1 = {I*R1:.2f} V, V_R2 = {I*R2:.2f} V")
-print(f"P_R1 = {I**2*R1:.3f} W, P_R2 = {I**2*R2:.3f} W, P_total = {I**2*(R1+R2):.3f} W")
+print(f"P_R1 = {I**2*R1:.3f} W, P_R2 = {I**2*R2:.3f} W, "
+      f"P_total = {I**2*(R1+R2):.3f} W")
 ```
 
 ---
@@ -216,17 +220,9 @@ $$V_1 = V \frac{R_1}{R_1 + R_2} \qquad V_2 = V \frac{R_2}{R_1 + R_2}$$
 
 $$V_{out} = V \frac{R_2 \parallel R_L}{R_1 + (R_2 \parallel R_L)}$$
 
-```text
-+---+     +----+     +--------+     +-----------+     +-----+
-| V | --> | R1 | --> | Salida | --> | Carga R_L | --> | GND |
-+---+     +----+     +--------+     +-----------+     +-----+
-                       |                                ^
-                       |                                |
-                       v                                |
-                     +--------+                         |
-                     |   R2   | ------------------------+
-                     +--------+
-```
+![Circuito con carga RL y rama R2](img/diagrama-carga-rl.png){width=70%}
+
+*Circuito con carga RL y rama R2*
 
 Sin carga, el voltaje de salida es $V_{out} = V \cdot R_2/(R_1 + R_2)$; al conectar $R_L$ (diagrama), el divisor se recalcula con $R_2 \parallel R_L$.
 
@@ -285,7 +281,7 @@ Cualquier red lineal de fuentes y resistencias, vista desde dos terminales $a$-$
 - **Resistencia de Thévenin** $R_{th}$: resistencia equivalente entre $a$ y $b$ con todas las fuentes independientes apagadas (fuentes de voltaje en cortocircuito, fuentes de corriente en circuito abierto).
 
 ```python
-# Ejemplo: circuito con V = 24 V, R1 = 100 ohm en serie, R2 = 300 ohm entre a-b
+# Ejemplo: V = 24 V, R1 = 100 ohm en serie, R2 = 300 ohm entre a-b
 V = 24.0
 R1, R2 = 100.0, 300.0
 # V_th = voltaje en circuito abierto sobre R2 (divisor)
@@ -535,7 +531,8 @@ I_final = V / R
 for t in [0.0, tau, 2*tau, 3*tau, 5*tau]:
     I_L = I_final * (1 - math.exp(-t/tau))
     V_L = V * math.exp(-t/tau)
-    print(f"t = {t*1000:6.2f} ms -> I_L = {I_L*1000:6.2f} mA, V_L = {V_L:6.3f} V")
+    print(f"t = {t*1000:6.2f} ms -> I_L = {I_L*1000:6.2f} mA, "
+          f"V_L = {V_L:6.3f} V")
 ```
 
 ### Desconexión y Protección
@@ -557,7 +554,8 @@ L, R = 50e-3, 10.0
 I0 = 1.2            # A circulando antes de abrir
 R_abertura = 5e3    # ohm (contacto que se abre)
 V_pico = L * I0 * R_abertura / L   # aproximacion instantanea
-print(f"I0 = {I0:.2f} A, V_pico estimado > {R_abertura*I0/1000:.0f} kV (destructivo)")
+print(f"I0 = {I0:.2f} A, "
+      f"V_pico estimado > {R_abertura*I0/1000:.0f} kV (destructivo)")
 ```
 
 > **Nota:** La energía almacenada en un inductor no puede disiparse instantáneamente. En la práctica se coloca un diodo en antiparalelo (rueda libre) para recircular la corriente de forma segura en relés, contactores y fuentes conmutadas.
@@ -745,3 +743,6 @@ Chapman, S. J. *Electric Machinery Fundamentals*. 5th ed. McGraw-Hill, 2012.
 
 RETIE. *Reglamento Técnico de Instalaciones Eléctricas*. Colombia.
 
+## Hoja de fórmulas
+
+![Hoja de fórmulas](img/hoja-f02.png){width=100%}

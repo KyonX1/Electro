@@ -1,0 +1,163 @@
+% =============================================================================
+% PREAMBLE PROFESIONAL — Electrotecnia Industrial
+% Tipografia suave y elegante: formulas, tablas y codigo
+% =============================================================================
+
+% --- Fuentes (XeLaTeX): serif profesional para texto, math emparejada -------
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\setmainfont{TeX Gyre Termes}            % texto: serif tipo Times, muy legible
+\setsansfont{TeX Gyre Heros}             % sans para titulos/notas
+\setmonofont{DejaVu Sans Mono}[Scale=0.85]  % codigo: mono compacto
+\setmathfont{TeX Gyre Termes Math}       % formulas: emparejadas con el texto
+\setmathfont[range=\mathbb]{Latin Modern Math} % doble trazo en negrita
+
+% --- Microtipografia: suaviza el texto justificado ---------------------------
+% Nota: XeTeX solo soporta protrusion (no font expansion)
+\usepackage{microtype}
+\microtypesetup{protrusion=true, expansion=false}
+
+% --- Paleta de colores suaves ------------------------------------------------
+\usepackage{xcolor}   % sin [table]: pandoc ya carga xcolor, evita Option clash
+\definecolor{azulmarino}{HTML}{1F4E79}   % titulos y reglas principales
+\definecolor{azulmedia}{HTML}{2E74B5}    % acentos
+\definecolor{grisfondo}{HTML}{F4F6F8}    % fondo de bloques de codigo
+\definecolor{griscabecera}{HTML}{DEE7F2} % cabeceras de tabla
+\definecolor{grisborde}{HTML}{B8C4D0}    % bordes suaves
+\definecolor{gristexto}{HTML}{333333}    % texto codigo
+
+% --- Espaciado y parrafos ----------------------------------------------------
+\usepackage{setspace}
+\setstretch{1.12}                        % interlineado suave
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{1.2em}
+
+% --- Enlaces: discretos, sin cajas ------------------------------------------
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=azulmedia,
+    citecolor=azulmedia,
+    urlcolor=azulmedia,
+    pdftitle={Electrotecnia Industrial},
+    pdfauthor={KyonX1}
+}
+
+% =============================================================================
+% TABLAS: elegantes con booktabs + cabecera coloreada
+% =============================================================================
+\usepackage{booktabs}
+\usepackage{tikz}        % portada/portadillas a pagina completa (overlay)
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{colortbl}    % \rowcolor para cabeceras (independiente de xcolor[table])
+\usepackage{etoolbox}
+\usepackage{needspace}
+\usepackage{caption}
+
+% Cabecera con fondo suave y texto en negrita azul
+\newcommand{\tablacab}[1]{%
+  \arrayrulecolor{azulmarino}%
+  \rowcolor{griscabecera}%
+  \textbf{\textcolor{azulmarino}{#1}}%
+}
+% Reglas: gruesa arriba, fina bajo cabecera, gruesa abajo
+\renewcommand{\heavyrulewidth}{1.1pt}
+\renewcommand{\lightrulewidth}{0.5pt}
+\renewcommand{\cmidrulewidth}{0.5pt}
+\setlength{\tabcolsep}{7pt}
+\setlength{\extrarowheight}{3pt}
+\renewcommand{\arraystretch}{1.25}
+% (filas alternadas requeririan xcolor[table]; se omiten para evitar clash)
+
+% Captions de tabla: pequenos, negrita el numero, italica el titulo
+\captionsetup{font=small, labelfont={bf,color=azulmarino}, textfont=it, skip=6pt}
+
+% =============================================================================
+% CODIGO: caja suave con quiebre de linea automatico (arregla desbordes)
+% =============================================================================
+\usepackage{fvextra}
+\usepackage{fancyvrb}
+\fvset{
+    breaklines=true,              % QUIEBRE de lineas largas (print muy largos)
+    breakanywhere=false,
+    breaksymbol=\tiny$\hookrightarrow$,
+    breakindent=2em,
+    fontsize=\footnotesize,
+    frame=single,
+    framerule=0.3pt,
+    rulecolor=grisborde,
+    framesep=6pt,
+    numbers=left,
+    numbersep=8pt,
+    numberblanklines=false,
+    xleftmargin=12pt,
+    xrightmargin=4pt,
+    obeytabs=true
+}
+% Fondo suave para los bloques de codigo de pandoc (entorno Shaded)
+\usepackage[most]{tcolorbox}
+\BeforeBeginEnvironment{Shaded}{\begin{tcolorbox}[enhanced, sharp corners=all,
+    colback=grisfondo, colframe=grisborde, boxrule=0.4pt, left=2pt, right=2pt,
+    top=2pt, bottom=2pt, breakable, before skip=8pt, after skip=10pt]}
+\AfterEndEnvironment{Shaded}{\end{tcolorbox}}
+
+% =============================================================================
+% TITULOS: jerarquia clara con color azul marino
+% =============================================================================
+\usepackage{titlesec}
+% Capitulo (H1): barra azul + titulo grande
+\titleformat{\section}
+  {\Large\bfseries\color{azulmarino}}{\thesection}{0.8em}{}
+\titleformat{\subsection}
+  {\large\bfseries\color{azulmedia}}{\thesubsection}{0.7em}{}
+\titleformat{\subsubsection}
+  {\normalsize\bfseries\color{azulmarino}}{\thesubsubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{16pt plus 4pt}{8pt}
+\titlespacing*{\subsection}{0pt}{12pt plus 3pt}{6pt}
+\titlespacing*{\subsubsection}{0pt}{10pt plus 2pt}{4pt}
+
+% =============================================================================
+% ENCABEZADOS Y PIES DE PAGINA
+% =============================================================================
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\small\itshape\textcolor{azulmedia}{\leftmark}}
+\fancyhead[RO]{\small\itshape\textcolor{azulmedia}{\rightmark}}
+\fancyfoot[LE,RO]{\small\bfseries\color{azulmarino}\thepage}
+\fancyfoot[CE,CO]{\small\color{grisborde}Electrotecnia Industrial}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\color{azulmarino}\hrule width\headwidth height 0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% --- Tabla de contenidos: numeracion ancha (evita solapamientos) -------------
+\usepackage{tocloft}
+\setlength{\cftsecnumwidth}{2.8em}
+\setlength{\cftsubsecnumwidth}{3.8em}
+\setlength{\cftsubsubsecnumwidth}{4.8em}
+\renewcommand{\cftsecfont}{\color{azulmarino}}
+\renewcommand{\cfttoctitlefont}{\huge\bfseries\color{azulmarino}}
+
+% --- Listas con espaciado agradable ------------------------------------------
+\usepackage{enumitem}
+\setlist{topsep=4pt, itemsep=2pt, parsep=0pt}
+
+% --- Saltos de pagina controlados --------------------------------------------
+\widowpenalty=10000
+\clubpenalty=10000
+\raggedbottom
+
+% --- Comandos personalizados --------------------------------------------------
+\newcommand{\ohm}{\,\Omega}
+\newcommand{\uV}{\,\mu V}
+\newcommand{\uA}{\,\mu A}
+\newcommand{\mA}{\,mA}
+\newcommand{\kV}{\,kV}
+\newcommand{\kA}{\,kA}
+
+% --- Tamaño de archivo: streams SIN comprimir (PDF legible por cualquier
+%     visor, solo ocupa mas espacio en disco; no cambia el aspecto) -----------
+% Nota: la compresion de streams queda en el nivel por defecto de xdvipdfmx.
+% Las imagenes PNG (portada, portadillas, diagramas, hojas) aportan el peso
+% principal del PDF (~11 MB), por lo que no hace falta descomprimir streams.

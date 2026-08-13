@@ -1,4 +1,15 @@
+```{=latex}
+\clearpage
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+  \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{img/portadilla-01.png}};
+\end{tikzpicture}
+\clearpage
+```
+
 # Fundamentos de Electrotecnia
+
+
 
 ## Carga Eléctrica y Ley de Coulomb
 
@@ -58,7 +69,8 @@ for qi, xi, yi in charges:
     Fx += F_mag * xi / r * (1 if q0*qi > 0 else -1)
     Fy += F_mag * yi / r * (1 if q0*qi > 0 else -1)
 F_net = math.hypot(Fx, Fy)
-print(f"Fuerza neta: {F_net:.4f} N, angulo: {math.degrees(math.atan2(Fy, Fx)):.1f} deg")
+print(f"Fuerza neta: {F_net:.4f} N, "
+      f"angulo: {math.degrees(math.atan2(Fy, Fx)):.1f} deg")
 ```
 
 ---
@@ -207,7 +219,8 @@ U = 0.5 * C * V**2
 Q = C * V
 print(f"Energia: {U:.4f} J")
 print(f"Carga: {Q:.4f} C")
-print(f"Densidad de energia (E = V/d, d=1mm): {0.5 * 8.854e-12 * (V/0.001)**2:.2e} J/m^3")
+print(f"Densidad de energia (E = V/d, d=1mm): "
+      f"{0.5 * 8.854e-12 * (V/0.001)**2:.2e} J/m^3")
 ```
 
 ### Potencia Eléctrica
@@ -505,3 +518,6 @@ IEC 60364. *Low-voltage electrical installations*. International Electrotechnica
 
 RETIE. *Reglamento Técnico de Instalaciones Eléctricas*. Colombia.
 
+## Hoja de fórmulas
+
+![Hoja de fórmulas](img/hoja-f01.png){width=100%}

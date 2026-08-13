@@ -1,4 +1,15 @@
+```{=latex}
+\clearpage
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+  \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{img/portadilla-06.png}};
+\end{tikzpicture}
+\clearpage
+```
+
 # Ejercicios Resueltos y Propuestos
+
+
 
 Este capítulo reúne ejercicios que integran los conceptos de los capítulos 1 a 5. Los ejercicios resueltos muestran el procedimiento completo paso a paso, con las referencias al capítulo correspondiente; los ejercicios propuestos permiten practicar de forma autónoma y sus respuestas numéricas se presentan al final del capítulo.
 
@@ -472,7 +483,8 @@ $$I_N = \sqrt{7.5^2 + 4.33^2} = 8.66\ \text{A}$$
 ```python
 import math
 I_a, I_b, I_c = 20.0, 10.0, 15.0
-IN_x = I_a + I_b * math.cos(math.radians(-120)) + I_c * math.cos(math.radians(120))
+IN_x = (I_a + I_b * math.cos(math.radians(-120))
+        + I_c * math.cos(math.radians(120)))
 IN_y = I_b * math.sin(math.radians(-120)) + I_c * math.sin(math.radians(120))
 IN = math.hypot(IN_x, IN_y)
 print(f"I_N = {IN:.2f} A")
@@ -729,3 +741,6 @@ IEC 60364. *Low-voltage electrical installations*. International Electrotechnica
 
 RETIE. *Reglamento Técnico de Instalaciones Eléctricas*. Colombia.
 
+## Hoja de fórmulas
+
+![Hoja de fórmulas](img/hoja-f06.png){width=100%}

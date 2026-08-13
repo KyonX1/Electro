@@ -1,4 +1,15 @@
+```{=latex}
+\clearpage
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+  \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{img/portadilla-04.png}};
+\end{tikzpicture}
+\clearpage
+```
+
 # Máquinas Eléctricas
+
+
 
 Las máquinas eléctricas son dispositivos que convierten energía entre los dominios eléctrico y mecánico. En sentido generador, convierten energía mecánica en eléctrica; en sentido motor, energía eléctrica en mecánica. Los principios físicos que las gobiernan son el electromagnetismo (Capítulo 1), la inducción de Faraday y la fuerza de Lorentz, y su comportamiento en régimen de corriente alterna se apoya en los fasores e impedancias del Capítulo 3 [@chapman2012, cap. 1].
 
@@ -149,23 +160,9 @@ El transformador real presenta pérdidas en el cobre (devanados) y en el hierro 
 
 El circuito equivalente incluye resistencias y reactancias de dispersión en ambos devanados, más la rama de magnetización ($R_c$ y $X_m$) en paralelo. Los ensayos de vacío y de cortocircuito permiten determinar estos parámetros [@chapman2012, cap. 2].
 
-```text
-+----+     +----------+     +---------------------+     +-----------------------+     +----+
-| V1 | --> | R1 + jX1 | --> |                     | --> |       R2 + jX2        | --> | V2 |
-+----+     +----------+     |                     |     +-----------------------+     +----+
-                            |                     |
-                            |       Nucleo        | <-----+
-                            |                     |       |
-                            |                     |     +-----------------------+
-                         +> |                     | --> | Rfe (perdidas hierro) |
-                         |  +---------------------+     +-----------------------+
-                         |    |
-                         |    |
-                         |    v
-                         |  +---------------------+
-                         +- | jXm (magnetizacion) |
-                            +---------------------+
-```
+![Circuito equivalente del transformador](img/diagrama-transformador.png){width=70%}
+
+*Circuito equivalente del transformador*
 
 Los parámetros $R_1 + jX_1$ y $R_2 + jX_2$ se obtienen del ensayo de cortocircuito; $R_{fe}$ y $jX_m$ del ensayo de vacío.
 
@@ -265,17 +262,9 @@ La velocidad del motor se regula variando el voltaje de armadura o el flujo de c
 
 $$\omega = \frac{V - I_a R_a}{K \phi}$$
 
-```text
-+------------------+     +----------------+     +-----------------+     +---------------+     +----------------+
-| V (alimentacion) | --> | I_a (armadura) | --> | E = K*phi*omega | --> | T = K*phi*I_a | --> | n (velocidad) |
-+------------------+     +----------------+     +-----------------+     +---------------+     +----------------+
-                                                                          ^
-                                                                          |
-                                                                          |
-                                                                        +---------------+
-                                                                        |  phi (flujo)  |
-                                                                        +---------------+
-```
+![Modelo del motor de corriente continua](img/diagrama-motor-dc.png){width=70%}
+
+*Modelo del motor de corriente continua*
 
 El diagrama muestra la cadena de conversión del motor: el voltaje de armadura fija $E$, el flujo de campo y $E$ determinan la velocidad, y el par ($T = K\phi I_a$) depende del flujo y de la corriente de armadura.
 
@@ -321,7 +310,8 @@ E = V - Ia * Ra
 n_nominal = E / (K * phi_nominal) * 60 / (2 * math.pi)
 n_efectivo = E / (K * phi_efectivo) * 60 / (2 * math.pi)
 print(f"n nominal = {n_nominal:.0f} rpm")
-print(f"n con reaccion = {n_efectivo:.0f} rpm (+{100*(n_efectivo/n_nominal-1):.1f}%)")
+print(f"n con reaccion = {n_efectivo:.0f} rpm "
+      f"(+{100*(n_efectivo/n_nominal-1):.1f}%)")
 ```
 
 > **Nota:** El motor de CC en derivación es el caballo de batalla de la velocidad regulable. Con control de voltaje de armadura (variadores DC) ofrece par constante hasta velocidad base, y con debilitamiento de campo, potencia aproximadamente constante por encima de la velocidad base.
@@ -579,3 +569,6 @@ IEC 60364. *Low-voltage electrical installations*. International Electrotechnica
 
 RETIE. *Reglamento Técnico de Instalaciones Eléctricas*. Colombia.
 
+## Hoja de fórmulas
+
+![Hoja de fórmulas](img/hoja-f04.png){width=100%}

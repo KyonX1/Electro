@@ -1,18 +1,14 @@
 ---
-title: "Electrotecnia Industrial"
-subtitle: "Desde fundamentos hasta máquinas e instalaciones"
-author: "KyonX1"
-date: "2026"
 lang: es
+include-before:
+  - |
+    ```{=latex}
+    \begin{titlepage}
+    \thispagestyle{empty}
+    \begin{tikzpicture}[remember picture, overlay]
+      \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{img/portada.png}};
+    \end{tikzpicture}
+    \end{titlepage}
+    ```
 ---
-
-# Electrotecnia Industrial {.unnumbered}
-
-**Desde fundamentos hasta máquinas e instalaciones**
-
----
-
-*Texto de referencia para nivel intermedio-avanzado (C/D)*
-
-![CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/88x31.png)
 
