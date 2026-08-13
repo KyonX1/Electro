@@ -395,8 +395,9 @@ La relación $k = 1/(4\pi\varepsilon_0)$ y la velocidad de la luz $c = 1/\sqrt{\
 
 ## Referencias
 
-[@boylestad2023] Boylestad, R. L. *Introductory Circuit Analysis*. 14th ed. Pearson, 2023.
+Boylestad, R. L. *Introductory Circuit Analysis*. 14th ed. Pearson, 2023.
 
-[@alexander2021] Alexander, C. K. and Sadiku, M. N. O. *Fundamentals of Electric Circuits*. 7th ed. McGraw-Hill, 2021.
+Alexander, C. K. and Sadiku, M. N. O. *Fundamentals of Electric Circuits*. 7th ed. McGraw-Hill, 2021.
 
-[@iec60364] IEC 60364. *Low-voltage electrical installations*. International Electrotechnical Commission.
+IEC 60364. *Low-voltage electrical installations*. International Electrotechnical Commission.
+

@@ -569,12 +569,13 @@ El motor universal es un motor de CC en serie optimizado para AC: funciona con a
 
 ## Referencias
 
-[@chapman2012] Chapman, S. J. *Electric Machinery Fundamentals*. 5th ed. McGraw-Hill, 2012.
+Chapman, S. J. *Electric Machinery Fundamentals*. 5th ed. McGraw-Hill, 2012.
 
-[@boylestad2023] Boylestad, R. L. *Introductory Circuit Analysis*. 14th ed. Pearson, 2023.
+Boylestad, R. L. *Introductory Circuit Analysis*. 14th ed. Pearson, 2023.
 
-[@alexander2021] Alexander, C. K. and Sadiku, M. N. O. *Fundamentals of Electric Circuits*. 7th ed. McGraw-Hill, 2021.
+Alexander, C. K. and Sadiku, M. N. O. *Fundamentals of Electric Circuits*. 7th ed. McGraw-Hill, 2021.
 
-[@iec60364] IEC 60364. *Low-voltage electrical installations*. International Electrotechnical Commission.
+IEC 60364. *Low-voltage electrical installations*. International Electrotechnical Commission.
 
-[@retie] RETIE. *Reglamento Técnico de Instalaciones Eléctricas*. Colombia.
+RETIE. *Reglamento Técnico de Instalaciones Eléctricas*. Colombia.
+

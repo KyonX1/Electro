@@ -737,10 +737,11 @@ print(f"P = {P:.1f} W, W = {W_Wh/1000:.3f} kWh en {t_horas:.0f} h")
 
 ## Referencias
 
-[@boylestad2023] Boylestad, R. L. *Introductory Circuit Analysis*. 14th ed. Pearson, 2023.
+Boylestad, R. L. *Introductory Circuit Analysis*. 14th ed. Pearson, 2023.
 
-[@alexander2021] Alexander, C. K. and Sadiku, M. N. O. *Fundamentals of Electric Circuits*. 7th ed. McGraw-Hill, 2021.
+Alexander, C. K. and Sadiku, M. N. O. *Fundamentals of Electric Circuits*. 7th ed. McGraw-Hill, 2021.
 
-[@chapman2012] Chapman, S. J. *Electric Machinery Fundamentals*. 5th ed. McGraw-Hill, 2012.
+Chapman, S. J. *Electric Machinery Fundamentals*. 5th ed. McGraw-Hill, 2012.
 
-[@retie] RETIE. *Reglamento Técnico de Instalaciones Eléctricas*. Colombia.
+RETIE. *Reglamento Técnico de Instalaciones Eléctricas*. Colombia.
+

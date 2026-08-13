@@ -6,7 +6,7 @@ date: "2026"
 lang: es
 ---
 
-# Electrotecnia Industrial
+# Electrotecnia Industrial {.unnumbered}
 
 **Desde fundamentos hasta máquinas e instalaciones**
 
@@ -15,3 +15,4 @@ lang: es
 *Texto de referencia para nivel intermedio-avanzado (C/D)*
 
 ![CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/88x31.png)
+
