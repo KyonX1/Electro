@@ -30,13 +30,9 @@ La resistencia equivalente en serie siempre es **mayor** que la mayor de las res
 | **Propiedad** | **Comportamiento en serie** |
 | :-----------: | :-------------------------: |
 | Corriente | Igual en todas las resistencias |
-| :-----------: | :-------------------------: |
 | Voltaje | Se reparte: $V_i = I R_i$ |
-| :-----------: | :-------------------------: |
 | Potencia | $P_i = I^2 R_i$, la mayor se disipa en la mayor resistencia |
-| :-----------: | :-------------------------: |
 | Resistencia equivalente | Suma de todas: $R_{eq} = \sum R_i$ |
-| :-----------: | :-------------------------: |
 
 ```python
 # Resistencias en serie: R_eq y reparto de voltaje
@@ -75,13 +71,9 @@ print(f"R1||R2 = {R2eq:.2f} ohm")
 | **Propiedad** | **Comportamiento en paralelo** |
 | :-----------: | :----------------------------: |
 | Voltaje | Igual en todas las resistencias |
-| :-----------: | :----------------------------: |
 | Corriente | Se reparte: $I_i = V/R_i$ |
-| :-----------: | :----------------------------: |
 | Potencia | $P_i = V^2/R_i$, la mayor se disipa en la menor resistencia |
-| :-----------: | :----------------------------: |
 | Resistencia equivalente | Menor que la más pequeña |
-| :-----------: | :----------------------------: |
 
 > **Nota:** Cuando se conectan resistencias en paralelo, la resistencia equivalente tiende al valor de la menor resistencia. Para $n$ resistencias iguales de valor $R$, la equivalente es $R/n$.
 
@@ -116,15 +108,10 @@ print(f"I_R2 = {I_R2*1000:.1f} mA, I_R3 = {I_R3*1000:.1f} mA")
 | **Paso** | **Accion** |
 | :------: | :---------: |
 | 1 | Identificar resistencias en serie pura y reemplazarlas por su suma |
-| :------: | :---------: |
 | 2 | Identificar resistencias en paralelo puro y reemplazarlas por su equivalente |
-| :------: | :---------: |
 | 3 | Repetir hasta obtener una sola resistencia vista desde los terminales |
-| :------: | :---------: |
 | 4 | Calcular la corriente total con la ley de Ohm |
-| :------: | :---------: |
 | 5 | Expandir de regreso para hallar voltajes y corrientes parciales |
-| :------: | :---------: |
 
 ---
 
@@ -174,13 +161,9 @@ Para aplicar KVL correctamente se elige un sentido de recorrido y se asignan sig
 | **Elemento** | **Polaridad encontrada al recorrer** | **Signo en la ecuacion** |
 | :----------: | :----------------------------------: | :----------------------: |
 | Resistor | $+$ a $-$ (caída) | Negativo |
-| :----------: | :----------------------------------: | :----------------------: |
 | Resistor | $-$ a $+$ (elevación) | Positivo |
-| :----------: | :----------------------------------: | :----------------------: |
 | Fuente | $-$ a $+$ (elevación) | Positivo |
-| :----------: | :----------------------------------: | :----------------------: |
 | Fuente | $+$ a $-$ (caída) | Negativo |
-| :----------: | :----------------------------------: | :----------------------: |
 
 ### Ejemplo Resuelto: Malla Simple
 
@@ -261,9 +244,7 @@ print(f"Suma = {(I1+I2)*1000:.2f} mA (KCL)")
 | **Divisor** | **Formula** | **Uso tipico** |
 | :---------: | :---------: | :------------: |
 | Voltaje | $V_i = V \frac{R_i}{\sum R}$ | Sensores, referencias |
-| :---------: | :---------: | :------------: |
 | Corriente | $I_i = I \frac{R_{otra}}{\sum R}$ | Amperimetros, derivadores |
-| :---------: | :---------: | :------------: |
 
 > **Nota:** Un divisor de voltaje ideal debe operar con una carga mucho mayor que la resistencia de salida ($R_L \gg R_2$), de lo contrario el voltaje de salida cae apreciablemente.
 
@@ -320,9 +301,7 @@ $$V_{th} = I_N R_N \qquad I_N = \frac{V_{th}}{R_{th}} \qquad R_{th} = R_N$$
 | **Equivalente** | **Fuente** | **Elemento en serie/paralelo** | **Uso** |
 | :-------------: | :--------: | :---------------------------: | :-----: |
 | Thévenin | Voltaje $V_{th}$ | En serie: $R_{th}$ | Análisis de carga en serie |
-| :-------------: | :--------: | :---------------------------: | :-----: |
 | Norton | Corriente $I_N$ | En paralelo: $R_N$ | Análisis de carga en paralelo |
-| :-------------: | :--------: | :---------------------------: | :-----: |
 
 ### Teorema de Superposición
 
@@ -420,13 +399,9 @@ print(f"I_12 = {(v[0]-v[1])*G12*1000:.2f} mA")
 | **Metodo** | **Base** | **Incognitas** | **Mejor cuando** |
 | :--------: | :------: | :------------: | :--------------: |
 | Mallas | KVL | Corrientes de malla | Predominan fuentes de voltaje |
-| :--------: | :------: | :------------: | :--------------: |
 | Nodos | KCL | Voltajes de nodo | Predominan fuentes de corriente |
-| :--------: | :------: | :------------: | :--------------: |
 | Reduccion | Ohm + Kirchhoff | Variable unica | Circuitos reducibles |
-| :--------: | :------: | :------------: | :--------------: |
 | Thévenin/Norton | Equivalencia | Variables en la carga | Carga variable |
-| :--------: | :------: | :------------: | :--------------: |
 
 ---
 
@@ -453,13 +428,9 @@ La constante de tiempo es $\tau = RC$ (en segundos). Después de $5\tau$ se cons
 | **Tiempo** | **$V_C(t)/V$** | **Porcentaje** |
 | :--------: | :------------: | :------------: |
 | $t = \tau$ | $1 - e^{-1}$ | 63.2% |
-| :--------: | :------------: | :------------: |
 | $t = 2\tau$ | $1 - e^{-2}$ | 86.5% |
-| :--------: | :------------: | :------------: |
 | $t = 3\tau$ | $1 - e^{-3}$ | 95.0% |
-| :--------: | :------------: | :------------: |
 | $t = 5\tau$ | $1 - e^{-5}$ | 99.3% |
-| :--------: | :------------: | :------------: |
 
 ```python
 import math
@@ -542,11 +513,8 @@ Al desconectar la fuente, el inductor intenta mantener la corriente. Sin un cami
 | **Escenario** | **Comportamiento del inductor** | **Riesgo** |
 | :-----------: | :-----------------------------: | :--------: |
 | Fuente conectada | Corriente crece hacia $V/R$ | Corriente excesiva |
-| :-----------: | :-----------------------------: | :--------: |
 | Fuente desconectada | Corriente tiende a mantenerse | Sobretension |
-| :-----------: | :-----------------------------: | :--------: |
 | Régimen permanente | Cortocircuito ($V_L = 0$) | Consumo sin limite |
-| :-----------: | :-----------------------------: | :--------: |
 
 ```python
 # Sobretension de apertura sin diodo de rueda libre
@@ -600,9 +568,7 @@ print(f"W_L = {W:.2f} J")
 | **Elemento** | **Variable de estado** | **Energia** | **Regimen DC** | **Oposicion a** |
 | :----------: | :--------------------: | :---------: | :------------: | :-------------: |
 | Condensador | Voltaje $V_C$ | $\frac{1}{2}CV^2$ | Circuito abierto | Cambios de voltaje |
-| :----------: | :--------------------: | :---------: | :------------: | :-------------: |
 | Inductor | Corriente $I_L$ | $\frac{1}{2}LI^2$ | Cortocircuito | Cambios de corriente |
-| :----------: | :--------------------: | :---------: | :------------: | :-------------: |
 
 > **Nota:** En circuitos conmutados (fuentes DC-DC), condensadores e inductores operan como dispositivos de almacenamiento intermedio de energía, alternando entre almacenar y entregar energía en cada ciclo de conmutación. Este principio se estudia en detalle en electrónica de potencia.
 
@@ -617,11 +583,8 @@ El multímetro digital es el instrumento básico de medición. Sus funciones pri
 | **Modo** | **Conexion** | **Resistencia interna** | **Cuidado** |
 | :------: | :----------: | :---------------------: | :---------: |
 | Voltimetro | En paralelo | Muy alta (ideal infinito) | No medir voltaje en modo corriente |
-| :------: | :----------: | :---------------------: | :---------: |
 | Amperimetro | En serie | Muy baja (ideal cero) | Nunca en paralelo con la fuente |
-| :------: | :----------: | :---------------------: | :---------: |
 | Ohmimetro | Sin alimentacion | Fuente interna propia | Circuito apagado y descargado |
-| :------: | :----------: | :---------------------: | :---------: |
 
 ```python
 # Error de carga del voltimetro: Rm = 10 Mohm sobre divisor R1 = 1M, R2 = 1M
@@ -676,15 +639,10 @@ print(f"P = {P:.1f} W, W = {W_Wh/1000:.3f} kWh en {t_horas:.0f} h")
 | **Regla** | **Justificacion** |
 | :-------: | :---------------: |
 | Verificar categoría del instrumento (CAT II/III/IV) | Protección ante transitorios |
-| :-------: | :---------------: |
 | Conectar el amperímetro solo en serie | Evitar cortocircuito |
-| :-------: | :---------------: |
 | Descargar condensadores antes de medir | Riesgo de descarga letal |
-| :-------: | :---------------: |
 | Nunca cambiar de modo con puntas conectadas | Evitar daño interno y arcos |
-| :-------: | :---------------: |
 | Usar guantes y herramientas aisladas | Protección personal |
-| :-------: | :---------------: |
 
 > **Nota:** Los condensadores pueden retener carga peligrosa mucho después de apagar el circuito. Siempre descargarlos con una resistencia adecuada y verificar con el multímetro antes de manipularlos. Ver también [@retie, art. 10].
 
@@ -695,41 +653,23 @@ print(f"P = {P:.1f} W, W = {W_Wh/1000:.3f} kWh en {t_horas:.0f} h")
 | **Concepto** | **Formula** |
 | :----------- | :--------- |
 | Serie | $R_{eq} = \sum R_i$ |
-| :----------- | :--------- |
 | Paralelo | $\frac{1}{R_{eq}} = \sum \frac{1}{R_i}$ |
-| :----------- | :--------- |
 | Paralelo (2 elementos) | $R_{eq} = \frac{R_1 R_2}{R_1 + R_2}$ |
-| :----------- | :--------- |
 | KCL | $\sum I_{entran} = \sum I_{salen}$ |
-| :----------- | :--------- |
 | KVL | $\sum V_{malla} = 0$ |
-| :----------- | :--------- |
 | Divisor de voltaje | $V_i = V \frac{R_i}{\sum R}$ |
-| :----------- | :--------- |
 | Divisor de corriente | $I_i = I \frac{R_{otra}}{\sum R}$ |
-| :----------- | :--------- |
 | Thévenin | $V_{th}, R_{th}$ (fuente serie) |
-| :----------- | :--------- |
 | Norton | $I_N = V_{th}/R_{th}$ (fuente paralelo) |
-| :----------- | :--------- |
 | Máxima transferencia | $R_L = R_{th}$, $P_{max} = V_{th}^2/(4R_{th})$ |
-| :----------- | :--------- |
 | Condensador | $I_C = C\frac{dV_C}{dt}$, $\tau = RC$ |
-| :----------- | :--------- |
 | Carga RC | $V_C(t) = V(1 - e^{-t/\tau})$ |
-| :----------- | :--------- |
 | Descarga RC | $V_C(t) = V_0 e^{-t/\tau}$ |
-| :----------- | :--------- |
 | Inductor | $V_L = L\frac{dI_L}{dt}$, $\tau = L/R$ |
-| :----------- | :--------- |
 | Establecimiento RL | $I_L(t) = \frac{V}{R}(1 - e^{-t/\tau})$ |
-| :----------- | :--------- |
 | Energía condensador | $W_C = \frac{1}{2}CV^2$ |
-| :----------- | :--------- |
 | Energía inductor | $W_L = \frac{1}{2}LI^2$ |
-| :----------- | :--------- |
 | Potencia DC | $P = VI$ |
-| :----------- | :--------- |
 
 ---
 

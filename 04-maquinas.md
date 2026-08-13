@@ -36,13 +36,9 @@ $$\phi = \frac{\mathcal{F}}{\mathcal{R}} \qquad \mathcal{R} = \frac{l}{\mu A}$$
 | **Magnitud** | **Simbolo** | **Unidad** | **Analogia electrica** |
 | :----------: | :---------: | :--------: | :--------------------: |
 | Fuerza magnetomotriz | $\mathcal{F}$ | A-vueltas | Fem |
-| :----------: | :---------: | :--------: | :--------------------: |
 | Flujo | $\phi$ | Wb | Corriente |
-| :----------: | :---------: | :--------: | :--------------------: |
 | Reluctancia | $\mathcal{R}$ | A/Wb | Resistencia |
-| :----------: | :---------: | :--------: | :--------------------: |
 | Permeabilidad | $\mu$ | H/m | Conductividad |
-| :----------: | :---------: | :--------: | :--------------------: |
 
 ```python
 import math
@@ -154,9 +150,7 @@ El transformador real presenta pérdidas en el cobre (devanados) y en el hierro 
 | **Perdida** | **Causa** | **Proporcional a** | **Ensayada en** |
 | :---------: | :-------: | :----------------: | :-------------: |
 | Cobre ($P_{cu}$) | Resistencia de devanados | $I^2 R$ | Cortocircuito |
-| :---------: | :-------: | :----------------: | :-------------: |
 | Hierro ($P_{fe}$) | Histéresis y corrientes parásitas | $V^2$ aprox. | Vacío |
-| :---------: | :-------: | :----------------: | :-------------: |
 
 El circuito equivalente incluye resistencias y reactancias de dispersión en ambos devanados, más la rama de magnetización ($R_c$ y $X_m$) en paralelo. Los ensayos de vacío y de cortocircuito permiten determinar estos parámetros [@chapman2012, cap. 2].
 
@@ -192,9 +186,34 @@ El rendimiento del transformador se define como la relación entre potencia úti
 
 $$\eta = \frac{P_{util}}{P_{util} + P_{cu} + P_{fe}}$$
 
+Los rendimientos típicos varían con el tamaño de la máquina: los transformadores grandes alcanzan eficiencias superiores al 98 %, mientras que los pequeños quedan en torno al 95 % [@chapman2012, cap. 2]:
+
+| **Potencia nominal** | **Rendimiento típico a plena carga** | **Rendimiento a 50 % de carga** |
+| :------------------: | :----------------------------------: | :-----------------------------: |
+| 5 kVA | 95–96 % | 94–95 % |
+| 50 kVA | 96–97 % | 95–96 % |
+| 500 kVA | 97–98 % | 96–97 % |
+| 2 MVA | 98–99 % | 97–98 % |
+| 20 MVA | 99–99.5 % | 98–99 % |
+
+> **Nota:** el rendimiento máximo se obtiene cuando las pérdidas en el cobre igualan las pérdidas en el hierro, típicamente entre el 50 % y el 75 % de la carga nominal.
+
 La regulación de tensión indica la variación de la tensión secundaria entre vacío y plena carga:
 
 $$reg = \frac{V_{2,vac} - V_{2,carga}}{V_{2,carga}} \times 100$$
+
+La temperatura máxima de funcionamiento está limitada por el sistema de aislamiento del bobinado. Cada clase admite una temperatura límite de trabajo continuo [@chapman2012, cap. 2]:
+
+| **Clase de aislamiento** | **Temperatura límite (°C)** | **Material típico** | **Uso común** |
+| :----------------------: | :--------------------------: | :-----------------: | :------------: |
+| Y | 90 | Algodón, seda, papel | Muy antiguos, secos |
+| A | 105 | Algodón impregnado | Motores pequeños |
+| E | 120 | Resinas epoxi, poliéster | Motores industriales |
+| B | 130 | Mica, fibra de vidrio | Motores estándar |
+| F | 155 | Mica con epoxi clase F | Motores reforzados |
+| H | 180 | Siliconas, mica clase H | Tracción, hornos |
+
+> **Nota:** La vida útil del aislamiento se reduce a la mitad por cada aumento de unos ~10 °C por encima de la temperatura límite (regla empírica de Arrhenius).
 
 ```python
 S_n = 100e3        # 100 kVA
@@ -217,13 +236,9 @@ $$V_1 I_1 = V_2 I_2 \qquad \frac{V_1}{V_2} = \frac{N_1}{N_2}$$
 | **Aspecto** | **Transformador de aislamiento** | **Autotransformador** |
 | :---------: | :-----------------------------: | :-------------------: |
 | Devanados | Dos, aislados | Uno, con derivacion |
-| :---------: | :-----------------------------: | :-------------------: |
 | Aislamiento galvanico | Si | No |
-| :---------: | :-----------------------------: | :-------------------: |
 | Costo para igual potencia | Mayor | Menor |
-| :---------: | :-----------------------------: | :-------------------: |
 | Uso tipico | Distribucion, seguridad | Arranque de motores, regulacion |
-| :---------: | :-----------------------------: | :-------------------: |
 
 ---
 
@@ -287,13 +302,9 @@ print(f"E = {E:.1f} V, omega = {omega:.1f} rad/s, n = {n:.0f} rpm")
 | **Tipo** | **Conexion del campo** | **Caracteristica** | **Aplicacion** |
 | :------: | :--------------------: | :----------------: | :------------: |
 | Derivacion (shunt) | En paralelo con inducido | Velocidad casi constante | Maquinas herramientas |
-| :------: | :--------------------: | :----------------: | :------------: |
 | Serie | En serie con inducido | Gran par de arranque | Traccion, grúas |
-| :------: | :--------------------: | :----------------: | :------------: |
 | Compuesta (compound) | Mixta (serie + derivacion) | Combinacion | Laminadores, elevadores |
-| :------: | :--------------------: | :----------------: | :------------: |
 | Imán permanente | Imán fijo | Compacta y simple | Motores pequenos |
-| :------: | :--------------------: | :----------------: | :------------: |
 
 ### Reacción de Inducido
 
@@ -336,13 +347,9 @@ print(f"n_s = {n_s:.0f} rpm para p = {p} y f = {f} Hz")
 | **Polos $p$** | **$n_s$ a 50 Hz (rpm)** | **$n_s$ a 60 Hz (rpm)** |
 | :-----------: | :---------------------: | :---------------------: |
 | 2 | 3000 | 3600 |
-| :-----------: | :---------------------: | :---------------------: |
 | 4 | 1500 | 1800 |
-| :-----------: | :---------------------: | :---------------------: |
 | 6 | 1000 | 1200 |
-| :-----------: | :---------------------: | :---------------------: |
 | 8 | 750 | 900 |
-| :-----------: | :---------------------: | :---------------------: |
 
 ### Generador Síncrono (Alternador)
 
@@ -374,11 +381,8 @@ La curva V muestra la corriente de armadura mínima a FP unitario; a ambos lados
 | **Excitacion** | **Factor de potencia** | **Comportamiento reactivo** |
 | :------------: | :--------------------: | :-------------------------: |
 | Subexcitado | En retraso | Consume reactiva |
-| :------------: | :--------------------: | :-------------------------: |
 | Normal (FP = 1) | Unitario | No intercambia reactiva |
-| :------------: | :--------------------: | :-------------------------: |
 | Sobreexcitado | En adelanto | Entrega reactiva (compensador síncrono) |
-| :------------: | :--------------------: | :-------------------------: |
 
 ```python
 import math
@@ -415,13 +419,9 @@ print(f"n_s = {n_s:.0f} rpm, n_r = {n_r:.0f} rpm, s = {s*100:.2f}%")
 | **Estado** | **Deslizamiento** | **Observacion** |
 | :--------: | :---------------: | :-------------: |
 | Reposo / arranque | $s = 1$ | Gran corriente de arranque |
-| :--------: | :---------------: | :-------------: |
 | Plena carga | $s \approx 2\text{--}5\%$ | Régimen nominal |
-| :--------: | :---------------: | :-------------: |
 | Sincronismo | $s = 0$ | Sin par (solo por arrastre) |
-| :--------: | :---------------: | :-------------: |
 | Freno (hipergiratorio) | $s > 1$ | Frenado por contracorriente |
-| :--------: | :---------------: | :-------------: |
 
 ### Frecuencia del Rotor y Circuito Equivalente
 
@@ -448,13 +448,9 @@ La curva par-velocidad del motor de inducción tiene tres zonas: arranque, par m
 | **Metodo de arranque** | **Efecto** | **Uso** |
 | :--------------------: | :---------: | :-----: |
 | Directo | Plena tension, 5-8 x I_n | Motores pequenos |
-| :--------------------: | :---------: | :-----: |
 | Estrella-delta | Tension reducida a 58% | Motores medianos |
-| :--------------------: | :---------: | :-----: |
 | Autotransformador | Tension y par reducidos | Motores grandes |
-| :--------------------: | :---------: | :-----: |
 | Variador de frecuencia (VFD) | Arranque suave, par controlado | Aplicaciones exigentes |
-| :--------------------: | :---------: | :-----: |
 
 > **Nota:** El arranque directo de un motor de inducción puede tomar de 5 a 8 veces la corriente nominal, provocando caídas de tensión en la red. Los arrancadores suaves y los variadores de frecuencia (VFD) limitan la corriente y permiten control de velocidad — cada vez más habituales en la industria — ver Capítulo 5.
 
@@ -504,13 +500,9 @@ El motor universal es un motor de CC en serie optimizado para AC: funciona con a
 | **Motor** | **Alimentacion** | **Control** | **Aplicacion tipica** |
 | :-------: | :--------------: | :---------: | :--------------------: |
 | Paso a paso | Pulsos digitales | Lazo abierto | CNC, impresoras |
-| :-------: | :--------------: | :---------: | :--------------------: |
 | Brushless | DC conmutada | Electronico | Drones, traccion |
-| :-------: | :--------------: | :---------: | :--------------------: |
 | Lineal | AC frecuencia variable | VFD especial | Transporte, actuadores |
-| :-------: | :--------------: | :---------: | :--------------------: |
 | Universal | AC o DC | Triac / velocidad | Herramientas, aspiradoras |
-| :-------: | :--------------: | :---------: | :--------------------: |
 
 ---
 
@@ -519,41 +511,23 @@ El motor universal es un motor de CC en serie optimizado para AC: funciona con a
 | **Concepto** | **Formula** |
 | :----------- | :--------- |
 | Flujo magnetico | $\phi = \mathcal{F}/\mathcal{R}$ |
-| :----------- | :--------- |
 | Reluctancia | $\mathcal{R} = l/(\mu A)$ |
-| :----------- | :--------- |
 | Ley de Faraday | $e = -N d\phi/dt$ |
-| :----------- | :--------- |
 | Fuerza sobre conductor | $F = B I l$ |
-| :----------- | :--------- |
 | Relacion de transformacion | $V_1/V_2 = N_1/N_2 = a$ |
-| :----------- | :--------- |
 | Impedancia reflejada | $Z_1' = a^2 Z_2$ |
-| :----------- | :--------- |
 | Rendimiento | $\eta = P_u/(P_u + P_{cu} + P_{fe})$ |
-| :----------- | :--------- |
 | Fem generador CC | $E = K \phi \omega$ |
-| :----------- | :--------- |
 | Par motor CC | $T = K \phi I_a$ |
-| :----------- | :--------- |
 | Velocidad motor CC | $\omega = (V - I_a R_a)/(K \phi)$ |
-| :----------- | :--------- |
 | Velocidad sincrona | $n_s = 120 f / p$ |
-| :----------- | :--------- |
 | Alternador | $\vec{V}_\phi = \vec{E}_a - jX_s \vec{I}_a$ |
-| :----------- | :--------- |
 | Deslizamiento | $s = (n_s - n_r)/n_s$ |
-| :----------- | :--------- |
 | Velocidad rotor | $n_r = n_s(1 - s)$ |
-| :----------- | :--------- |
 | Frecuencia rotor | $f_r = s f$ |
-| :----------- | :--------- |
 | Par induccion | $T = \frac{3 V_1^2 R_2/s}{\omega_s[(R_1 + R_2/s)^2 + (X_1+X_2)^2]}$ |
-| :----------- | :--------- |
 | VFD velocidad | $n_r = \frac{120 f}{p}(1-s)$ |
-| :----------- | :--------- |
 | Paso a paso | $\theta = N_{pulsos} \cdot \theta_{paso}$ |
-| :----------- | :--------- |
 
 ---
 

@@ -30,15 +30,10 @@ donde $V_m$ es la amplitud (valor pico), $\omega = 2\pi f$ es la pulsación en r
 | **Parametro** | **Simbolo** | **Unidad** | **Relacion** |
 | :-----------: | :---------: | :--------: | :----------: |
 | Amplitud (pico) | $V_m$ | V | Valor maximo de la onda |
-| :-----------: | :---------: | :--------: | :----------: |
 | Frecuencia | $f$ | Hz | $f = 1/T$ |
-| :-----------: | :---------: | :--------: | :----------: |
 | Periodo | $T$ | s | $T = 1/f$ |
-| :-----------: | :---------: | :--------: | :----------: |
 | Pulsacion | $\omega$ | rad/s | $\omega = 2\pi f$ |
-| :-----------: | :---------: | :--------: | :----------: |
 | Fase | $\phi$ | rad | Desplazamiento horizontal |
-| :-----------: | :---------: | :--------: | :----------: |
 
 ```python
 import math
@@ -101,9 +96,7 @@ $$V_{prom} = \frac{2 V_m}{\pi}$$
 | **Factor** | **Formula** | **Sinusoide** |
 | :--------: | :---------: | :------------: |
 | Forma | $V_{rms}/V_{prom}$ | $\pi/(2\sqrt{2}) \approx 1.11$ |
-| :--------: | :---------: | :------------: |
 | Cresta | $V_m/V_{rms}$ | $\sqrt{2} \approx 1.414$ |
-| :--------: | :---------: | :------------: |
 
 ```python
 import math
@@ -189,11 +182,8 @@ $$Z = R + jX$$
 | **Elemento** | **Impedancia** | **Angulo de fase** | **Efecto** |
 | :----------: | :------------: | :----------------: | :--------: |
 | Resistencia | $Z_R = R$ | $0^\circ$ | Disipa energia |
-| :----------: | :------------: | :----------------: | :--------: |
 | Inductor | $Z_L = j\omega L = jX_L$ | $+90^\circ$ | Corriente retrasada |
-| :----------: | :------------: | :----------------: | :--------: |
 | Condensador | $Z_C = -j/(\omega C) = -jX_C$ | $-90^\circ$ | Corriente adelantada |
-| :----------: | :------------: | :----------------: | :--------: |
 
 Las reactancias dependen de la frecuencia:
 
@@ -304,9 +294,7 @@ print(f"I_total = {I_total:.2f} A ang {phi:.1f} deg")
 | **Circuito** | **Magnitud comun** | **Suma fasorial** | **Resonancia** |
 | :----------: | :----------------: | :---------------: | :------------: |
 | Serie | Corriente | Impedancias $Z = R + j(X_L - X_C)$ | $Z$ minima |
-| :----------: | :----------------: | :---------------: | :------------: |
 | Paralelo | Voltaje | Admitancias $Y = G + j(B_C - B_L)$ | $Y$ minima |
-| :----------: | :----------------: | :---------------: | :------------: |
 
 ---
 
@@ -339,11 +327,8 @@ El triángulo de potencias: $S$ es la hipotenusa, $P$ el cateto real y $Q$ el ca
 | **Potencia** | **Simbolo** | **Unidad** | **Caracter** |
 | :----------: | :---------: | :--------: | :-----------: |
 | Activa | $P$ | W | Se convierte en trabajo/calor |
-| :----------: | :---------: | :--------: | :-----------: |
 | Reactiva | $Q$ | VAR | Oscila sin trabajo neto |
-| :----------: | :---------: | :--------: | :-----------: |
 | Aparente | $S$ | VA | Dimensiona equipos |
-| :----------: | :---------: | :--------: | :-----------: |
 
 ```python
 import math
@@ -362,7 +347,15 @@ El factor de potencia es el coseno del ángulo de desfase:
 
 $$FP = \cos\phi = \frac{P}{S}$$
 
-Un factor de potencia bajo (cargas inductivas: motores, transformadores) incrementa la corriente para una misma potencia útil, aumentando pérdidas en conductores y penalizaciones económicas.
+Un factor de potencia bajo (cargas inductivas: motores, transformadores) incrementa la corriente para una misma potencia útil, aumentando pérdidas en conductores y penalizaciones económicas. La siguiente tabla recoge los valores típicos de factor de potencia de las cargas industriales más comunes [@chapman2012, cap. 3]:
+
+| **Carga** | **FP típico (sin corregir)** | **Carga** | **FP típico (sin corregir)** |
+| :-------: | :--------------------------: | :-------: | :--------------------------: |
+| Motor de inducción (plena carga) | 0.80–0.88 | Lámparas fluorescentes | 0.50–0.60 |
+| Motor de inducción (media carga) | 0.70–0.78 | Lámparas LED (con driver) | 0.90–0.98 |
+| Motor de inducción (vacío) | 0.10–0.30 | Horno de resistencia | 0.95–1.00 |
+| Transformador (plena carga) | 0.85–0.95 | Soldadura por arco | 0.40–0.60 |
+| Transformador (vacío) | 0.10–0.20 | Máquina herramienta | 0.60–0.75 |
 
 ### Corrección del Factor de Potencia
 
@@ -437,9 +430,7 @@ En paralelo, la resonancia ocurre a la misma frecuencia $f_r = 1/(2\pi\sqrt{LC})
 | **Tipo** | **Impedancia en resonancia** | **Corriente en resonancia** | **Aplicacion** |
 | :------: | :--------------------------: | :-------------------------: | :------------: |
 | Serie | Minima ($Z = R$) | Maxima | Sintonizacion, deteccion |
-| :------: | :--------------------------: | :-------------------------: | :------------: |
 | Paralelo | Maxima | Minima (en la fuente) | Rechazo, osciladores |
-| :------: | :--------------------------: | :-------------------------: | :------------: |
 
 ---
 
@@ -456,6 +447,18 @@ $$v_b(t) = V_m \sin(\omega t - 120^\circ)$$
 $$v_c(t) = V_m \sin(\omega t + 120^\circ)$$
 
 Las ventajas principales son: potencia constante y uniforme, ahorro de cobre (menos conductores para igual potencia), y disponibilidad de dos niveles de tensión (línea y fase) [@chapman2012, cap. 2].
+
+La siguiente tabla compara los sistemas monofásico y trifásico para la misma potencia transportada [@chapman2012, cap. 2]:
+
+| **Aspecto** | **Monofásico** | **Trifásico** |
+| :---------: | :------------: | :------------: |
+| Conductores para transporte | 2 (fase + neutro) | 3 (o 3 + neutro) |
+| Potencia instantánea | Pulsante (2f) | Constante |
+| Cobre necesario (misma P y pérdidas) | Referencia (100 %) | ~75 % |
+| Tensión disponible | 1 nivel | 2 niveles ($V_L$ y $V_f$) |
+| Arranque de motores | Par pulsante, arranque difícil | Par constante, autoarranque |
+| Potencia ($V_{fase}$ común) | $P = V I \cos\phi$ | $P_{3\phi} = \sqrt{3}V_L I_L \cos\phi = 3V_f I_f \cos\phi$ |
+| Aplicación | Doméstica, pequeñas potencias | Industria, distribución |
 
 ### Conexión Estrella (Y)
 
@@ -480,9 +483,7 @@ $$V_{linea} = V_{fase} \qquad I_{linea} = \sqrt{3}\, I_{fase}$$
 | **Conexion** | **V_linea vs V_fase** | **I_linea vs I_fase** | **Neutro** |
 | :----------: | :-------------------: | :-------------------: | :--------: |
 | Estrella | $V_L = \sqrt{3}\, V_F$ | $I_L = I_F$ | Disponible |
-| :----------: | :-------------------: | :-------------------: | :--------: |
 | Delta | $V_L = V_F$ | $I_L = \sqrt{3}\, I_F$ | No |
-| :----------: | :-------------------: | :-------------------: | :--------: |
 
 ```python
 import math
@@ -562,13 +563,9 @@ Los filtros paso banda y rechazo banda se construyen con circuitos RLC resonante
 | **Filtro** | **Topologia basica** | **Frecuencia caracteristica** | **Aplicacion** |
 | :--------: | :------------------: | :---------------------------: | :------------: |
 | Paso bajo | RC (salida en C) | $f_c = 1/(2\pi RC)$ | Suavizado, audio |
-| :--------: | :------------------: | :---------------------------: | :------------: |
 | Paso alto | RC (salida en R) | $f_c = 1/(2\pi RC)$ | Acoplamiento AC |
-| :--------: | :------------------: | :---------------------------: | :------------: |
 | Paso banda | RLC serie/paralelo | $f_r = 1/(2\pi\sqrt{LC})$ | Radio, comunicaciones |
-| :--------: | :------------------: | :---------------------------: | :------------: |
 | Rechazo banda | RLC serie en paralelo | $f_r$, ancho $BW$ | Eliminacion de interferencias |
-| :--------: | :------------------: | :---------------------------: | :------------: |
 
 ---
 
@@ -606,13 +603,9 @@ print(f"Aproximacion con 10 armonicos: v = {v_approx:.3f} (ideal 1.0)")
 | **Aplicacion** | **Uso de Fourier** |
 | :------------: | :----------------: |
 | Calidad de energia | Deteccion de armonicos en redes (THD) |
-| :------------: | :----------------: |
 | Audio | Sintesis y analisis espectral |
-| :------------: | :----------------: |
 | Electrónica de potencia | Analisis de convertidores conmutados |
-| :------------: | :----------------: |
 | Vibraciones | Identificacion de modos de resonancia |
-| :------------: | :----------------: |
 
 > **Nota:** El contenido armónico de las cargas no lineales (variadores de velocidad, fuentes conmutadas, LED) distorsiona la red. La distorsión armónica total (THD) se calcula como la relación entre la energía de los armónicos y la de la fundamental, y está limitada por normas de calidad de energía [@iec60364, sec. 3].
 
@@ -623,41 +616,23 @@ print(f"Aproximacion con 10 armonicos: v = {v_approx:.3f} (ideal 1.0)")
 | **Concepto** | **Formula** |
 | :----------- | :--------- |
 | Sinusoide | $v(t) = V_m \sin(\omega t + \phi)$ |
-| :----------- | :--------- |
 | Pulsacion | $\omega = 2\pi f$ |
-| :----------- | :--------- |
 | Valor eficaz | $V_{rms} = V_m/\sqrt{2}$ |
-| :----------- | :--------- |
 | Valor promedio (rect. onda completa) | $V_{prom} = 2V_m/\pi$ |
-| :----------- | :--------- |
 | Reactancia inductiva | $X_L = \omega L$ |
-| :----------- | :--------- |
 | Reactancia capacitiva | $X_C = 1/(\omega C)$ |
-| :----------- | :--------- |
 | Impedancia | $Z = R + j(X_L - X_C)$ |
-| :----------- | :--------- |
 | Potencia activa | $P = VI\cos\phi$ |
-| :----------- | :--------- |
 | Potencia reactiva | $Q = VI\sin\phi$ |
-| :----------- | :--------- |
 | Potencia aparente | $S = VI$ |
-| :----------- | :--------- |
 | Triangulo de potencias | $S^2 = P^2 + Q^2$ |
-| :----------- | :--------- |
 | Frecuencia de resonancia | $f_r = 1/(2\pi\sqrt{LC})$ |
-| :----------- | :--------- |
 | Factor de calidad | $Q_0 = \omega_r L/R$ |
-| :----------- | :--------- |
 | Estrella | $V_L = \sqrt{3}V_F$, $I_L = I_F$ |
-| :----------- | :--------- |
 | Delta | $V_L = V_F$, $I_L = \sqrt{3}I_F$ |
-| :----------- | :--------- |
 | Potencia trifasica | $P_{3\phi} = \sqrt{3}V_L I_L \cos\phi$ |
-| :----------- | :--------- |
 | Frecuencia de corte RC | $f_c = 1/(2\pi RC)$ |
-| :----------- | :--------- |
 | Onda cuadrada (armonicos) | $v = \frac{4V_m}{\pi}\sum \frac{\sin(n\omega_0 t)}{n}$, $n$ impar |
-| :----------- | :--------- |
 
 ---
 

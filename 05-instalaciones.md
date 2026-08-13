@@ -26,28 +26,19 @@ La serie IEC 60364 es la referencia internacional para instalaciones eléctricas
 | **Parte** | **Contenido** | **Tema** |
 | :-------: | :-----------: | :-------: |
 | 1 | Principios fundamentales | Seguridad, diseño |
-| :-------: | :-----------: | :-------: |
 | 4 | Protección para la seguridad | Contactos, sobreintensidades |
-| :-------: | :-----------: | :-------: |
 | 5 | Selección y montaje | Conductores, aparamenta |
-| :-------: | :-----------: | :-------: |
 | 6 | Verificación | Ensayos y comprobaciones |
-| :-------: | :-----------: | :-------: |
 | 7 | Locales especiales | Baños, piscinas, médicos |
-| :-------: | :-----------: | :-------: |
 
 ### Marcos Regulatorios
 
 | **Norma** | **Ambito** | **Tension maxima** | **Organismo** |
 | :-------: | :--------: | :----------------: | :-----------: |
 | IEC 60364 | Internacional | 1000 V AC | IEC |
-| :-------: | :--------: | :----------------: | :-----------: |
 | RETIE | Colombia | 1000 V AC | Min. Minas y Energía |
-| :-------: | :--------: | :----------------: | :-----------: |
 | NEC | Estados Unidos | 1000 V AC | NFPA |
-| :-------: | :--------: | :----------------: | :-----------: |
 | REBT | España | 1000 V AC | Ministerio |
-| :-------: | :--------: | :----------------: | :-----------: |
 
 El RETIE (Reglamento Técnico de Instalaciones Eléctricas) es de obligatorio cumplimiento en Colombia: toda instalación nueva o ampliada debe ser diseñada y ejecutada por personal certificado y recibir certificado de conformidad [@retie, art. 2].
 
@@ -62,11 +53,8 @@ La puesta a tierra persigue: limitar la tensión de contacto, proporcionar un ca
 | **Esquema** | **Neutro de la red** | **Masas de la instalacion** | **Defecto tipico** |
 | :---------: | :------------------: | :-------------------------: | :----------------: |
 | TT | Puesto a tierra | A tierra propia | Retorno por tierra |
-| :---------: | :------------------: | :-------------------------: | :----------------: |
 | TN | Puesto a tierra | Al neutro (PE) | Retorno por conductor |
-| :---------: | :------------------: | :-------------------------: | :----------------: |
 | IT | Aislado/impedante | A tierra propia | Sin retorno directo |
-| :---------: | :------------------: | :-------------------------: | :----------------: |
 
 ### Esquema TT
 
@@ -104,11 +92,8 @@ En el esquema TN (el más usado en instalaciones industriales), las masas se con
 | **Variante** | **Conductor de proteccion** | **Uso tipico** |
 | :----------: | :-------------------------: | :------------: |
 | TN-S | PE separado del neutro | Instalaciones nuevas |
-| :----------: | :-------------------------: | :------------: |
 | TN-C | PEN combinado (neutro+PE) | Redes antiguas, industria |
-| :----------: | :-------------------------: | :------------: |
 | TN-C-S | Mixto | Entradas de red |
-| :----------: | :-------------------------: | :------------: |
 
 ```python
 # Defecto en TN-S: impedancia del bucle de fase-PE
@@ -136,13 +121,9 @@ Las sobreintensidades se clasifican en sobrecargas (1.1 a 10 veces la nominal, f
 | **Dispositivo** | **Funcion** | **Principio** | **Curvas/parametros** |
 | :-------------: | :---------: | :-----------: | :--------------------: |
 | Fusible | Sobrecarga y corto | Fusion del elemento | gG, aM (amperios) |
-| :-------------: | :---------: | :-----------: | :--------------------: |
 | Magnetotermico | Sobrecarga (termico) y corto (magnetico) | Bimetal + solenoide | B, C, D |
-| :-------------: | :---------: | :-----------: | :--------------------: |
 | Limitador | Cortocircuito | Repulsion de contactos | Poder de corte |
-| :-------------: | :---------: | :-----------: | :--------------------: |
 | Relé térmico | Sobrecarga de motores | Bimetal | Clases 10, 20, 30 |
-| :-------------: | :---------: | :-----------: | :--------------------: |
 
 ### Curvas de Disparo de los Magnetotérmicos
 
@@ -151,11 +132,8 @@ El disparo magnético se produce a un múltiplo de la corriente nominal según l
 | **Curva** | **Disparo magnetico** | **Aplicacion** |
 | :-------: | :-------------------: | :------------: |
 | B | 3 a 5 x I_n | Cargas resistivas, alumbrado |
-| :-------: | :-------------------: | :------------: |
 | C | 5 a 10 x I_n | Cargas mixtas, tomas |
-| :-------: | :-------------------: | :------------: |
 | D | 10 a 20 x I_n | Motores, arranques con pico |
-| :-------: | :-------------------: | :------------: |
 
 ```python
 # Verificacion de disparo por cortocircuito en un circuito
@@ -178,11 +156,18 @@ $$\Delta I = I_{fase} - I_{neutro}$$
 | **Sensibilidad** | **Uso** |
 | :--------------: | :-----: |
 | 30 mA | Contacto directo, locales húmedos |
-| :--------------: | :-----: |
 | 300 mA | Incendio, protección general |
-| :--------------: | :-----: |
 | 3000 mA | Selectividad, instalaciones especiales |
-| :--------------: | :-----: |
+
+Los tiempos máximos de desconexión para contactos indirectos quedan fijados por la IEC 60364-4-41 en función de la tensión de contacto prevista [@iec60364, sec. 411]:
+
+| **Tensión nominal del sistema** | **TT: tiempo máximo** | **TN: tiempo máximo** |
+| :-----------------------------: | :-------------------: | :-------------------: |
+| 120 V < $U_0$ ≤ 230 V | 0.2 s | 0.4 s |
+| 230 V < $U_0$ ≤ 400 V | 0.2 s | 0.2 s |
+| $U_0$ > 400 V | 0.07 s (límite de quemadura) | 0.07 s |
+
+> **Nota:** en TT el tiempo se garantiza dimensionando $R_A$ (resistencia de puesta a tierra) para que $I_a \cdot R_A \le 50$ V, donde $I_a$ es la corriente de funcionamiento del dispositivo de protección. En TN se garantiza con la impedancia del bucle de defecto.
 
 ```python
 # Sensibilidad del diferencial
@@ -230,35 +215,20 @@ La sección de un conductor debe satisfacer tres criterios simultáneamente:
 | **Seccion (mm²)** | **Tubo en pared (A)** | **Bandeja al aire (A)** | **Enterrado (A)** |
 | :----------------: | :-------------------: | :---------------------: | :---------------: |
 | 1.5 | 14.5 | 17.5 | 18 |
-| :----------------: | :-------------------: | :---------------------: | :---------------: |
 | 2.5 | 19.5 | 24 | 24 |
-| :----------------: | :-------------------: | :---------------------: | :---------------: |
 | 4 | 26 | 32 | 32 |
-| :----------------: | :-------------------: | :---------------------: | :---------------: |
 | 6 | 34 | 41 | 41 |
-| :----------------: | :-------------------: | :---------------------: | :---------------: |
 | 10 | 46 | 57 | 55 |
-| :----------------: | :-------------------: | :---------------------: | :---------------: |
 | 16 | 61 | 76 | 73 |
-| :----------------: | :-------------------: | :---------------------: | :---------------: |
 | 25 | 80 | 96 | 95 |
-| :----------------: | :-------------------: | :---------------------: | :---------------: |
 | 35 | 98 | 119 | 115 |
-| :----------------: | :-------------------: | :---------------------: | :---------------: |
 | 50 | 116 | 144 | 140 |
-| :----------------: | :-------------------: | :---------------------: | :---------------: |
 | 70 | 143 | 178 | 175 |
-| :----------------: | :-------------------: | :---------------------: | :---------------: |
 | 95 | 171 | 211 | 210 |
-| :----------------: | :-------------------: | :---------------------: | :---------------: |
 | 120 | 194 | 246 | 240 |
-| :----------------: | :-------------------: | :---------------------: | :---------------: |
 | 150 | 216 | 278 | 270 |
-| :----------------: | :-------------------: | :---------------------: | :---------------: |
 | 185 | 242 | 312 | 305 |
-| :----------------: | :-------------------: | :---------------------: | :---------------: |
 | 240 | 288 | 361 | 350 |
-| :----------------: | :-------------------: | :---------------------: | :---------------: |
 
 ### Caída de Tensión
 
@@ -275,6 +245,17 @@ En forma porcentual:
 $$\Delta V\% = \frac{\Delta V}{V} \times 100$$
 
 donde $L$ es la longitud (m), $S$ la sección (mm²), $\rho$ la resistividad del cobre ($\approx 0.018\ \Omega\cdot\text{mm}^2/\text{m}$) y $I$ la corriente de carga.
+
+Los valores admisibles de caída de tensión están normalizados según el destino de la línea [@iec60364, sec. 525]:
+
+| **Tipo de instalación** | **Caída máxima admisible** | **Observación** |
+| :---------------------: | :------------------------: | :--------------: |
+| Alumbrado (L + derivaciones) | 3 % | Puede apreciarse el parpadeo |
+| Fuerza (L + derivaciones) | 5 % | Motores y receptores de potencia |
+| Alumbrado y fuerza (desde el origen de la instalación) | 5 % | Instalaciones industriales |
+| Alumbrado (local) | 1.5 % | Recomendado para eficiencia |
+
+> **Nota:** en receptores con arranque (motores), la caída durante el arranque puede ser transitoriamente mayor; se acepta hasta un 15 % si el arranque es breve.
 
 ```python
 import math
@@ -330,29 +311,17 @@ print(f"Coordinacion: I_z = {I_z} A >= I_n = {I_dispositivo} A: "
 | **Seccion (mm²)** | **R (ohm/km)** |
 | :----------------: | :-------------: |
 | 1.5 | 12.1 |
-| :----------------: | :-------------: |
 | 2.5 | 7.41 |
-| :----------------: | :-------------: |
 | 4 | 4.61 |
-| :----------------: | :-------------: |
 | 6 | 3.08 |
-| :----------------: | :-------------: |
 | 10 | 1.83 |
-| :----------------: | :-------------: |
 | 16 | 1.15 |
-| :----------------: | :-------------: |
 | 25 | 0.727 |
-| :----------------: | :-------------: |
 | 35 | 0.524 |
-| :----------------: | :-------------: |
 | 50 | 0.387 |
-| :----------------: | :-------------: |
 | 70 | 0.268 |
-| :----------------: | :-------------: |
 | 95 | 0.193 |
-| :----------------: | :-------------: |
 | 120 | 0.153 |
-| :----------------: | :-------------: |
 
 ---
 
@@ -365,17 +334,11 @@ En el RETIE y normativas afines, los circuitos de alumbrado se identifican con n
 | **Circuito** | **Uso** | **Proteccion tipica** | **Seccion minima** |
 | :----------: | :-----: | :-------------------: | :----------------: |
 | C1 | Alumbrado interior | 10 A | 1.5 mm² |
-| :----------: | :-----: | :-------------------: | :----------------: |
 | C2 | Tomas de uso general | 16 A | 2.5 mm² |
-| :----------: | :-----: | :-------------------: | :----------------: |
 | C3 | Cocina y horno | 25 A | 6 mm² |
-| :----------: | :-----: | :-------------------: | :----------------: |
 | C4 | Lavadora | 20 A | 4 mm² |
-| :----------: | :-----: | :-------------------: | :----------------: |
 | C5 | Baño y auxiliares | 16 A | 2.5 mm² |
-| :----------: | :-----: | :-------------------: | :----------------: |
 | C6 | Fuerza industrial | Según calculo | Según calculo |
-| :----------: | :-----: | :-------------------: | :----------------: |
 
 ### Esquemas de Mando
 
@@ -384,11 +347,8 @@ Los esquemas de mando básicos de alumbrado:
 | **Esquema** | **Funcion** | **Elementos** |
 | :---------: | :---------: | :------------: |
 | Interruptor simple | Encender/apagar desde un punto | 1 interruptor |
-| :---------: | :---------: | :------------: |
 | Conmutado | Encender/apagar desde dos puntos | 2 conmutadores |
-| :---------: | :---------: | :------------: |
 | Cruce | Encender/apagar desde tres o mas puntos | Conmutadores + cruce |
-| :---------: | :---------: | :------------: |
 
 ### Cuadro de Distribución
 
@@ -416,13 +376,9 @@ En baños y locales húmedos se definen volúmenes (0, 1, 2, 3) con requisitos c
 | **Volumen** | **Zona** | **Requisito principal** |
 | :---------: | :------: | :---------------------: |
 | 0 | Interior de ducha/bañera | SELV 12 V max |
-| :---------: | :------: | :---------------------: |
 | 1 | Sobre la ducha (hasta 2.25 m) | IPX4, SELV |
-| :---------: | :------: | :---------------------: |
 | 2 | 0.6 m alrededor | IPX4 |
-| :---------: | :------: | :---------------------: |
 | 3 | 2.4 m alrededor | Dispositivos protegidos |
-| :---------: | :------: | :---------------------: |
 
 ### Piscinas y Fuentes
 
@@ -439,11 +395,8 @@ En atmósferas explosivas (gas, polvo) se clasifican las zonas 0/1/2 (gas) y 20/
 | **Zona (gas)** | **Presencia de atmosfera** | **Equipo requerido** |
 | :------------: | :------------------------: | :------------------: |
 | 0 | Continua | Ex ia / Ex d (categoria 1) |
-| :------------: | :------------------------: | :------------------: |
 | 1 | Probable | Ex d, Ex e, Ex i (categoria 2) |
-| :------------: | :------------------------: | :------------------: |
 | 2 | Improbable | Ex n (categoria 3) |
-| :------------: | :------------------------: | :------------------: |
 
 > **Nota:** El marcado ATEX incluye la categoría de equipo, el tipo de protección y el grupo de gas según la norma IEC 60079. La selección incorrecta de equipos en zonas clasificadas es causa frecuente de accidentes graves [@iec60364, sec. 7].
 
@@ -458,15 +411,10 @@ Antes de la puesta en servicio, toda instalación debe someterse a verificación
 | **Ensayo** | **Objetivo** | **Metodo** | **Valor limite tipico** |
 | :--------: | :----------: | :--------: | :---------------------: |
 | Continuidad | Verificar conductores PE y uniones | Ohmimetro, caida de tension | < 1 ohm circuitos cortos |
-| :--------: | :----------: | :--------: | :---------------------: |
 | Aislamiento | Detectar fallas de aislamiento | Megger 500 V DC | >= 1 Mohm (500 V) |
-| :--------: | :----------: | :--------: | :---------------------: |
 | Bucle de defecto | Comprobar disparo por cortocircuito | Medidor de bucle | Disparo < 0.4 s |
-| :--------: | :----------: | :--------: | :---------------------: |
 | Diferencial | Verificar funcionamiento RCD | Inyector de fuga | Disparo <= 30 mA |
-| :--------: | :----------: | :--------: | :---------------------: |
 | Resistencia de tierra | Valor de la tierra de masas | Telurometro | <= 10 ohm segun RETIE |
-| :--------: | :----------: | :--------: | :---------------------: |
 
 ### Medición de la Resistencia de Aislamiento
 
@@ -525,25 +473,15 @@ La verificación concluye con un informe (memoria técnica) que incluye: esquema
 | **Concepto** | **Formula** |
 | :----------- | :--------- |
 | Corriente de defecto (TT) | $I_{defecto} = V/(R_A + R_B)$ |
-| :----------- | :--------- |
 | Tension de contacto | $V_{contacto} = I_{defecto} \cdot R_A$ |
-| :----------- | :--------- |
 | Circuito diferencial | $\Delta I = I_{fase} - I_{neutro}$ |
-| :----------- | :--------- |
 | Caida de tension monofasica | $\Delta V = 2 I L \rho \cos\phi / S$ |
-| :----------- | :--------- |
 | Caida de tension trifasica | $\Delta V = \sqrt{3} I L \rho \cos\phi / S$ |
-| :----------- | :--------- |
 | Caida en porcentaje | $\Delta V\% = \Delta V/V \times 100$ |
-| :----------- | :--------- |
 | Potencia simultanea | $P_{total} = \sum P_i \cdot factor_{sim}$ |
-| :----------- | :--------- |
 | Resistencia de aislamiento | $R = V_{megger}/I_{fuga}$ |
-| :----------- | :--------- |
 | Cortocircuito en el bucle | $I_{cc} = V/Z_{bucle}$ |
-| :----------- | :--------- |
 | Resistencia de tierra (3 varillas) | $R_T = V_{sonda}/I_{inyectada}$ |
-| :----------- | :--------- |
 
 ---
 

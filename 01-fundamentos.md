@@ -26,15 +26,10 @@ donde $k = 1/(4\pi\varepsilon_0)$ es la constante de Coulomb, $\varepsilon_0 = 8
 | **Variable** | **Significado** | **Unidad** |
 | :------------: | :---------------: | :----------: |
 | $F$ | Fuerza electrostática | N |
-| :------------: | :---------------: | :----------: |
 | $k$ | Constante de Coulomb | $8.99 \times 10^9$ N·m²/C² |
-| :------------: | :---------------: | :----------: |
 | $\varepsilon_0$ | Permitividad del vacío | $8.854 \times 10^{-12}$ F/m |
-| :------------: | :---------------: | :----------: |
 | $q_1, q_2$ | Magnitud de cada carga | C |
-| :------------: | :---------------: | :----------: |
 | $r$ | Distancia entre centros | m |
-| :------------: | :---------------: | :----------: |
 
 ```python
 # Ejemplo: Fuerza entre +3 uC y -5 uC a 0.2 m
@@ -47,6 +42,19 @@ print(f"F = {F:.2f} N")  # F = 3.37 N (atraccion)
 ```
 
 > **Nota:** En medios dieléctricos, la fuerza se reduce por el factor de la permitividad relativa $\varepsilon_r$: $F = \frac{1}{4\pi\varepsilon_0\varepsilon_r} \frac{|q_1 q_2|}{r^2}$.
+
+Los prefijos del Sistema Internacional de uso más frecuente en electrotecnia son [@iec60364, sec. 411]:
+
+| **Prefijo** | **Símbolo** | **Factor** | **Ejemplo típico** |
+| :---------: | :---------: | :--------: | :----------------: |
+| Giga | G | $10^9$ | GHz (frecuencias) |
+| Mega | M | $10^6$ | MΩ, MVA |
+| Kilo | k | $10^3$ | kV, kW, kVA |
+| — | — | $10^0$ | V, A, W |
+| Mili | m | $10^{-3}$ | mA, mV |
+| Micro | $\mu$ | $10^{-6}$ | $\mu$A, $\mu$F |
+| Nano | n | $10^{-9}$ | nF (temporizadores) |
+| Pico | p | $10^{-12}$ | pF (parásitas)
 
 ### Principio de Superposición
 
@@ -87,6 +95,18 @@ $$\vec{E} = k \frac{q}{r^2} \hat{r}$$
 
 Las líneas de campo eléctrico son una representación gráfica: salen de cargas positivas y entran en cargas negativas; su densidad es proporcional a la magnitud del campo [@alexander2021, cap. 1].
 
+La permitividad relativa de un material indica cuánto se debilita el campo (y la fuerza entre cargas) respecto al vacío:
+
+| **Material** | $\varepsilon_r$ | **Aplicación típica** |
+| :----------: | :-------------: | :-------------------: |
+| Vacío | 1 | Referencia |
+| Aire | 1.0006 | Líneas aéreas, aislamiento |
+| Papel | 3–4 | Condensadores de papel |
+| Mica | 5–7 | Condensadores de precisión |
+| Cerámica | 6–1000 | Condensadores cerámicos |
+| Vidrio | 5–10 | Aislamiento de alta tensión |
+| Agua | 80 | Capacidades locales (efecto sobre líneas) |
+
 ### Campo de Distribuciones Continuas
 
 Para distribuciones continuas de carga, el campo total se obtiene integrando las contribuciones de cada elemento de carga $dq$:
@@ -98,13 +118,9 @@ $$\vec{E} = \int k \frac{dq}{r^2} \hat{r}$$
 | **Distribucion** | **Campo electrico** | **Direccion** |
 | :--------------: | :-----------------: | :-----------: |
 | Linea infinita ($\lambda$) | $E = \frac{\lambda}{2\pi\varepsilon_0 r}$ | Radial |
-| :--------------: | :-----------------: | :-----------: |
 | Plano infinito ($\sigma$) | $E = \frac{\sigma}{2\varepsilon_0}$ | Perpendicular |
-| :--------------: | :-----------------: | :-----------: |
 | Esfera cargada ($Q$, $r > R$) | $E = \frac{Q}{4\pi\varepsilon_0 r^2}$ | Radial |
-| :--------------: | :-----------------: | :-----------: |
 | Esfera cargada ($Q$, $r < R$) | $E = \frac{Q r}{4\pi\varepsilon_0 R^3}$ | Radial |
-| :--------------: | :-----------------: | :-----------: |
 
 ```python
 import math
@@ -175,13 +191,9 @@ En una dimensión: $E_x = -\frac{dV}{dx}$. Las líneas de campo son perpendicula
 | **Configuracion** | **Potencial V(r)** | **Campo E(r)** |
 | :---------------: | :----------------: | :------------: |
 | Carga puntual $q$ | $kq/r$ | $kq/r^2$ |
-| :---------------: | :----------------: | :------------: |
 | Dipolo (eje, $r \gg d$) | $k p \cos\theta / r^2$ | $2kp/r^3$ (eje) |
-| :---------------: | :----------------: | :------------: |
 | Esfera conductora $Q$ | $kQ/r$ ($r \ge R$) | $kQ/r^2$ ($r \ge R$) |
-| :---------------: | :----------------: | :------------: |
 | Esfera conductora $Q$ | $kQ/R$ ($r < R$) | $0$ ($r < R$) |
-| :---------------: | :----------------: | :------------: |
 
 > **Nota:** En el interior de un conductor en equilibrio electrostático, $\vec{E} = 0$ y $V$ = constante.
 
@@ -242,11 +254,8 @@ En unidades prácticas: 1 kWh = 3.6 MJ.
 | **Formula** | **Aplicable cuando** |
 | :---------: | :------------------: |
 | $P = VI$ | General (cualquier elemento) |
-| :---------: | :------------------: |
 | $P = I^2 R$ | Resistencia conocida, corriente conocida |
-| :---------: | :------------------: |
 | $P = V^2/R$ | Resistencia conocida, voltaje conocido |
-| :---------: | :------------------: |
 
 ```python
 # Potencia en un resistor
@@ -277,25 +286,15 @@ donde $\rho$ es la resistividad (propiedad del material), $L$ es la longitud y $
 | **Material** | **$\rho$ ($\Omega \cdot$m)** | **Uso tipico** |
 | :----------: | :---------------------------: | :------------: |
 | Plata | $1.59 \times 10^{-8}$ | Contactos especiales |
-| :----------: | :---------------------------: | :------------: |
 | Cobre | $1.68 \times 10^{-8}$ | Cableado electrico |
-| :----------: | :---------------------------: | :------------: |
 | Oro | $2.44 \times 10^{-8}$ | Conectores |
-| :----------: | :---------------------------: | :------------: |
 | Aluminio | $2.82 \times 10^{-8}$ | Lineas aereas |
-| :----------: | :---------------------------: | :------------: |
 | Tungsteno | $5.60 \times 10^{-8}$ | Filamentos |
-| :----------: | :---------------------------: | :------------: |
 | Acero (carbono) | $1.0 \times 10^{-7}$ | Estructuras |
-| :----------: | :---------------------------: | :------------: |
 | Niquel | $6.99 \times 10^{-8}$ | Resistencias |
-| :----------: | :---------------------------: | :------------: |
 | Constantan | $4.9 \times 10^{-7}$ | Resistencias de precision |
-| :----------: | :---------------------------: | :------------: |
 | Mercurio | $9.8 \times 10^{-7}$ | Interruptores |
-| :----------: | :---------------------------: | :------------: |
 | Carbon (grafito) | $3.5 \times 10^{-5}$ | Cepillos, electrodos |
-| :----------: | :---------------------------: | :------------: |
 
 ### Dependencia con la Temperatura
 
@@ -310,17 +309,11 @@ donde $\alpha$ es el coeficiente de temperatura de la resistividad (typ. $0.0039
 | **Material** | **$\alpha$ ($/^\circ$C)** |
 | :----------: | :-----------------------: |
 | Cobre | 0.00393 |
-| :----------: | :-----------------------: |
 | Aluminio | 0.00429 |
-| :----------: | :-----------------------: |
 | Tungsteno | 0.0045 |
-| :----------: | :-----------------------: |
 | Niquel | 0.006 |
-| :----------: | :-----------------------: |
 | Hierro | 0.0065 |
-| :----------: | :-----------------------: |
 | Constantan | 0.00001 |
-| :----------: | :-----------------------: |
 
 ```python
 # Resistencia de un cable de cobre a diferente temperatura
@@ -343,29 +336,17 @@ Los resistores comerciales usan códigos de colores para indicar valor y toleran
 | **Color** | **Digito** | **Multiplicador** | **Tolerancia** |
 | :-------: | :--------: | :---------------: | :------------: |
 | Negro | 0 | $10^0$ | — |
-| :-------: | :--------: | :---------------: | :------------: |
 | Marron | 1 | $10^1$ | $\pm 1\%$ |
-| :-------: | :--------: | :---------------: | :------------: |
 | Rojo | 2 | $10^2$ | $\pm 2\%$ |
-| :-------: | :--------: | :---------------: | :------------: |
 | Naranja | 3 | $10^3$ | — |
-| :-------: | :--------: | :---------------: | :------------: |
 | Amarillo | 4 | $10^4$ | — |
-| :-------: | :--------: | :---------------: | :------------: |
 | Verde | 5 | $10^5$ | $\pm 0.5\%$ |
-| :-------: | :--------: | :---------------: | :------------: |
 | Azul | 6 | $10^6$ | $\pm 0.25\%$ |
-| :-------: | :--------: | :---------------: | :------------: |
 | Violeta | 7 | $10^7$ | $\pm 0.1\%$ |
-| :-------: | :--------: | :---------------: | :------------: |
 | Gris | 8 | $10^8$ | $\pm 0.05\%$ |
-| :-------: | :--------: | :---------------: | :------------: |
 | Blanco | 9 | $10^9$ | — |
-| :-------: | :--------: | :---------------: | :------------: |
 | Dorado | — | $10^{-1}$ | $\pm 5\%$ |
-| :-------: | :--------: | :---------------: | :------------: |
 | Plateado | — | $10^{-2}$ | $\pm 10\%$ |
-| :-------: | :--------: | :---------------: | :------------: |
 
 Ejemplo: Marron-Negro-Rojo-Dorado = $10 \times 10^2 = 1\ \text{k}\Omega \pm 5\%$.
 
@@ -392,15 +373,10 @@ Signos: $P > 0$ indica absorción (disipación en resistores, carga en baterías
 | **Elemento** | **Relacion V-I** | **Potencia** |
 | :----------: | :--------------: | :----------: |
 | Resistor | $V = IR$ | $P = I^2R = V^2/R$ (siempre absorbe) |
-| :----------: | :--------------: | :----------: |
 | Fuente de voltaje ideal | $V = \text{cte}$ | $P = VI$ (entrega o absorbe) |
-| :----------: | :--------------: | :----------: |
 | Fuente de corriente ideal | $I = \text{cte}$ | $P = VI$ (entrega o absorbe) |
-| :----------: | :--------------: | :----------: |
 | Cortocircuito | $V = 0$ | $P = 0$ |
-| :----------: | :--------------: | :----------: |
 | Circuito abierto | $I = 0$ | $P = 0$ |
-| :----------: | :--------------: | :----------: |
 
 ### Divisor de Voltaje y Divisor de Corriente
 
@@ -443,9 +419,7 @@ Para dos resistencias en paralelo: $R_{eq} = \frac{R_1 R_2}{R_1 + R_2}$.
 | **Configuracion** | **$R_{eq}$** | **Corriente** | **Voltaje** |
 | :---------------: | :----------: | :-----------: | :---------: |
 | Serie | $\sum R_i$ | Igual en todas | Se reparte |
-| :---------------: | :----------: | :-----------: | :---------: |
 | Paralelo | $(\sum 1/R_i)^{-1}$ | Se reparte | Igual en todas |
-| :---------------: | :----------: | :-----------: | :---------: |
 
 ```python
 # Resistencia equivalente de red serie-paralelo
@@ -476,33 +450,19 @@ Para análisis de circuitos complejos, se usan las leyes de Kirchhoff (ver Capí
 | **Concepto** | **Formula** |
 | :----------- | :--------- |
 | Ley de Coulomb | $F = k \frac{|q_1 q_2|}{r^2}$ |
-| :----------- | :--------- |
 | Campo electrico (carga puntual) | $E = k \frac{q}{r^2}$ |
-| :----------- | :--------- |
 | Potencial electrico (carga puntual) | $V = k \frac{q}{r}$ |
-| :----------- | :--------- |
 | Ley de Gauss | $\Phi_E = Q_{enc}/\varepsilon_0$ |
-| :----------- | :--------- |
 | Energia capacitor | $U = \frac{1}{2}CV^2$ |
-| :----------- | :--------- |
 | Densidad energia campo E | $u_E = \frac{1}{2}\varepsilon_0\varepsilon_r E^2$ |
-| :----------- | :--------- |
 | Resistencia | $R = \rho L/A$ |
-| :----------- | :--------- |
 | Resistividad vs temperatura | $\rho_T = \rho_0[1+\alpha(T-T_0)]$ |
-| :----------- | :--------- |
 | Ley de Ohm | $V = IR$ |
-| :----------- | :--------- |
 | Potencia DC | $P = VI = I^2R = V^2/R$ |
-| :----------- | :--------- |
 | Divisor de voltaje | $V_1 = V \frac{R_1}{R_1+R_2}$ |
-| :----------- | :--------- |
 | Divisor de corriente | $I_1 = I \frac{R_2}{R_1+R_2}$ |
-| :----------- | :--------- |
 | Serie | $R_{eq} = \sum R_i$ |
-| :----------- | :--------- |
 | Paralelo | $1/R_{eq} = \sum 1/R_i$ |
-| :----------- | :--------- |
 
 ---
 
