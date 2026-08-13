@@ -1,0 +1,3 @@
+[ V ] -> [ R1 ] -> [ Nodo A ]
+[ Nodo A ] -> [ R2 ] -> [ GND ]
+[ Nodo A ] -> [ R3 ] -> [ GND ]

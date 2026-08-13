@@ -149,6 +149,26 @@ El transformador real presenta pérdidas en el cobre (devanados) y en el hierro 
 
 El circuito equivalente incluye resistencias y reactancias de dispersión en ambos devanados, más la rama de magnetización ($R_c$ y $X_m$) en paralelo. Los ensayos de vacío y de cortocircuito permiten determinar estos parámetros [@chapman2012, cap. 2].
 
+```text
++----+     +----------+     +---------------------+     +-----------------------+     +----+
+| V1 | --> | R1 + jX1 | --> |                     | --> |       R2 + jX2        | --> | V2 |
++----+     +----------+     |                     |     +-----------------------+     +----+
+                            |                     |
+                            |       Nucleo        | <-----+
+                            |                     |       |
+                            |                     |     +-----------------------+
+                         +> |                     | --> | Rfe (perdidas hierro) |
+                         |  +---------------------+     +-----------------------+
+                         |    |
+                         |    |
+                         |    v
+                         |  +---------------------+
+                         +- | jXm (magnetizacion) |
+                            +---------------------+
+```
+
+Los parámetros $R_1 + jX_1$ y $R_2 + jX_2$ se obtienen del ensayo de cortocircuito; $R_{fe}$ y $jX_m$ del ensayo de vacío.
+
 ```python
 import math
 # Ensayo de cortocircuito: parametros referidos al primario
@@ -244,6 +264,20 @@ $$T = K \phi I_a$$
 La velocidad del motor se regula variando el voltaje de armadura o el flujo de campo:
 
 $$\omega = \frac{V - I_a R_a}{K \phi}$$
+
+```text
++------------------+     +----------------+     +-----------------+     +---------------+     +----------------+
+| V (alimentacion) | --> | I_a (armadura) | --> | E = K*phi*omega | --> | T = K*phi*I_a | --> | n (velocidad) |
++------------------+     +----------------+     +-----------------+     +---------------+     +----------------+
+                                                                          ^
+                                                                          |
+                                                                          |
+                                                                        +---------------+
+                                                                        |  phi (flujo)  |
+                                                                        +---------------+
+```
+
+El diagrama muestra la cadena de conversión del motor: el voltaje de armadura fija $E$, el flujo de campo y $E$ determinan la velocidad, y el par ($T = K\phi I_a$) depende del flujo y de la corriente de armadura.
 
 ```python
 import math

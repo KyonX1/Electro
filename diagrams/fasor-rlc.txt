@@ -1,0 +1,3 @@
+[ Z (hipotenusa) ] -> [ R (cateto real) ]
+[ Z (hipotenusa) ] -> [ XL - XC (cateto imaginario) ]
+[ R (cateto real) ] -> [ phi ] -> [ XL - XC (cateto imaginario) ]

@@ -1,0 +1,4 @@
+[ V (alimentacion) ] -> [ I_a (armadura) ] -> [ E = K*phi*omega ]
+[ E = K*phi*omega ] -> [ T = K*phi*I_a ] -> [ Par util ]
+[ phi (flujo) ] -> [ T = K*phi*I_a ]
+[ T = K*phi*I_a ] -> [ n (velocidad) ] -> [ Carga mecanica ]

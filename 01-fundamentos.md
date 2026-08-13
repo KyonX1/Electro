@@ -44,6 +44,7 @@ Para un sistema de $n$ cargas, la fuerza neta sobre una carga $q_0$ es la suma v
 $$\vec{F}_0 = \sum_{i=1}^{n} k \frac{q_0 q_i}{r_{0i}^2} \hat{r}_{0i}$$
 
 ```python
+import math
 # Superposicion: fuerza neta sobre q0 = 2 uC en el origen
 # q1 = 3 uC en (0.1, 0), q2 = -4 uC en (0, 0.15)
 import math
@@ -94,6 +95,7 @@ $$\vec{E} = \int k \frac{dq}{r^2} \hat{r}$$
 | :--------------: | :-----------------: | :-----------: |
 
 ```python
+import math
 # Campo electrico de un dipolo: +q en (0, d/2), -q en (0, -d/2)
 # Punto P en eje x a distancia x del origen
 k = 8.99e9
@@ -142,6 +144,7 @@ Por superposición, el potencial total es la suma algebraica (no vectorial) de l
 $$V_{total} = \sum_{i=1}^{n} k \frac{q_i}{r_i}$$
 
 ```python
+import math
 # Potencial en el origen debido a tres cargas
 k = 8.99e9
 charges = [(2e-6, 0.1, 0), (-3e-6, 0, 0.15), (1e-6, -0.1, -0.1)]

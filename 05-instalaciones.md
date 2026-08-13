@@ -65,6 +65,20 @@ $$I_{defecto} = \frac{V}{R_A + R_B}$$
 
 donde $R_A$ es la resistencia de tierra de las masas y $R_B$ la del neutro.
 
+```text
++---------------+     +------+     +---------+     +-----------------+     +----------------------------+     +--------------+     +--------------------+
+| Transformador | --> | Fase | --> | Defecto | --> |      Masa       | --> | RB (electrodo instalacion) | --> | Tierra comun | --> | RA (electrodo red) |
++---------------+     +------+     +---------+     +-----------------+     +----------------------------+     +--------------+     +--------------------+
+  |                                                                                                                                  ^
+  |                                                                                                                                  |
+  v                                                                                                                                  |
++---------------+                                                                                                                    |
+|    Neutro     | -------------------------------------------------------------------------------------------------------------------+
++---------------+
+```
+
+El defecto fase-masa cierra el circuito por tierra a través de $R_B$ y $R_A$; el diferencial RCD detecta la corriente de fuga y desconecta la instalación.
+
 ```python
 V = 230.0         # V (fase-neutro)
 R_A = 10.0        # ohm (tierra de la instalacion)

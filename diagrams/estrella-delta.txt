@@ -1,0 +1,6 @@
+[ Red 400 V ] -> [ Estrella (Y) ] -> [ Carga balanceada ]
+[ Red 400 V ] -> [ Delta (D) ] -> [ Carga balanceada ]
+[ Estrella (Y) ] -> [ V_F = V_L / sqrt(3) ]
+[ Delta (D) ] -> [ V_F = V_L ]
+[ Estrella (Y) ] -> [ I_L = I_F ]
+[ Delta (D) ] -> [ I_L = sqrt(3) * I_F ]

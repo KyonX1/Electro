@@ -78,19 +78,34 @@ print(f"R1||R2 = {R2eq:.2f} ohm")
 
 La mayoría de los circuitos prácticos combinan asociaciones en serie y en paralelo. La estrategia de reducción consiste en identificar pares de resistencias claramente en serie o en paralelo, reemplazarlos por su equivalente y repetir el proceso hasta obtener una sola resistencia [@alexander2021, cap. 2].
 
+```text
++---+     +----+     +--------+     +----+     +-----+
+| V | --> | R1 | --> | Nodo A | --> | R2 | --> | GND |
++---+     +----+     +--------+     +----+     +-----+
+                       |                         ^
+                       |                         |
+                       v                         |
+                     +--------+                  |
+                     |   R3   | -----------------+
+                     +--------+
+```
+
+La red del diagrama combina $R_1$ en serie con el paralelo de $R_2$ y $R_3$; su reducción paso a paso se muestra en el código siguiente.
+
 ```python
-# Red reducible: R1 y R2 en serie, ambas en paralelo con R3
+# Red del diagrama: R1 en serie con el paralelo de R2 y R3
 R1, R2, R3 = 100.0, 200.0, 300.0
-R_serie = R1 + R2
-R_eq = R_serie * R3 / (R_serie + R3)
-print(f"R_serie = {R_serie:.1f} ohm")
-print(f"R_eq = {R_eq:.2f} ohm")
+R_paralelo = R2 * R3 / (R2 + R3)
+R_eq = R1 + R_paralelo
+print(f"R2||R3 = {R_paralelo:.1f} ohm")
+print(f"R_eq = {R_eq:.1f} ohm")
 V = 12.0
 I_total = V / R_eq
-I_rama1 = V / R_serie
-I_rama2 = V / R3
-print(f"I_total = {I_total*1000:.2f} mA")
-print(f"I_rama serie = {I_rama1*1000:.2f} mA, I_rama R3 = {I_rama2*1000:.2f} mA")
+V_nodo = I_total * R_paralelo
+I_R2 = V_nodo / R2
+I_R3 = V_nodo / R3
+print(f"I_total = {I_total*1000:.1f} mA")
+print(f"I_R2 = {I_R2*1000:.1f} mA, I_R3 = {I_R3*1000:.1f} mA")
 ```
 
 **Procedimiento general de reducción:**
@@ -201,6 +216,20 @@ $$V_1 = V \frac{R_1}{R_1 + R_2} \qquad V_2 = V \frac{R_2}{R_1 + R_2}$$
 
 $$V_{out} = V \frac{R_2 \parallel R_L}{R_1 + (R_2 \parallel R_L)}$$
 
+```text
++---+     +----+     +--------+     +-----------+     +-----+
+| V | --> | R1 | --> | Salida | --> | Carga R_L | --> | GND |
++---+     +----+     +--------+     +-----------+     +-----+
+                       |                                ^
+                       |                                |
+                       v                                |
+                     +--------+                         |
+                     |   R2   | ------------------------+
+                     +--------+
+```
+
+Sin carga, el voltaje de salida es $V_{out} = V \cdot R_2/(R_1 + R_2)$; al conectar $R_L$ (diagrama), el divisor se recalcula con $R_2 \parallel R_L$.
+
 ```python
 # Divisor de voltaje sin y con carga
 V = 12.0
@@ -278,7 +307,9 @@ Alternativamente, la misma red puede representarse como una fuente de corriente 
 - **Resistencia de Norton** $R_N$: igual a la resistencia de Thévenin $R_N = R_{th}$.
 
 ```python
-# Continuacion del ejemplo anterior
+# Continuacion: ejemplo Thevenin del primer ejemplo resuelto
+# (V_th = 18 V, R_th = 75 ohm del divisor cargado)
+V_th, R_th = 18.0, 75.0
 I_N = V_th / R_th          # corriente de cortocircuito
 R_N = R_th
 print(f"I_N = {I_N*1000:.2f} mA, R_N = {R_N:.2f} ohm")
@@ -378,6 +409,7 @@ $$G_{11} v_1 - G_{12} v_2 - \dots = I_{fuente}$$
 # Metodo de nodos: dos nodos con fuente de corriente
 # Nodo 1: Is = 50 mA, G1 = 1/100, G12 = 1/200
 # Nodo 2: G2 = 1/150
+import numpy as np
 Is = 50e-3
 G1, G12, G2 = 1/100.0, 1/200.0, 1/150.0
 A = np.array([[G1 + G12, -G12], [-G12, G2 + G12]])
@@ -457,6 +489,7 @@ $$I_C(t) = -\frac{V_0}{R} e^{-t/\tau}$$
 
 ```python
 # Descarga desde V0 = 12 V
+import math
 V0 = 12.0
 R, C = 1000.0, 100e-6
 tau = R * C
@@ -492,6 +525,7 @@ $$V_L(t) = V e^{-t/\tau}$$
 La constante de tiempo es $\tau = L/R$ (en segundos).
 
 ```python
+import math
 R = 10.0        # ohm
 L = 50e-3       # H (50 mH)
 V = 12.0

@@ -1,0 +1,2 @@
+[ V ] -> [ R1 ] -> [ Salida ] -> [ R2 ] -> [ GND ]
+[ Salida ] -> [ Carga R_L ] -> [ GND ]

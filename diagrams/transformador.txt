@@ -1,0 +1,3 @@
+[ V1 ] -> [ R1 + jX1 ] -> [ Nucleo ] -> [ R2 + jX2 ] -> [ V2 ]
+[ Nucleo ] -> [ Rfe (perdidas hierro) ] -> [ Nucleo ]
+[ Nucleo ] -> [ jXm (magnetizacion) ] -> [ Nucleo ]

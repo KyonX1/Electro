@@ -1,0 +1,4 @@
+[ S (VA) ] -> [ Q (VAR) ] -> [ Eje imaginario ]
+[ S (VA) ] -> [ P (W) ] -> [ Eje real ]
+[ Eje real ] -> [ phi ] -> [ Eje imaginario ]
+[ P (W) ] -> [ phi ] -> [ Q (VAR) ]

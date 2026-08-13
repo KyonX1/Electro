@@ -1,0 +1,4 @@
+[ Transformador ] -> [ Neutro ] -> [ RA (electrodo red) ]
+[ Transformador ] -> [ Fase ] -> [ Defecto ] -> [ Masa ] -> [ RB (electrodo instalacion) ]
+[ Masa ] -> [ Diferencial RCD ] -> [ Dispara ]
+[ RB (electrodo instalacion) ] -> [ Tierra comun ] -> [ RA (electrodo red) ]

@@ -52,6 +52,7 @@ Dos sinusoides de la misma frecuencia pueden estar desfasadas. Si $v_1(t) = V_m 
 $$v(t) = V_m \sin(\omega t \pm \phi)$$
 
 ```python
+import math
 # Desfase entre voltaje y corriente (circuito inductivo)
 phi_deg = 30.0      # corriente retrasada 30 deg
 phi = math.radians(phi_deg)
@@ -94,6 +95,7 @@ $$V_{prom} = \frac{2 V_m}{\pi}$$
 | :--------: | :---------: | :------------: |
 
 ```python
+import math
 V_m = 311.0
 V_rms = V_m / math.sqrt(2)
 V_pp = 2 * V_m
@@ -123,6 +125,7 @@ $$a = |Z| \cos\theta \qquad b = |Z| \sin\theta$$
 El operador $j = \sqrt{-1}$ rota un fasor 90°. En ingeniería eléctrica se usa $j$ (no $i$) para no confundir con la corriente.
 
 ```python
+import math
 # Conversion rectangular <-> polar
 a, b = 3.0, 4.0
 Z_mag = math.hypot(a, b)
@@ -147,6 +150,7 @@ $$V_m \cos(\omega t + \phi) \quad \longleftrightarrow \quad V_m \angle \phi$$
 Con fasores, las operaciones de circuitos AC se convierten en álgebra compleja: las leyes de Kirchhoff y los teoremas de Thévenin/Norton del Capítulo 2 se aplican igual, sustituyendo resistencias por impedancias.
 
 ```python
+import math
 # Suma de dos fasores (senos con desfase)
 V1_m, V1_a = 100.0, 0.0     # V
 V2_m, V2_a = 100.0, 90.0    # V (desfasada 90 deg)
@@ -185,6 +189,7 @@ Las reactancias dependen de la frecuencia:
 $$X_L = \omega L = 2\pi f L \qquad X_C = \frac{1}{\omega C} = \frac{1}{2\pi f C}$$
 
 ```python
+import math
 L = 100e-3       # H
 C = 10e-6        # F
 f = 50.0         # Hz
@@ -206,6 +211,7 @@ La ley de Ohm se generaliza a fasores:
 $$\vec{V} = \vec{I} \cdot Z \qquad \vec{I} = \frac{\vec{V}}{Z}$$
 
 ```python
+import math
 # Corriente en un circuito RL serie
 V = 230.0        # V rms
 R = 100.0        # ohm
@@ -231,9 +237,27 @@ La corriente es común a todos los elementos; el voltaje de la fuente se reparte
 
 $$\vec{V} = \vec{I}(R + jX_L - jX_C)$$
 
-Si $X_L > X_C$ el circuito es inductivo (la corriente se retrasa); si $X_C > X_L$ es capacitivo (la corriente se adelanta). Cuando $X_L = X_C$ ocurre la resonancia (sección posterior).
+Si $X_L > X_C$ el circuito es inductivo (la corriente se retrasa); si $X_C > X_L$ es capacitivo (la corriente se adelanta). Cuando $X_L = X_C$ ocurre la resonancia (sección posterior). El diagrama fasorial resume las relaciones de magnitud y fase:
+
+```text
++--------------------+     +---------------------+     +----------------+
+| Z (hipotenusa)     | --> | R (cateto real)     | --> | Eje real      |
++--------------------+     +---------------------+     +----------------+
+         |                       |                          ^
+         |                       v                          |
+         |                    +-----+                       |
+         +------------------> | phi | ----------------------+
+         |                    +-----+
+         v
++---------------------+     +----------------+
+| XL - XC (cateto)    | --> | Eje imaginario |
++---------------------+     +----------------+
+```
+
+El ángulo $\phi$ entre $R$ y $Z$ define el carácter del circuito: $\phi > 0$ inductivo, $\phi < 0$ capacitivo.
 
 ```python
+import math
 R = 50.0
 X_L = 100.0
 X_C = 40.0
@@ -259,6 +283,7 @@ $$Y = \frac{1}{R} + j\left(\frac{1}{X_C} - \frac{1}{X_L}\right)$$
 El voltaje es común; cada rama toma su propia corriente según la impedancia. La corriente total es la suma fasorial de las corrientes de rama.
 
 ```python
+import math
 R = 100.0
 X_L = 200.0
 X_C = 50.0
@@ -305,6 +330,16 @@ La relación entre ellas es el triángulo de potencias:
 
 $$S^2 = P^2 + Q^2$$
 
+```text
++--------+     +-------+     +----------+     +-----+     +----------------+
+| S (VA) | --> | P (W) | --> | Eje real | --> | phi | --> | Q (VAR)       |
++--------+     +-------+     +----------+     +-----+     +----------------+
+                 |                              ^
+                 +------------------------------+
+```
+
+El triángulo de potencias: $S$ es la hipotenusa, $P$ el cateto real y $Q$ el cateto imaginario; $\phi$ es el ángulo entre $S$ y $P$.
+
 | **Potencia** | **Simbolo** | **Unidad** | **Caracter** |
 | :----------: | :---------: | :--------: | :-----------: |
 | Activa | $P$ | W | Se convierte en trabajo/calor |
@@ -315,6 +350,7 @@ $$S^2 = P^2 + Q^2$$
 | :----------: | :---------: | :--------: | :-----------: |
 
 ```python
+import math
 V, I = 230.0, 10.0
 phi = math.radians(30.0)     # factor de potencia 0.866
 P = V * I * math.cos(phi)
@@ -339,6 +375,7 @@ La corrección típica consiste en conectar condensadores en paralelo para compe
 $$Q_C = P (\tan\phi_1 - \tan\phi_2) \qquad C = \frac{Q_C}{\omega V^2}$$
 
 ```python
+import math
 # Correccion FP de 0.75 a 0.95
 P = 50000.0        # W
 V = 230.0
@@ -370,6 +407,7 @@ $$X_L = X_C \quad \Rightarrow \quad \omega_r = \frac{1}{\sqrt{LC}} \qquad f_r = 
 En resonancia, la impedancia es puramente resistiva y mínima ($Z = R$), la corriente es máxima, y el voltaje en $L$ y $C$ puede ser mucho mayor que el de la fuente (sobrevoltaje de resonancia).
 
 ```python
+import math
 L = 100e-3      # H
 C = 10e-6       # F
 R = 10.0        # ohm
@@ -429,11 +467,33 @@ En estrella, los tres devanados comparten un punto común (neutro). Las tensione
 
 $$V_{linea} = \sqrt{3}\, V_{fase} \qquad I_{linea} = I_{fase}$$
 
+```text
++--------------------+     +--------------------+     +---------------------+
+| Red 400 V          | --> | Estrella (Y)       | --> | V_F = V_L / sqrt(3) |
++--------------------+     +--------------------+     +---------------------+
+         |                      |                          ^
+         |                      v                          |
+         |                   +-----+                      |
+         +------------------> | Y   | -> I_L = I_F -------+
+                              +-----+
+```
+
 ### Conexión Delta (Δ)
 
 En delta, los devanados se conectan en triángulo sin neutro. Las tensiones de línea igualan las de fase, y las corrientes de línea son $\sqrt{3}$ veces las de fase:
 
 $$V_{linea} = V_{fase} \qquad I_{linea} = \sqrt{3}\, I_{fase}$$
+
+```text
++--------------------+     +--------------------+     +---------------------+
+| Red 400 V          | --> | Delta (D)          | --> | V_F = V_L          |
++--------------------+     +--------------------+     +---------------------+
+         |                      |                          ^
+         |                      v                          |
+         |                   +-----+                      |
+         +------------------> | D   | -> I_L = sqrt(3)*I_F-+
+                              +-----+
+```
 
 | **Conexion** | **V_linea vs V_fase** | **I_linea vs I_fase** | **Neutro** |
 | :----------: | :-------------------: | :-------------------: | :--------: |
@@ -443,6 +503,7 @@ $$V_{linea} = V_{fase} \qquad I_{linea} = \sqrt{3}\, I_{fase}$$
 | :----------: | :-------------------: | :-------------------: | :--------: |
 
 ```python
+import math
 # Red de 400 V de linea (estrella): tension de fase
 V_L = 400.0
 V_F = V_L / math.sqrt(3)
@@ -465,6 +526,7 @@ $$S_{3\phi} = \sqrt{3}\, V_L I_L$$
 La potencia trifásica instantánea es constante, lo que elimina las vibraciones de par en motores.
 
 ```python
+import math
 V_L = 400.0
 I_L = 20.0
 FP = 0.85
@@ -496,6 +558,7 @@ $$f_c = \frac{1}{2\pi RC}$$
 A la frecuencia de corte la ganancia cae a $1/\sqrt{2}$ (es decir, $-3$ dB) y el desfase es $-45^\circ$.
 
 ```python
+import math
 R, C = 1000.0, 100e-9      # 1 kohm, 100 nF
 f_c = 1 / (2 * math.pi * R * C)
 print(f"f_c = {f_c:.0f} Hz")
@@ -544,6 +607,7 @@ Una onda cuadrada de amplitud $V_m$ y frecuencia $f_0$ contiene solo armónicos 
 $$v(t) = \frac{4V_m}{\pi} \left( \sin(\omega_0 t) + \frac{1}{3}\sin(3\omega_0 t) + \frac{1}{5}\sin(5\omega_0 t) + \dots \right)$$
 
 ```python
+import math
 # Aproximacion de onda cuadrada con N armonicos
 V_m = 1.0
 f0 = 1000.0     # Hz
